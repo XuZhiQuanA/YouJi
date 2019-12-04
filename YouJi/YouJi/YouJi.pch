@@ -1,0 +1,46 @@
+//
+//  YouJi.pch
+//  YouJi
+//
+//  Created by dmt312 on 2019/12/3.
+//  Copyright © 2019 XZQ. All rights reserved.
+//
+
+#import "UIImage+Category.h"
+
+#ifndef YouJi_pch
+#define YouJi_pch
+
+/***********屏幕适配*************/
+#define ScreenW [UIScreen mainScreen].bounds.size.width
+#define ScreenH [UIScreen mainScreen].bounds.size.height
+
+#define XZQTabBarViewH 90
+#define XZQNavigationViewH 50
+
+#define iPhone7PlusW 414
+#define iPhone7PlusH 736
+
+#define XColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+
+#define XRandomColor XColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+
+/***********屏幕适配*************/
+
+/**网络 */
+#define baseURL http:\/\/192.168.43.152:8080/YouJi/
+
+/**网络 */
+
+#ifdef DEBUG
+#define XLog(...) NSLog(__VA_ARGS__);
+#define XFunc     NSLog(@"%s",__func__);
+
+
+#else
+#define XLog(...)
+
+
+#endif
+
+#endif /* YouJi_pch */

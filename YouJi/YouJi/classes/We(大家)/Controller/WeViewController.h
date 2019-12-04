@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  WeViewController.h
 //  YouJi
 //
 //  Created by dmt312 on 2019/12/3.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface WeViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END

@@ -8,27 +8,65 @@
 
 /* Begin PBXBuildFile section */
 		C9213BBD23962BBE0062EB6C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BBC23962BBE0062EB6C /* AppDelegate.m */; };
-		C9213BC023962BBE0062EB6C /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BBF23962BBE0062EB6C /* SceneDelegate.m */; };
-		C9213BC323962BBE0062EB6C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BC223962BBE0062EB6C /* ViewController.m */; };
 		C9213BC623962BBE0062EB6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9213BC423962BBE0062EB6C /* Main.storyboard */; };
 		C9213BC823962BBF0062EB6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9213BC723962BBF0062EB6C /* Assets.xcassets */; };
 		C9213BCB23962BBF0062EB6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9213BC923962BBF0062EB6C /* LaunchScreen.storyboard */; };
 		C9213BCE23962BBF0062EB6C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BCD23962BBF0062EB6C /* main.m */; };
+		C9213BE4239643490062EB6C /* XZQTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BE2239643480062EB6C /* XZQTabBarController.m */; };
+		C9213BEA2396439F0062EB6C /* XZQTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BE82396439F0062EB6C /* XZQTabBar.m */; };
+		C9213BEE239671210062EB6C /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BED239671210062EB6C /* MyViewController.m */; };
+		C9213BF12396712C0062EB6C /* WeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BF02396712C0062EB6C /* WeViewController.m */; };
+		C9213BFB2396799D0062EB6C /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BFA2396799D0062EB6C /* UIImage+Category.m */; };
+		C9F2CA0D239727E000D705E7 /* XZQTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA0C239727E000D705E7 /* XZQTabBarView.m */; };
+		C9F2CA1023972B2700D705E7 /* UIView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA0F23972B2700D705E7 /* UIView+Category.m */; };
+		C9F2CA1323972E3E00D705E7 /* XZQTopImageBottomLabelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA1223972E3E00D705E7 /* XZQTopImageBottomLabelButton.m */; };
+		C9F2CA1623973C9200D705E7 /* XZQNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA1523973C9200D705E7 /* XZQNavigationView.m */; };
+		C9F2CA1923973E0200D705E7 /* XZQOnlyLabelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA1823973E0200D705E7 /* XZQOnlyLabelButton.m */; };
+		C9F2CA1C2397431000D705E7 /* XZQNoHighlightedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA1B2397431000D705E7 /* XZQNoHighlightedButton.m */; };
+		C9F2CA2023974C6B00D705E7 /* XZQVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA1E23974C6B00D705E7 /* XZQVideoTableViewCell.m */; };
+		C9F2CA2123974C6B00D705E7 /* XZQVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9F2CA1F23974C6B00D705E7 /* XZQVideoTableViewCell.xib */; };
+		C9F2CA2423974CFD00D705E7 /* XZQVideoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA2323974CFD00D705E7 /* XZQVideoItem.m */; };
+		C9F2CA262397B22E00D705E7 /* YouJi.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9F2CA252397B22E00D705E7 /* YouJi.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C9213BB823962BBD0062EB6C /* YouJi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouJi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9213BBB23962BBE0062EB6C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C9213BBC23962BBE0062EB6C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C9213BBE23962BBE0062EB6C /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		C9213BBF23962BBE0062EB6C /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		C9213BC123962BBE0062EB6C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C9213BC223962BBE0062EB6C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C9213BBC23962BBE0062EB6C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../AppDelegate.m; sourceTree = "<group>"; };
 		C9213BC523962BBE0062EB6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9213BC723962BBF0062EB6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9213BCA23962BBF0062EB6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9213BCC23962BBF0062EB6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9213BCD23962BBF0062EB6C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C9213BE2239643480062EB6C /* XZQTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZQTabBarController.m; sourceTree = "<group>"; };
+		C9213BE3239643490062EB6C /* XZQTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZQTabBarController.h; sourceTree = "<group>"; };
+		C9213BE82396439F0062EB6C /* XZQTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZQTabBar.m; sourceTree = "<group>"; };
+		C9213BE92396439F0062EB6C /* XZQTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZQTabBar.h; sourceTree = "<group>"; };
+		C9213BEB2396444B0062EB6C /* YouJi.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YouJi.pch; sourceTree = "<group>"; };
+		C9213BEC239671210062EB6C /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		C9213BED239671210062EB6C /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		C9213BEF2396712C0062EB6C /* WeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeViewController.h; sourceTree = "<group>"; };
+		C9213BF02396712C0062EB6C /* WeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeViewController.m; sourceTree = "<group>"; };
+		C9213BF92396799D0062EB6C /* UIImage+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
+		C9213BFA2396799D0062EB6C /* UIImage+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
+		C9F2CA0B239727E000D705E7 /* XZQTabBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQTabBarView.h; sourceTree = "<group>"; };
+		C9F2CA0C239727E000D705E7 /* XZQTabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQTabBarView.m; sourceTree = "<group>"; };
+		C9F2CA0E23972B2700D705E7 /* UIView+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Category.h"; sourceTree = "<group>"; };
+		C9F2CA0F23972B2700D705E7 /* UIView+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Category.m"; sourceTree = "<group>"; };
+		C9F2CA1123972E3E00D705E7 /* XZQTopImageBottomLabelButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQTopImageBottomLabelButton.h; sourceTree = "<group>"; };
+		C9F2CA1223972E3E00D705E7 /* XZQTopImageBottomLabelButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQTopImageBottomLabelButton.m; sourceTree = "<group>"; };
+		C9F2CA1423973C9200D705E7 /* XZQNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQNavigationView.h; sourceTree = "<group>"; };
+		C9F2CA1523973C9200D705E7 /* XZQNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQNavigationView.m; sourceTree = "<group>"; };
+		C9F2CA1723973E0200D705E7 /* XZQOnlyLabelButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQOnlyLabelButton.h; sourceTree = "<group>"; };
+		C9F2CA1823973E0200D705E7 /* XZQOnlyLabelButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQOnlyLabelButton.m; sourceTree = "<group>"; };
+		C9F2CA1A2397431000D705E7 /* XZQNoHighlightedButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQNoHighlightedButton.h; sourceTree = "<group>"; };
+		C9F2CA1B2397431000D705E7 /* XZQNoHighlightedButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQNoHighlightedButton.m; sourceTree = "<group>"; };
+		C9F2CA1D23974C6B00D705E7 /* XZQVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQVideoTableViewCell.h; sourceTree = "<group>"; };
+		C9F2CA1E23974C6B00D705E7 /* XZQVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQVideoTableViewCell.m; sourceTree = "<group>"; };
+		C9F2CA1F23974C6B00D705E7 /* XZQVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XZQVideoTableViewCell.xib; sourceTree = "<group>"; };
+		C9F2CA2223974CFD00D705E7 /* XZQVideoItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQVideoItem.h; sourceTree = "<group>"; };
+		C9F2CA2323974CFD00D705E7 /* XZQVideoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQVideoItem.m; sourceTree = "<group>"; };
+		C9F2CA252397B22E00D705E7 /* YouJi.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YouJi.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,19 +99,164 @@
 		C9213BBA23962BBD0062EB6C /* YouJi */ = {
 			isa = PBXGroup;
 			children = (
-				C9213BBB23962BBE0062EB6C /* AppDelegate.h */,
-				C9213BBC23962BBE0062EB6C /* AppDelegate.m */,
-				C9213BBE23962BBE0062EB6C /* SceneDelegate.h */,
-				C9213BBF23962BBE0062EB6C /* SceneDelegate.m */,
-				C9213BC123962BBE0062EB6C /* ViewController.h */,
-				C9213BC223962BBE0062EB6C /* ViewController.m */,
+				C9213BDD23963D4D0062EB6C /* classes */,
 				C9213BC423962BBE0062EB6C /* Main.storyboard */,
 				C9213BC723962BBF0062EB6C /* Assets.xcassets */,
 				C9213BC923962BBF0062EB6C /* LaunchScreen.storyboard */,
 				C9213BCC23962BBF0062EB6C /* Info.plist */,
-				C9213BCD23962BBF0062EB6C /* main.m */,
+				C9213BEB2396444B0062EB6C /* YouJi.pch */,
+				C9F2CA252397B22E00D705E7 /* YouJi.plist */,
 			);
 			path = YouJi;
+			sourceTree = "<group>";
+		};
+		C9213BDD23963D4D0062EB6C /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				C9213BF8239679760062EB6C /* Tool(工具类) */,
+				C9213BE1239643200062EB6C /* My(我的) */,
+				C9213BE0239643050062EB6C /* We(大家) */,
+				C9213BDF239642780062EB6C /* Main */,
+				C9213BDE23963D590062EB6C /* other */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		C9213BDE23963D590062EB6C /* other */ = {
+			isa = PBXGroup;
+			children = (
+				C9213BBB23962BBE0062EB6C /* AppDelegate.h */,
+				C9213BBC23962BBE0062EB6C /* AppDelegate.m */,
+				C9213BCD23962BBF0062EB6C /* main.m */,
+			);
+			path = other;
+			sourceTree = "<group>";
+		};
+		C9213BDF239642780062EB6C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C9213BE72396438F0062EB6C /* Controller */,
+				C9213BE62396437B0062EB6C /* Model */,
+				C9213BE5239643720062EB6C /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C9213BE0239643050062EB6C /* We(大家) */ = {
+			isa = PBXGroup;
+			children = (
+				C9213BF7239671650062EB6C /* Model */,
+				C9213BF62396715F0062EB6C /* View */,
+				C9213BF5239671550062EB6C /* Controller */,
+			);
+			path = "We(大家)";
+			sourceTree = "<group>";
+		};
+		C9213BE1239643200062EB6C /* My(我的) */ = {
+			isa = PBXGroup;
+			children = (
+				C9213BF2239671320062EB6C /* Model */,
+				C9213BF3239671390062EB6C /* View */,
+				C9213BF4239671400062EB6C /* Controller */,
+			);
+			path = "My(我的)";
+			sourceTree = "<group>";
+		};
+		C9213BE5239643720062EB6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C9213BE92396439F0062EB6C /* XZQTabBar.h */,
+				C9213BE82396439F0062EB6C /* XZQTabBar.m */,
+				C9F2CA0B239727E000D705E7 /* XZQTabBarView.h */,
+				C9F2CA0C239727E000D705E7 /* XZQTabBarView.m */,
+				C9F2CA1123972E3E00D705E7 /* XZQTopImageBottomLabelButton.h */,
+				C9F2CA1223972E3E00D705E7 /* XZQTopImageBottomLabelButton.m */,
+				C9F2CA1423973C9200D705E7 /* XZQNavigationView.h */,
+				C9F2CA1523973C9200D705E7 /* XZQNavigationView.m */,
+				C9F2CA1723973E0200D705E7 /* XZQOnlyLabelButton.h */,
+				C9F2CA1823973E0200D705E7 /* XZQOnlyLabelButton.m */,
+				C9F2CA1A2397431000D705E7 /* XZQNoHighlightedButton.h */,
+				C9F2CA1B2397431000D705E7 /* XZQNoHighlightedButton.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9213BE62396437B0062EB6C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C9213BE72396438F0062EB6C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C9213BE3239643490062EB6C /* XZQTabBarController.h */,
+				C9213BE2239643480062EB6C /* XZQTabBarController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C9213BF2239671320062EB6C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C9213BF3239671390062EB6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9213BF4239671400062EB6C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C9213BEC239671210062EB6C /* MyViewController.h */,
+				C9213BED239671210062EB6C /* MyViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C9213BF5239671550062EB6C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C9213BEF2396712C0062EB6C /* WeViewController.h */,
+				C9213BF02396712C0062EB6C /* WeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C9213BF62396715F0062EB6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C9F2CA1D23974C6B00D705E7 /* XZQVideoTableViewCell.h */,
+				C9F2CA1E23974C6B00D705E7 /* XZQVideoTableViewCell.m */,
+				C9F2CA1F23974C6B00D705E7 /* XZQVideoTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9213BF7239671650062EB6C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C9F2CA2223974CFD00D705E7 /* XZQVideoItem.h */,
+				C9F2CA2323974CFD00D705E7 /* XZQVideoItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C9213BF8239679760062EB6C /* Tool(工具类) */ = {
+			isa = PBXGroup;
+			children = (
+				C9213BF92396799D0062EB6C /* UIImage+Category.h */,
+				C9213BFA2396799D0062EB6C /* UIImage+Category.m */,
+				C9F2CA0E23972B2700D705E7 /* UIView+Category.h */,
+				C9F2CA0F23972B2700D705E7 /* UIView+Category.m */,
+			);
+			path = "Tool(工具类)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,9 +316,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9F2CA262397B22E00D705E7 /* YouJi.plist in Resources */,
 				C9213BCB23962BBF0062EB6C /* LaunchScreen.storyboard in Resources */,
 				C9213BC823962BBF0062EB6C /* Assets.xcassets in Resources */,
 				C9213BC623962BBE0062EB6C /* Main.storyboard in Resources */,
+				C9F2CA2123974C6B00D705E7 /* XZQVideoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,10 +331,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9213BC323962BBE0062EB6C /* ViewController.m in Sources */,
+				C9F2CA1623973C9200D705E7 /* XZQNavigationView.m in Sources */,
 				C9213BBD23962BBE0062EB6C /* AppDelegate.m in Sources */,
+				C9F2CA1023972B2700D705E7 /* UIView+Category.m in Sources */,
+				C9213BEA2396439F0062EB6C /* XZQTabBar.m in Sources */,
+				C9213BFB2396799D0062EB6C /* UIImage+Category.m in Sources */,
+				C9213BF12396712C0062EB6C /* WeViewController.m in Sources */,
+				C9F2CA0D239727E000D705E7 /* XZQTabBarView.m in Sources */,
 				C9213BCE23962BBF0062EB6C /* main.m in Sources */,
-				C9213BC023962BBE0062EB6C /* SceneDelegate.m in Sources */,
+				C9F2CA1923973E0200D705E7 /* XZQOnlyLabelButton.m in Sources */,
+				C9213BE4239643490062EB6C /* XZQTabBarController.m in Sources */,
+				C9213BEE239671210062EB6C /* MyViewController.m in Sources */,
+				C9F2CA2023974C6B00D705E7 /* XZQVideoTableViewCell.m in Sources */,
+				C9F2CA2423974CFD00D705E7 /* XZQVideoItem.m in Sources */,
+				C9F2CA1C2397431000D705E7 /* XZQNoHighlightedButton.m in Sources */,
+				C9F2CA1323972E3E00D705E7 /* XZQTopImageBottomLabelButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +487,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7CD9HT5NB;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = YouJi/YouJi.pch;
 				INFOPLIST_FILE = YouJi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -308,6 +506,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7CD9HT5NB;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = YouJi/YouJi.pch;
 				INFOPLIST_FILE = YouJi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

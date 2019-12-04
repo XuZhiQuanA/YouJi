@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>personImageName</key>
+		<string>video_1_image_person</string>
+		<key>personName</key>
+		<string>旧Eden</string>
+		<key>videoImageName</key>
+		<string>video_1_image</string>
+		<key>videoPath</key>
+		<string>http://192.168.43.152:8080/YouJi/YouJi_Video_1.mp4</string>
+	</dict>
+	<dict>
+		<key>personImageName</key>
+		<string>video_2_image_person</string>
+		<key>personName</key>
+		<string>周若雪Party</string>
+		<key>videoImageName</key>
+		<string>video_2_image</string>
+		<key>videoPath</key>
+		<string>http://192.168.43.152:8080/YouJi/YouJi_Video_2.mp4</string>
+	</dict>
+	<dict>
+		<key>personImageName</key>
+		<string>video_3_image_person</string>
+		<key>personName</key>
+		<string>馨子effy</string>
+		<key>videoImageName</key>
+		<string>video_3_image</string>
+		<key>videoPath</key>
+		<string>http://192.168.43.152:8080/YouJi/YouJi_Video_3.mp4</string>
+	</dict>
+	<dict>
+		<key>personImageName</key>
+		<string>video_4_image_person</string>
+		<key>personName</key>
+		<string>旅行独自行</string>
+		<key>videoImageName</key>
+		<string>video_4_image</string>
+		<key>videoPath</key>
+		<string>http://192.168.43.152:8080/YouJi/YouJi_Video_4.mp4</string>
+	</dict>
+</array>
+</plist>

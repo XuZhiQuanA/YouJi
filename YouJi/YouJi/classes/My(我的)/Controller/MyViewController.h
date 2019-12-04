@@ -1,5 +1,5 @@
 //
-//  SceneDelegate.h
+//  MyViewController.h
 //  YouJi
 //
 //  Created by dmt312 on 2019/12/3.
@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
+NS_ASSUME_NONNULL_BEGIN
 
-@property (strong, nonatomic) UIWindow * window;
+@interface MyViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END
