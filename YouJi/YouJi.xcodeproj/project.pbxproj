@@ -19,6 +19,13 @@
 		C9213BFB2396799D0062EB6C /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BFA2396799D0062EB6C /* UIImage+Category.m */; };
 		C967A2A92398A7E800F49965 /* XZQShowZhangScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C967A2A82398A7E800F49965 /* XZQShowZhangScrollView.m */; };
 		C967A2AF2398E3C200F49965 /* XZQShowNewContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C967A2AE2398E3C200F49965 /* XZQShowNewContentViewController.m */; };
+		C967A2B223991BCA00F49965 /* XZQMySettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C967A2B123991BCA00F49965 /* XZQMySettingView.m */; };
+		C967A2B623991EE500F49965 /* XZQTableViewCellOne.m in Sources */ = {isa = PBXBuildFile; fileRef = C967A2B423991EE500F49965 /* XZQTableViewCellOne.m */; };
+		C967A2B723991EE500F49965 /* XZQTableViewCellOne.xib in Resources */ = {isa = PBXBuildFile; fileRef = C967A2B523991EE500F49965 /* XZQTableViewCellOne.xib */; };
+		C967A2BB239921E900F49965 /* XZQTableViewCellTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = C967A2B9239921E900F49965 /* XZQTableViewCellTwo.m */; };
+		C967A2BC239921E900F49965 /* XZQTableViewCellTwo.xib in Resources */ = {isa = PBXBuildFile; fileRef = C967A2BA239921E900F49965 /* XZQTableViewCellTwo.xib */; };
+		C967A2C02399232A00F49965 /* XZQTableViewCellThree.m in Sources */ = {isa = PBXBuildFile; fileRef = C967A2BE2399232A00F49965 /* XZQTableViewCellThree.m */; };
+		C967A2C12399232A00F49965 /* XZQTableViewCellThree.xib in Resources */ = {isa = PBXBuildFile; fileRef = C967A2BF2399232A00F49965 /* XZQTableViewCellThree.xib */; };
 		C9F2CA0D239727E000D705E7 /* XZQTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA0C239727E000D705E7 /* XZQTabBarView.m */; };
 		C9F2CA1023972B2700D705E7 /* UIView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA0F23972B2700D705E7 /* UIView+Category.m */; };
 		C9F2CA1323972E3E00D705E7 /* XZQTopImageBottomLabelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA1223972E3E00D705E7 /* XZQTopImageBottomLabelButton.m */; };
@@ -55,6 +62,17 @@
 		C967A2A82398A7E800F49965 /* XZQShowZhangScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQShowZhangScrollView.m; sourceTree = "<group>"; };
 		C967A2AD2398E3C200F49965 /* XZQShowNewContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQShowNewContentViewController.h; sourceTree = "<group>"; };
 		C967A2AE2398E3C200F49965 /* XZQShowNewContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQShowNewContentViewController.m; sourceTree = "<group>"; };
+		C967A2B023991BCA00F49965 /* XZQMySettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQMySettingView.h; sourceTree = "<group>"; };
+		C967A2B123991BCA00F49965 /* XZQMySettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQMySettingView.m; sourceTree = "<group>"; };
+		C967A2B323991EE500F49965 /* XZQTableViewCellOne.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQTableViewCellOne.h; sourceTree = "<group>"; };
+		C967A2B423991EE500F49965 /* XZQTableViewCellOne.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQTableViewCellOne.m; sourceTree = "<group>"; };
+		C967A2B523991EE500F49965 /* XZQTableViewCellOne.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XZQTableViewCellOne.xib; sourceTree = "<group>"; };
+		C967A2B8239921E900F49965 /* XZQTableViewCellTwo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQTableViewCellTwo.h; sourceTree = "<group>"; };
+		C967A2B9239921E900F49965 /* XZQTableViewCellTwo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQTableViewCellTwo.m; sourceTree = "<group>"; };
+		C967A2BA239921E900F49965 /* XZQTableViewCellTwo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XZQTableViewCellTwo.xib; sourceTree = "<group>"; };
+		C967A2BD2399232A00F49965 /* XZQTableViewCellThree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQTableViewCellThree.h; sourceTree = "<group>"; };
+		C967A2BE2399232A00F49965 /* XZQTableViewCellThree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQTableViewCellThree.m; sourceTree = "<group>"; };
+		C967A2BF2399232A00F49965 /* XZQTableViewCellThree.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XZQTableViewCellThree.xib; sourceTree = "<group>"; };
 		C9F2CA0B239727E000D705E7 /* XZQTabBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQTabBarView.h; sourceTree = "<group>"; };
 		C9F2CA0C239727E000D705E7 /* XZQTabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQTabBarView.m; sourceTree = "<group>"; };
 		C9F2CA0E23972B2700D705E7 /* UIView+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Category.h"; sourceTree = "<group>"; };
@@ -213,6 +231,17 @@
 		C9213BF3239671390062EB6C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C967A2B023991BCA00F49965 /* XZQMySettingView.h */,
+				C967A2B123991BCA00F49965 /* XZQMySettingView.m */,
+				C967A2B323991EE500F49965 /* XZQTableViewCellOne.h */,
+				C967A2B423991EE500F49965 /* XZQTableViewCellOne.m */,
+				C967A2B523991EE500F49965 /* XZQTableViewCellOne.xib */,
+				C967A2B8239921E900F49965 /* XZQTableViewCellTwo.h */,
+				C967A2B9239921E900F49965 /* XZQTableViewCellTwo.m */,
+				C967A2BA239921E900F49965 /* XZQTableViewCellTwo.xib */,
+				C967A2BD2399232A00F49965 /* XZQTableViewCellThree.h */,
+				C967A2BE2399232A00F49965 /* XZQTableViewCellThree.m */,
+				C967A2BF2399232A00F49965 /* XZQTableViewCellThree.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -326,9 +355,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C967A2C12399232A00F49965 /* XZQTableViewCellThree.xib in Resources */,
 				C9F2CA262397B22E00D705E7 /* YouJi.plist in Resources */,
 				C9213BCB23962BBF0062EB6C /* LaunchScreen.storyboard in Resources */,
+				C967A2B723991EE500F49965 /* XZQTableViewCellOne.xib in Resources */,
 				C9213BC823962BBF0062EB6C /* Assets.xcassets in Resources */,
+				C967A2BC239921E900F49965 /* XZQTableViewCellTwo.xib in Resources */,
 				C9213BC623962BBE0062EB6C /* Main.storyboard in Resources */,
 				C9F2CA2123974C6B00D705E7 /* XZQVideoTableViewCell.xib in Resources */,
 			);
@@ -341,17 +373,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C967A2BB239921E900F49965 /* XZQTableViewCellTwo.m in Sources */,
 				C9F2CA1623973C9200D705E7 /* XZQNavigationView.m in Sources */,
 				C9213BBD23962BBE0062EB6C /* AppDelegate.m in Sources */,
 				C9F2CA1023972B2700D705E7 /* UIView+Category.m in Sources */,
+				C967A2C02399232A00F49965 /* XZQTableViewCellThree.m in Sources */,
 				C9213BEA2396439F0062EB6C /* XZQTabBar.m in Sources */,
 				C9213BFB2396799D0062EB6C /* UIImage+Category.m in Sources */,
 				C9213BF12396712C0062EB6C /* WeViewController.m in Sources */,
 				C9F2CA0D239727E000D705E7 /* XZQTabBarView.m in Sources */,
+				C967A2B223991BCA00F49965 /* XZQMySettingView.m in Sources */,
 				C9213BCE23962BBF0062EB6C /* main.m in Sources */,
 				C9F2CA1923973E0200D705E7 /* XZQOnlyLabelButton.m in Sources */,
 				C967A2A92398A7E800F49965 /* XZQShowZhangScrollView.m in Sources */,
 				C9213BE4239643490062EB6C /* XZQTabBarController.m in Sources */,
+				C967A2B623991EE500F49965 /* XZQTableViewCellOne.m in Sources */,
 				C9213BEE239671210062EB6C /* MyViewController.m in Sources */,
 				C9F2CA2023974C6B00D705E7 /* XZQVideoTableViewCell.m in Sources */,
 				C967A2AF2398E3C200F49965 /* XZQShowNewContentViewController.m in Sources */,
