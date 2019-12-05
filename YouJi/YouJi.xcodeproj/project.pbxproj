@@ -17,6 +17,8 @@
 		C9213BEE239671210062EB6C /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BED239671210062EB6C /* MyViewController.m */; };
 		C9213BF12396712C0062EB6C /* WeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BF02396712C0062EB6C /* WeViewController.m */; };
 		C9213BFB2396799D0062EB6C /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BFA2396799D0062EB6C /* UIImage+Category.m */; };
+		C967A2A92398A7E800F49965 /* XZQShowZhangScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C967A2A82398A7E800F49965 /* XZQShowZhangScrollView.m */; };
+		C967A2AF2398E3C200F49965 /* XZQShowNewContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C967A2AE2398E3C200F49965 /* XZQShowNewContentViewController.m */; };
 		C9F2CA0D239727E000D705E7 /* XZQTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA0C239727E000D705E7 /* XZQTabBarView.m */; };
 		C9F2CA1023972B2700D705E7 /* UIView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA0F23972B2700D705E7 /* UIView+Category.m */; };
 		C9F2CA1323972E3E00D705E7 /* XZQTopImageBottomLabelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA1223972E3E00D705E7 /* XZQTopImageBottomLabelButton.m */; };
@@ -49,6 +51,10 @@
 		C9213BF02396712C0062EB6C /* WeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeViewController.m; sourceTree = "<group>"; };
 		C9213BF92396799D0062EB6C /* UIImage+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
 		C9213BFA2396799D0062EB6C /* UIImage+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
+		C967A2A72398A7E800F49965 /* XZQShowZhangScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQShowZhangScrollView.h; sourceTree = "<group>"; };
+		C967A2A82398A7E800F49965 /* XZQShowZhangScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQShowZhangScrollView.m; sourceTree = "<group>"; };
+		C967A2AD2398E3C200F49965 /* XZQShowNewContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQShowNewContentViewController.h; sourceTree = "<group>"; };
+		C967A2AE2398E3C200F49965 /* XZQShowNewContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQShowNewContentViewController.m; sourceTree = "<group>"; };
 		C9F2CA0B239727E000D705E7 /* XZQTabBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQTabBarView.h; sourceTree = "<group>"; };
 		C9F2CA0C239727E000D705E7 /* XZQTabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQTabBarView.m; sourceTree = "<group>"; };
 		C9F2CA0E23972B2700D705E7 /* UIView+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Category.h"; sourceTree = "<group>"; };
@@ -235,6 +241,10 @@
 				C9F2CA1D23974C6B00D705E7 /* XZQVideoTableViewCell.h */,
 				C9F2CA1E23974C6B00D705E7 /* XZQVideoTableViewCell.m */,
 				C9F2CA1F23974C6B00D705E7 /* XZQVideoTableViewCell.xib */,
+				C967A2A72398A7E800F49965 /* XZQShowZhangScrollView.h */,
+				C967A2A82398A7E800F49965 /* XZQShowZhangScrollView.m */,
+				C967A2AD2398E3C200F49965 /* XZQShowNewContentViewController.h */,
+				C967A2AE2398E3C200F49965 /* XZQShowNewContentViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -340,9 +350,11 @@
 				C9F2CA0D239727E000D705E7 /* XZQTabBarView.m in Sources */,
 				C9213BCE23962BBF0062EB6C /* main.m in Sources */,
 				C9F2CA1923973E0200D705E7 /* XZQOnlyLabelButton.m in Sources */,
+				C967A2A92398A7E800F49965 /* XZQShowZhangScrollView.m in Sources */,
 				C9213BE4239643490062EB6C /* XZQTabBarController.m in Sources */,
 				C9213BEE239671210062EB6C /* MyViewController.m in Sources */,
 				C9F2CA2023974C6B00D705E7 /* XZQVideoTableViewCell.m in Sources */,
+				C967A2AF2398E3C200F49965 /* XZQShowNewContentViewController.m in Sources */,
 				C9F2CA2423974CFD00D705E7 /* XZQVideoItem.m in Sources */,
 				C9F2CA1C2397431000D705E7 /* XZQNoHighlightedButton.m in Sources */,
 				C9F2CA1323972E3E00D705E7 /* XZQTopImageBottomLabelButton.m in Sources */,

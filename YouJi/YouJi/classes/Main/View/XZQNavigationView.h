@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XZQNavigationView : UIView
 
+/**当前选中的按钮的索引*/
+@property(nonatomic,assign) NSInteger index;
+
 @end
 
 NS_ASSUME_NONNULL_END

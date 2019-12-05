@@ -17,6 +17,7 @@
 
 #define XZQTabBarViewH 90
 #define XZQNavigationViewH 50
+#define XZQShouZhangImageViewH 170
 
 #define iPhone7PlusW 414
 #define iPhone7PlusH 736

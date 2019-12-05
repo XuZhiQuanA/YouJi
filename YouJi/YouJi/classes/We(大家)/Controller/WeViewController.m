@@ -9,6 +9,9 @@
 #import "WeViewController.h"
 #import "XZQVideoTableViewCell.h"
 #import "XZQVideoItem.h"
+#import "XZQNavigationView.h"
+#import "XZQShowZhangScrollView.h"
+#import "XZQShowNewContentViewController.h"
 
 @interface WeViewController ()<UITableViewDataSource,UITableViewDelegate>
 /** tableView*/
@@ -16,6 +19,18 @@
 
 /**模型数组 */
 @property(nonatomic,readwrite,strong) NSMutableArray *itemArray;
+
+/** 导航view*/
+@property(nonatomic,readwrite,weak) XZQNavigationView *navigationView;
+
+/** scrollview*/
+@property(nonatomic,readwrite,weak) UIScrollView *scrollView;
+
+/** 右边的scrollView*/
+@property(nonatomic,readwrite,weak) XZQShowZhangScrollView *szScrollView;
+
+/**展示长图控制器 */
+@property(nonatomic,readwrite,strong) XZQShowNewContentViewController *contentVc;
 
 @end
 
@@ -30,6 +45,9 @@ static NSString *ID = @"cell";
     
     self.view.backgroundColor = [UIColor clearColor];
     
+    //设置上面的view
+    [self setupNavigationView];
+    
     //添加子控件
     [self setupChild];
     
@@ -38,18 +56,39 @@ static NSString *ID = @"cell";
     
     //加载plist文件
     [self loadPlist];
-        
+    
+    
+    
+    //通知监听
+    [self addNotification];
+
+}
+
+- (void)setupNavigationView{
+    
+    XZQNavigationView *navigationView = [[XZQNavigationView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, XZQNavigationViewH)];
+    navigationView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:navigationView];
+    self.navigationView = navigationView;
+    
 }
 
 #pragma mark -----------------------------
 #pragma mark 添加子控件
 - (void)setupChild{
     
-//    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-//
-//    [self.view addSubview:scrollView];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    scrollView.contentSize = CGSizeMake(2*ScreenW, 0);
+    scrollView.pagingEnabled = YES;
+    scrollView.delegate = self;
+    scrollView.backgroundColor = XColor(243, 251, 252);
+
+    [self.view addSubview:scrollView];
+    [self.view insertSubview:scrollView belowSubview:self.navigationView];
     
-    //tableView
+    self.scrollView = scrollView;
+    
+    //tableView - 占据scrollview的左边半部分
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
 
     tableView.dataSource = self;
@@ -57,7 +96,7 @@ static NSString *ID = @"cell";
     tableView.rowHeight = 289;
     tableView.separatorStyle = UITableViewCellAccessoryNone;
     
-    [self.view addSubview:tableView];
+    [scrollView addSubview:tableView];
     
     self.tableView = tableView;
     
@@ -74,6 +113,14 @@ static NSString *ID = @"cell";
     
     self.tableView.tableHeaderView = view;
     
+    
+    
+    //scrollView的右边半部分 - 放一个小的scrollview 固定contentSize 滚动范围 垂直滚动
+    XZQShowZhangScrollView *szScrollView = [[XZQShowZhangScrollView alloc] initWithFrame:CGRectMake(ScreenW, 0, ScreenW, ScreenH-XZQNavigationViewH)];
+    szScrollView.contentSize = CGSizeMake(0, 1180);
+    [scrollView addSubview:szScrollView];
+    
+    self.szScrollView = szScrollView;
 }
 
 #pragma mark -----------------------------
@@ -129,6 +176,17 @@ static NSString *ID = @"cell";
     return _itemArray;
 }
 
+- (XZQShowNewContentViewController *)contentVc{
+    if (_contentVc == nil) {
+        _contentVc = [[XZQShowNewContentViewController alloc] init];
+//        _contentVc.modalPresentationStyle = UIModalPresentationFullScreen;
+        
+    }
+    
+    return _contentVc;
+}
+
+
 
 #pragma mark -----------------------------
 #pragma mark 加载plist文件
@@ -165,9 +223,76 @@ static NSString *ID = @"cell";
 //    return 170;
 //}
 
+#pragma mark -----------------------------
+#pragma mark UIScrollViewDeleagate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    NSInteger index = scrollView.contentOffset.x / ScreenW;
+    self.navigationView.index = index;
+    
+    
+}
 
 
+#pragma mark -----------------------------
+#pragma mark 监听通知
+- (void)addNotification{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeScrollViewToLeft) name:@"shipin" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeScrollViewToRight) name:@"shouzhang" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent) name:@"popNewContent_0" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent) name:@"popNewContent_1" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent) name:@"popNewContent_2" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent) name:@"popNewContent_3" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent) name:@"popNewContent_4" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent) name:@"popNewContent_5" object:nil];
+}
 
+- (void)changeScrollViewToLeft{
+    
+    CGFloat offsetX = self.scrollView.contentOffset.x;
+    
+    offsetX -= ScreenW;
+    
+    if (offsetX < 0) {
+        offsetX = 0;
+    }
+    
+    [self.scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+    
+    XFunc;
+    XLog(@"%@",NSStringFromCGRect(self.scrollView.frame));
+}
+
+- (void)changeScrollViewToRight{
+    
+    CGFloat offsetX = self.scrollView.contentOffset.x;
+    
+    offsetX += ScreenW;
+    
+    if (offsetX > ScreenW) {
+        offsetX = ScreenW;
+    }
+    
+    [self.scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+    
+    XFunc;
+    XLog(@"%@",NSStringFromCGRect(self.scrollView.frame));
+    
+}
+
+- (void)popNewContent{
+    XFunc;
+    XLog(@"%ld",self.szScrollView.index);
+    
+//    更改modal效果: vc.modalPresentationStyle = UIModalPresentationFullScreen; 全屏
+    
+    
+    //默认为卡片式
+    [self presentViewController:self.contentVc animated:YES completion:^{
+        XLog(@"%f",ScreenW);
+        
+    }];
+}
 
 //隐藏状态栏
 - (BOOL)prefersStatusBarHidden{

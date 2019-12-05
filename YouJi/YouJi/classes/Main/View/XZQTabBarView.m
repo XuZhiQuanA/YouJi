@@ -103,6 +103,26 @@
     self.previousClickedButton = btn;
     XFunc;
     
+    switch (btn.tag) {
+        case 1:
+            //    由XZQTabBarController接收通知
+            [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"XZQTabBarViewPostToChangeXZQTabBarControllerCurrentShowedChildControllerView_We"] object:nil];
+            break;
+            
+        case 2:
+            [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"XZQTabBarViewPostToChangeXZQTabBarControllerCurrentShowedChildControllerView_Middle"] object:nil];
+        break;
+            
+        case 3:
+            [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"XZQTabBarViewPostToChangeXZQTabBarControllerCurrentShowedChildControllerView_My"] object:nil];
+        break;
+            
+        default:
+            break;
+    }
+    
+
+    
 }
 
 

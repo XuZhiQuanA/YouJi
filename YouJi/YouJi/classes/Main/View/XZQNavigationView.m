@@ -27,9 +27,20 @@
         [self setupChild];
         
         [self btnClick:self.previousClickedButton];
+        
+        static dispatch_once_t onceToken;
+       
     }
     
     return self;
+}
+
+- (void)setIndex:(NSInteger)index{
+    _index = index;
+    
+    XZQOnlyLabelButton *btn = [self viewWithTag:(index+1)];
+    
+    [self btnClick:btn];
 }
 
 #pragma mark -----------------------------
@@ -54,13 +65,25 @@
 
 - (void)btnClick:(XZQOnlyLabelButton *)btn{
     
-    XFunc;
     
     //三部曲
     self.previousClickedButton.selected = NO;
     btn.selected = YES;
     self.previousClickedButton = btn;
-    XFunc;
+    
+    switch (btn.tag) {
+        case 1:
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"shipin" object:nil];
+            break;
+            
+        case 2:
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"shouzhang" object:nil];
+        break;
+            
+        default:
+            break;
+    }
+    
 }
 
 

@@ -33,7 +33,8 @@
     //3.设置上下view
     [self setupTopAndBottomView];
     
-    //4.布局子控件
+    //4.接收通知
+    [self addNotification];
     
 }
 
@@ -63,19 +64,19 @@
 - (void)setupTopAndBottomView{
     
     //设置上面的view
-    [self setupNavigationView];
+//    [self setupNavigationView];
     
     //设置下面的view
     [self setupBottomView];
 }
 
-- (void)setupNavigationView{
-    
-    XZQNavigationView *navigationView = [[XZQNavigationView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, XZQNavigationViewH)];
-    navigationView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:navigationView];
-    
-}
+//- (void)setupNavigationView{
+//
+//    XZQNavigationView *navigationView = [[XZQNavigationView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, XZQNavigationViewH)];
+//    navigationView.backgroundColor = [UIColor whiteColor];
+//    [self.view addSubview:navigationView];
+//
+//}
 
 - (void)setupBottomView{
     
@@ -90,16 +91,36 @@
     tabBarView.backGroundImage = [UIImage OriginalImageWithName:@"backImageOfTabBar" toSize:tabBarView.bounds.size];
 }
 
-
 #pragma mark -----------------------------
-#pragma mark 布局子控件
+#pragma mark 接收通知
+- (void)addNotification{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showChildView_We) name:@"XZQTabBarViewPostToChangeXZQTabBarControllerCurrentShowedChildControllerView_We" object:nil];
+    
 
-- (void)viewWillLayoutSubviews{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showChildView_Middle) name:@"XZQTabBarViewPostToChangeXZQTabBarControllerCurrentShowedChildControllerView_Middle" object:nil];
     
-    XFunc;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showChildView_My) name:@"XZQTabBarViewPostToChangeXZQTabBarControllerCurrentShowedChildControllerView_My" object:nil];
+    
+
     
 }
+
+- (void)showChildView_We{
+    self.selectedIndex = 0;
+    XFunc;
+}
+
+- (void)showChildView_Middle{
+    XFunc;
+}
+
+- (void)showChildView_My{
+    XFunc;
+    self.selectedIndex = 1;
+}
+
 
 
 

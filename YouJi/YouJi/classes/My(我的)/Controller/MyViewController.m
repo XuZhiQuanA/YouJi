@@ -18,8 +18,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = XRandomColor;
+    
 }
+
+
+
+
+
+
+
+#pragma mark -----------------------------
+#pragma mark 隐藏状态栏
 
 //隐藏状态栏
 - (BOOL)prefersStatusBarHidden{
