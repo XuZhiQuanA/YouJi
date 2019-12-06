@@ -16,6 +16,13 @@
 
 #import "XZQMySettingView.h"
 
+#import "FancyTabBarViewController.h"
+
+#define rotateX 179
+#define rotateY 656
+#define rotateWH 56
+
+
 @interface XZQTabBarController ()
 
 /**我的-设置界面 用于占位的父视图 位于界面的右边 设置界面*/
@@ -24,8 +31,15 @@
 /** 底部弹出的view*/
 @property(nonatomic,readwrite,weak) UIView *bottomPopView;
 
-/** 旋转按钮*/
-@property(nonatomic,readwrite,weak) UIButton *rotateBtn;
+
+/** tabBarView*/
+@property(nonatomic,readwrite,weak) XZQTabBarView *tabBarView;
+
+/**点击中间加号出现的VC */
+@property(nonatomic,readwrite,strong) FancyTabBarViewController *fancyVc;
+
+/** 当底部的view弹出时背后的白色view*/
+@property(nonatomic,readwrite,weak) UIView *backView;
 
 @end
 
@@ -41,8 +55,8 @@
     //2.隐藏系统tabbar
     [self hiddenSystemTabBar];
     
-    //3.设置上下view
-    [self setupTopAndBottomView];
+    //3.设置底部view
+    [self setupBottomView];
     
     //4.接收通知
     [self addNotification];
@@ -50,11 +64,14 @@
     //5.我的-设置界面
     [self setupMySettingView];
     
+    //5.1底部弹出时后面的白色view
+    [self backViewOfBottomViewPop];
+    
     //6.设置底部弹出view
     [self setupBottomPopView];
     
-    //7.设置旋转按钮
-    [self setupRotateBtn];
+    //7.设置FancyView
+    [self setupFancyView];
     
     
 }
@@ -72,6 +89,12 @@
     MyViewController *my = [[MyViewController alloc] init];
     [self addChildViewController:my];
     
+//    FancyVC
+    FancyTabBarViewController *fancyVc = [[FancyTabBarViewController alloc] init];
+    [self addChildViewController:fancyVc];
+    
+    self.fancyVc = fancyVc;
+    
 }
 
 #pragma mark -----------------------------
@@ -80,24 +103,11 @@
     self.tabBar.hidden = YES;
 }
 
-#pragma mark -----------------------------
-#pragma mark 设置上下view
-- (void)setupTopAndBottomView{
-    
-    //设置上面的view
-//    [self setupNavigationView];
-    
-    //设置下面的view
-    [self setupBottomView];
+- (void)setupFancyView{
+    [self.view addSubview:self.fancyVc.view];
+    self.fancyVc.view.backgroundColor = [UIColor clearColor];
+    self.fancyVc.view.hidden = true;
 }
-
-//- (void)setupNavigationView{
-//
-//    XZQNavigationView *navigationView = [[XZQNavigationView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, XZQNavigationViewH)];
-//    navigationView.backgroundColor = [UIColor whiteColor];
-//    [self.view addSubview:navigationView];
-//
-//}
 
 - (void)setupBottomView{
     
@@ -105,12 +115,15 @@
     
     XZQTabBarView *tabBarView = [[XZQTabBarView alloc] initWithFrame:CGRectMake(-1, self.tabBar.frame.origin.y-40, ScreenW+2, XZQTabBarViewH)];
     
-
     [self.view addSubview:tabBarView];
     
 //      背景图
     tabBarView.backGroundImage = [UIImage OriginalImageWithName:@"backImageOfTabBar" toSize:tabBarView.bounds.size];
+    
+    self.tabBarView = tabBarView;
 }
+
+
 
 #pragma mark -----------------------------
 #pragma mark 接收通知
@@ -128,6 +141,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showMyVCView) name:@"XZQMySettingViewWantXZQTabBarControllerReturnToShowMyVCView" object:nil];
     
+    //FancyTabBarWantXZQTabBarControllerQuitBottomView
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quitBottomView) name:@"FancyTabBarWantXZQTabBarControllerQuitBottomView" object:nil];
     
 }
 
@@ -140,22 +155,26 @@
     
     XFunc;
     //显示出来
-    self.rotateBtn.alpha = 1;
+//    self.rotateBtn.hidden = false;
+    self.fancyVc.view.hidden = false;
+    
+    self.backView.hidden = false;
+    
+    //通知
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"XZQTabBarControllerWantFancyTabBarShowedAndRotateInnerMiddleBtn" object:nil];
     
     //旋转
-    [UIView animateWithDuration:1.0 animations:^{
-        
+    [UIView animateWithDuration:0.3 animations:^{
+
         //向上移动底部的view
-//        [self.bottomPopView setFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
         self.bottomPopView.frame = CGRectMake(0, 0, ScreenW, ScreenH);
-        
-        [self.rotateBtn setTransform:CGAffineTransformMakeRotation(6 * M_PI + M_PI_4)];
-        
+    
+        //加了这行代码 必须得点击两次才有效果 6 * M_PI就不行 M_PI可以 并且transform代码有效果的时候 self.bottomPopView.frame = CGRectMake(0, 0, ScreenW, ScreenH);底部view不上来
+//        [self.rotateBtn setTransform:CGAffineTransformMakeRotation(6 * M_PI + M_PI_4)];
+//        [self.rotateBtn setTransform:CGAffineTransformMakeRotation(M_PI)];
+
+
     }];
-    
-//    [self.view bringSubviewToFront:self.rotateBtn];
-    XLog(@"%@",NSStringFromCGRect(self.bottomPopView.frame));
-    
     
 }
 
@@ -200,9 +219,9 @@
     //bottomPopView
     self.bottomPopView.frame = CGRectMake(0, ScreenH, ScreenW, ScreenH);
     
-    //rotateBtn
-    self.rotateBtn.frame = CGRectMake(179, 9, 56, 56);
-    [self.rotateBtn setBackgroundImage:[UIImage OriginalImageWithName:@"plus" toSize:CGSizeMake(56, 56)] forState:UIControlStateNormal];
+    self.fancyVc.view.frame = self.view.bounds;
+    
+    self.backView.frame = self.view.bounds;
     
 }
 
@@ -227,7 +246,7 @@
     UIView *bottomPopView = ({
         
         UIView *bottomPopView = [[UIView alloc] init];
-        bottomPopView.backgroundColor = [UIColor redColor];
+        bottomPopView.backgroundColor = XColor(243, 250, 251);
         self.bottomPopView = bottomPopView;
         bottomPopView;
         
@@ -236,34 +255,35 @@
     [self.view addSubview:bottomPopView];
 }
 
-#pragma mark -----------------------------
-#pragma mark 设置旋转按钮
-- (void)setupRotateBtn{
-    
-    UIButton *rotateBtn = ({
-        
-        UIButton *rotateBtn = [[UIButton alloc] init];
-        [rotateBtn addTarget:self action:@selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
-        self.rotateBtn = rotateBtn;
-        self.rotateBtn.alpha = 0;
-        rotateBtn;
-        
-    });
-    
-    [self.view addSubview:rotateBtn];
-    
-}
 
 #pragma mark -----------------------------
 #pragma mark 监听点击
 - (void)closeView:(UIButton *)btn{
     
     self.bottomPopView.frame = CGRectMake(0, ScreenH, ScreenW, ScreenH);
-    self.rotateBtn.hidden = YES;
+    
     XFunc;
 }
 
 
+#pragma mark -----------------------------
+#pragma mark 底部弹出时背后的view
+- (void)backViewOfBottomViewPop{
+    UIView *backView = [[UIView alloc] init];
+    backView.backgroundColor = [UIColor whiteColor];
+    backView.hidden = YES;
+    [self.view addSubview:backView];
+    self.backView = backView;
+    
+}
+
+#pragma mark -----------------------------
+#pragma mark 关闭bottomView
+- (void)quitBottomView{
+    self.fancyVc.view.hidden = true;
+    self.bottomPopView.frame = CGRectMake(0, ScreenH, ScreenW, ScreenH);
+    self.backView.hidden = true;
+}
 
 
 @end

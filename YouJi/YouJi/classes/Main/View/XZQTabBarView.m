@@ -97,10 +97,14 @@
 #pragma mark 监听按钮点击
 - (void)btnClick:(XZQTopImageBottomLabelButton *)btn{
     
-    //三部曲
-    self.previousClickedButton.selected = NO;
-    btn.selected = YES;
-    self.previousClickedButton = btn;
+    if (btn.tag != 2) {
+        //三部曲
+        self.previousClickedButton.selected = NO;
+        btn.selected = YES;
+        self.previousClickedButton = btn;
+    }
+    
+    
     XFunc;
     
     switch (btn.tag) {

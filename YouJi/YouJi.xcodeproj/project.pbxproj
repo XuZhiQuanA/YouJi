@@ -26,6 +26,16 @@
 		C967A2BC239921E900F49965 /* XZQTableViewCellTwo.xib in Resources */ = {isa = PBXBuildFile; fileRef = C967A2BA239921E900F49965 /* XZQTableViewCellTwo.xib */; };
 		C967A2C02399232A00F49965 /* XZQTableViewCellThree.m in Sources */ = {isa = PBXBuildFile; fileRef = C967A2BE2399232A00F49965 /* XZQTableViewCellThree.m */; };
 		C967A2C12399232A00F49965 /* XZQTableViewCellThree.xib in Resources */ = {isa = PBXBuildFile; fileRef = C967A2BF2399232A00F49965 /* XZQTableViewCellThree.xib */; };
+		C9E415C92399D6B20057782E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9E415B42399D6B20057782E /* InfoPlist.strings */; };
+		C9E415CC2399D6B20057782E /* FancyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E415BF2399D6B20057782E /* FancyTabBar.m */; };
+		C9E415D02399D6B20057782E /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E415C32399D6B20057782E /* Coordinate.m */; };
+		C9E415D12399D6B20057782E /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E415C42399D6B20057782E /* UIImage+ImageEffects.m */; };
+		C9E415D22399D6B20057782E /* FancyTabBar-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9E415C52399D6B20057782E /* FancyTabBar-Info.plist */; };
+		C9E415D32399D6B20057782E /* UIView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E415C72399D6B20057782E /* UIView+Screenshot.m */; };
+		C9E415D92399D7540057782E /* FancyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E415D82399D7540057782E /* FancyTabBarViewController.m */; };
+		C9E415DC2399DB180057782E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E415DB2399DB180057782E /* CoreGraphics.framework */; };
+		C9E415DE2399DB1F0057782E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E415DD2399DB1F0057782E /* Foundation.framework */; };
+		C9E415E02399DB2A0057782E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E415DF2399DB2A0057782E /* UIKit.framework */; };
 		C9F2CA0D239727E000D705E7 /* XZQTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA0C239727E000D705E7 /* XZQTabBarView.m */; };
 		C9F2CA1023972B2700D705E7 /* UIView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA0F23972B2700D705E7 /* UIView+Category.m */; };
 		C9F2CA1323972E3E00D705E7 /* XZQTopImageBottomLabelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA1223972E3E00D705E7 /* XZQTopImageBottomLabelButton.m */; };
@@ -73,6 +83,24 @@
 		C967A2BD2399232A00F49965 /* XZQTableViewCellThree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQTableViewCellThree.h; sourceTree = "<group>"; };
 		C967A2BE2399232A00F49965 /* XZQTableViewCellThree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQTableViewCellThree.m; sourceTree = "<group>"; };
 		C967A2BF2399232A00F49965 /* XZQTableViewCellThree.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XZQTableViewCellThree.xib; sourceTree = "<group>"; };
+		C9E415B32399D6B20057782E /* FancyTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBar.h; sourceTree = "<group>"; };
+		C9E415B52399D6B20057782E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C9E415B72399D6B20057782E /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		C9E415B82399D6B20057782E /* FancyTabBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBarDelegate.h; sourceTree = "<group>"; };
+		C9E415B92399D6B20057782E /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
+		C9E415BA2399D6B20057782E /* UIView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Screenshot.h"; sourceTree = "<group>"; };
+		C9E415BC2399D6B20057782E /* FancyTabBar-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FancyTabBar-Prefix.pch"; sourceTree = "<group>"; };
+		C9E415BF2399D6B20057782E /* FancyTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FancyTabBar.m; sourceTree = "<group>"; };
+		C9E415C32399D6B20057782E /* Coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinate.m; sourceTree = "<group>"; };
+		C9E415C42399D6B20057782E /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		C9E415C52399D6B20057782E /* FancyTabBar-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FancyTabBar-Info.plist"; sourceTree = "<group>"; };
+		C9E415C72399D6B20057782E /* UIView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Screenshot.m"; sourceTree = "<group>"; };
+		C9E415C82399D6B20057782E /* FancyTabBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBarDelegate.h; sourceTree = "<group>"; };
+		C9E415D72399D7540057782E /* FancyTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FancyTabBarViewController.h; sourceTree = "<group>"; };
+		C9E415D82399D7540057782E /* FancyTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FancyTabBarViewController.m; sourceTree = "<group>"; };
+		C9E415DB2399DB180057782E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C9E415DD2399DB1F0057782E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C9E415DF2399DB2A0057782E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C9F2CA0B239727E000D705E7 /* XZQTabBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQTabBarView.h; sourceTree = "<group>"; };
 		C9F2CA0C239727E000D705E7 /* XZQTabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQTabBarView.m; sourceTree = "<group>"; };
 		C9F2CA0E23972B2700D705E7 /* UIView+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Category.h"; sourceTree = "<group>"; };
@@ -98,6 +126,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E415E02399DB2A0057782E /* UIKit.framework in Frameworks */,
+				C9E415DE2399DB1F0057782E /* Foundation.framework in Frameworks */,
+				C9E415DC2399DB180057782E /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +140,7 @@
 			children = (
 				C9213BBA23962BBD0062EB6C /* YouJi */,
 				C9213BB923962BBD0062EB6C /* Products */,
+				C9E415DA2399DB180057782E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +181,8 @@
 		C9213BDE23963D590062EB6C /* other */ = {
 			isa = PBXGroup;
 			children = (
+				C9E415B02399D67C0057782E /* Lib */,
+				C9E415AF2399D65B0057782E /* Catogary */,
 				C9213BBB23962BBE0062EB6C /* AppDelegate.h */,
 				C9213BBC23962BBE0062EB6C /* AppDelegate.m */,
 				C9213BCD23962BBF0062EB6C /* main.m */,
@@ -217,6 +251,8 @@
 			children = (
 				C9213BE3239643490062EB6C /* XZQTabBarController.h */,
 				C9213BE2239643480062EB6C /* XZQTabBarController.m */,
+				C9E415D72399D7540057782E /* FancyTabBarViewController.h */,
+				C9E415D82399D7540057782E /* FancyTabBarViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -298,6 +334,59 @@
 			path = "Tool(工具类)";
 			sourceTree = "<group>";
 		};
+		C9E415AF2399D65B0057782E /* Catogary */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Catogary;
+			sourceTree = "<group>";
+		};
+		C9E415B02399D67C0057782E /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				C9E415B12399D6920057782E /* FancyTabBar */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		C9E415B12399D6920057782E /* FancyTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C9E415B22399D6B20057782E /* FancyTabBar */,
+				C9E415C82399D6B20057782E /* FancyTabBarDelegate.h */,
+			);
+			path = FancyTabBar;
+			sourceTree = "<group>";
+		};
+		C9E415B22399D6B20057782E /* FancyTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C9E415B32399D6B20057782E /* FancyTabBar.h */,
+				C9E415BF2399D6B20057782E /* FancyTabBar.m */,
+				C9E415B72399D6B20057782E /* UIImage+ImageEffects.h */,
+				C9E415B82399D6B20057782E /* FancyTabBarDelegate.h */,
+				C9E415BC2399D6B20057782E /* FancyTabBar-Prefix.pch */,
+				C9E415C42399D6B20057782E /* UIImage+ImageEffects.m */,
+				C9E415B42399D6B20057782E /* InfoPlist.strings */,
+				C9E415B92399D6B20057782E /* Coordinate.h */,
+				C9E415C32399D6B20057782E /* Coordinate.m */,
+				C9E415BA2399D6B20057782E /* UIView+Screenshot.h */,
+				C9E415C72399D6B20057782E /* UIView+Screenshot.m */,
+				C9E415C52399D6B20057782E /* FancyTabBar-Info.plist */,
+			);
+			path = FancyTabBar;
+			sourceTree = "<group>";
+		};
+		C9E415DA2399DB180057782E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9E415DF2399DB2A0057782E /* UIKit.framework */,
+				C9E415DD2399DB1F0057782E /* Foundation.framework */,
+				C9E415DB2399DB180057782E /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -362,6 +451,8 @@
 				C9213BC823962BBF0062EB6C /* Assets.xcassets in Resources */,
 				C967A2BC239921E900F49965 /* XZQTableViewCellTwo.xib in Resources */,
 				C9213BC623962BBE0062EB6C /* Main.storyboard in Resources */,
+				C9E415C92399D6B20057782E /* InfoPlist.strings in Resources */,
+				C9E415D22399D6B20057782E /* FancyTabBar-Info.plist in Resources */,
 				C9F2CA2123974C6B00D705E7 /* XZQVideoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,17 +465,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				C967A2BB239921E900F49965 /* XZQTableViewCellTwo.m in Sources */,
+				C9E415D02399D6B20057782E /* Coordinate.m in Sources */,
 				C9F2CA1623973C9200D705E7 /* XZQNavigationView.m in Sources */,
 				C9213BBD23962BBE0062EB6C /* AppDelegate.m in Sources */,
 				C9F2CA1023972B2700D705E7 /* UIView+Category.m in Sources */,
+				C9E415D12399D6B20057782E /* UIImage+ImageEffects.m in Sources */,
 				C967A2C02399232A00F49965 /* XZQTableViewCellThree.m in Sources */,
 				C9213BEA2396439F0062EB6C /* XZQTabBar.m in Sources */,
+				C9E415D32399D6B20057782E /* UIView+Screenshot.m in Sources */,
 				C9213BFB2396799D0062EB6C /* UIImage+Category.m in Sources */,
 				C9213BF12396712C0062EB6C /* WeViewController.m in Sources */,
 				C9F2CA0D239727E000D705E7 /* XZQTabBarView.m in Sources */,
 				C967A2B223991BCA00F49965 /* XZQMySettingView.m in Sources */,
+				C9E415D92399D7540057782E /* FancyTabBarViewController.m in Sources */,
 				C9213BCE23962BBF0062EB6C /* main.m in Sources */,
 				C9F2CA1923973E0200D705E7 /* XZQOnlyLabelButton.m in Sources */,
+				C9E415CC2399D6B20057782E /* FancyTabBar.m in Sources */,
 				C967A2A92398A7E800F49965 /* XZQShowZhangScrollView.m in Sources */,
 				C9213BE4239643490062EB6C /* XZQTabBarController.m in Sources */,
 				C967A2B623991EE500F49965 /* XZQTableViewCellOne.m in Sources */,
@@ -414,6 +510,14 @@
 				C9213BCA23962BBF0062EB6C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C9E415B42399D6B20057782E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9E415B52399D6B20057782E /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -469,7 +573,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -521,7 +625,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -544,7 +648,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.it.YouJi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -563,7 +667,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.it.YouJi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
