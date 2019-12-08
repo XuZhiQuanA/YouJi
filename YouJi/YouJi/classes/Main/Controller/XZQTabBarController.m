@@ -18,6 +18,8 @@
 
 #import "FancyTabBarViewController.h"
 
+#import "ShouZhangViewController.h"
+
 #define rotateX 179
 #define rotateY 656
 #define rotateWH 56
@@ -40,6 +42,9 @@
 
 /** 当底部的view弹出时背后的白色view*/
 @property(nonatomic,readwrite,weak) UIView *backView;
+
+/** 编辑手账控制器*/
+@property(nonatomic,readwrite,weak) ShouZhangViewController *szVc;
 
 @end
 
@@ -73,6 +78,9 @@
     //7.设置FancyView
     [self setupFancyView];
     
+    //8.设置手账View
+    [self setupShouZhangView];
+    
     
 }
 
@@ -94,6 +102,12 @@
     [self addChildViewController:fancyVc];
     
     self.fancyVc = fancyVc;
+    
+//    手账编辑控制器
+    ShouZhangViewController *szVc = [[ShouZhangViewController alloc] init];
+    [self addChildViewController:szVc];
+    
+    self.szVc = szVc;
     
 }
 
@@ -143,6 +157,11 @@
     
     //FancyTabBarWantXZQTabBarControllerQuitBottomView
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quitBottomView) name:@"FancyTabBarWantXZQTabBarControllerQuitBottomView" object:nil];
+    
+    //FancyTabBarViewControllerWantXZQTabBarControllerShowShouZhangViewController
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showShouZhangEditView) name:@"FancyTabBarViewControllerWantXZQTabBarControllerShowShouZhangViewController" object:nil];
+    //ShouZhangViewControllerWantXZQTabBarControllerShowFancyView
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showFancyView) name:@"ShouZhangViewControllerWantXZQTabBarControllerShowFancyView" object:nil];
     
 }
 
@@ -223,6 +242,8 @@
     
     self.backView.frame = self.view.bounds;
     
+    self.szVc.view.frame = self.view.bounds;
+    
 }
 
 
@@ -236,6 +257,21 @@
     }completion:^(BOOL finished) {
 //        self.placeHolderRightSuperView.frame = CGRectMake(ScreenW, 0, ScreenW, ScreenH);
     }];
+    
+}
+
+- (void)showShouZhangEditView{
+    
+    self.szVc.view.hidden = false;
+    
+}
+
+- (void)showFancyView{
+    
+    self.szVc.view.hidden = true;
+    
+    //点击middle按钮
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"XZQTabBarControllerWantXZQTabBarViewClickMiddleBtn" object:nil];
     
 }
 
@@ -285,5 +321,34 @@
     self.backView.hidden = true;
 }
 
+#pragma mark -----------------------------
+#pragma mark 设置手账view
+- (void)setupShouZhangView{
+
+    self.szVc.view.hidden = YES;
+    [self.view addSubview:self.szVc.view];
+}
+
+
+
+#pragma mark -----------------------------
+#pragma mark 移除通知
+
+
+/// 移除通知
+- (void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"XZQTabBarViewPostToChangeXZQTabBarControllerCurrentShowedChildControllerView_We" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"XZQTabBarViewPostToChangeXZQTabBarControllerCurrentShowedChildControllerView_Middle" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"XZQTabBarViewPostToChangeXZQTabBarControllerCurrentShowedChildControllerView_My" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MyViewControllerToPopSettingView" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"XZQMySettingViewWantXZQTabBarControllerReturnToShowMyVCView" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FancyTabBarWantXZQTabBarControllerQuitBottomView" object:nil];
+    //FancyTabBarViewControllerWantXZQTabBarControllerShowShouZhangViewController
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FancyTabBarViewControllerWantXZQTabBarControllerShowShouZhangViewController" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ShouZhangViewControllerWantXZQTabBarControllerShowFancyView" object:nil];
+    
+    
+}
 
 @end

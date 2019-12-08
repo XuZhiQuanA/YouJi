@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XZQShowNewContentViewController : UIViewController
-
+/**长图 */
+@property(nonatomic,readwrite,strong) UIImage *longImage;
 @end
 
 NS_ASSUME_NONNULL_END

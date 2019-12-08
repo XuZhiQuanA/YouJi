@@ -221,4 +221,10 @@
     return YES;
 }
 
+- (void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MyViewControllerToPopSettingView" object:nil];
+    
+}
+
 @end

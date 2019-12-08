@@ -17,6 +17,9 @@
 		C9213BEE239671210062EB6C /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BED239671210062EB6C /* MyViewController.m */; };
 		C9213BF12396712C0062EB6C /* WeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BF02396712C0062EB6C /* WeViewController.m */; };
 		C9213BFB2396799D0062EB6C /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BFA2396799D0062EB6C /* UIImage+Category.m */; };
+		C958D035239B6C6D00EF592A /* ShouZhangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C958D033239B6C6D00EF592A /* ShouZhangViewController.m */; };
+		C958D036239B6C6D00EF592A /* ShouZhangViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C958D034239B6C6D00EF592A /* ShouZhangViewController.xib */; };
+		C958D039239B9E1D00EF592A /* WallPaperView.m in Sources */ = {isa = PBXBuildFile; fileRef = C958D038239B9E1D00EF592A /* WallPaperView.m */; };
 		C967A2A92398A7E800F49965 /* XZQShowZhangScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C967A2A82398A7E800F49965 /* XZQShowZhangScrollView.m */; };
 		C967A2AF2398E3C200F49965 /* XZQShowNewContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C967A2AE2398E3C200F49965 /* XZQShowNewContentViewController.m */; };
 		C967A2B223991BCA00F49965 /* XZQMySettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C967A2B123991BCA00F49965 /* XZQMySettingView.m */; };
@@ -68,6 +71,11 @@
 		C9213BF02396712C0062EB6C /* WeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeViewController.m; sourceTree = "<group>"; };
 		C9213BF92396799D0062EB6C /* UIImage+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
 		C9213BFA2396799D0062EB6C /* UIImage+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
+		C958D032239B6C6D00EF592A /* ShouZhangViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShouZhangViewController.h; sourceTree = "<group>"; };
+		C958D033239B6C6D00EF592A /* ShouZhangViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShouZhangViewController.m; sourceTree = "<group>"; };
+		C958D034239B6C6D00EF592A /* ShouZhangViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShouZhangViewController.xib; sourceTree = "<group>"; };
+		C958D037239B9E1D00EF592A /* WallPaperView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WallPaperView.h; sourceTree = "<group>"; };
+		C958D038239B9E1D00EF592A /* WallPaperView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WallPaperView.m; sourceTree = "<group>"; };
 		C967A2A72398A7E800F49965 /* XZQShowZhangScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQShowZhangScrollView.h; sourceTree = "<group>"; };
 		C967A2A82398A7E800F49965 /* XZQShowZhangScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQShowZhangScrollView.m; sourceTree = "<group>"; };
 		C967A2AD2398E3C200F49965 /* XZQShowNewContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQShowNewContentViewController.h; sourceTree = "<group>"; };
@@ -169,6 +177,7 @@
 		C9213BDD23963D4D0062EB6C /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C958D02B239B6B8D00EF592A /* ShouZhang(手账) */,
 				C9213BF8239679760062EB6C /* Tool(工具类) */,
 				C9213BE1239643200062EB6C /* My(我的) */,
 				C9213BE0239643050062EB6C /* We(大家) */,
@@ -334,6 +343,42 @@
 			path = "Tool(工具类)";
 			sourceTree = "<group>";
 		};
+		C958D02B239B6B8D00EF592A /* ShouZhang(手账) */ = {
+			isa = PBXGroup;
+			children = (
+				C958D031239B6C2700EF592A /* Model */,
+				C958D030239B6C1F00EF592A /* View */,
+				C958D02F239B6C0E00EF592A /* Controller */,
+			);
+			path = "ShouZhang(手账)";
+			sourceTree = "<group>";
+		};
+		C958D02F239B6C0E00EF592A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C958D032239B6C6D00EF592A /* ShouZhangViewController.h */,
+				C958D033239B6C6D00EF592A /* ShouZhangViewController.m */,
+				C958D034239B6C6D00EF592A /* ShouZhangViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C958D030239B6C1F00EF592A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C958D037239B9E1D00EF592A /* WallPaperView.h */,
+				C958D038239B9E1D00EF592A /* WallPaperView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C958D031239B6C2700EF592A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C9E415AF2399D65B0057782E /* Catogary */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,6 +491,7 @@
 			files = (
 				C967A2C12399232A00F49965 /* XZQTableViewCellThree.xib in Resources */,
 				C9F2CA262397B22E00D705E7 /* YouJi.plist in Resources */,
+				C958D036239B6C6D00EF592A /* ShouZhangViewController.xib in Resources */,
 				C9213BCB23962BBF0062EB6C /* LaunchScreen.storyboard in Resources */,
 				C967A2B723991EE500F49965 /* XZQTableViewCellOne.xib in Resources */,
 				C9213BC823962BBF0062EB6C /* Assets.xcassets in Resources */,
@@ -478,12 +524,14 @@
 				C9F2CA0D239727E000D705E7 /* XZQTabBarView.m in Sources */,
 				C967A2B223991BCA00F49965 /* XZQMySettingView.m in Sources */,
 				C9E415D92399D7540057782E /* FancyTabBarViewController.m in Sources */,
+				C958D035239B6C6D00EF592A /* ShouZhangViewController.m in Sources */,
 				C9213BCE23962BBF0062EB6C /* main.m in Sources */,
 				C9F2CA1923973E0200D705E7 /* XZQOnlyLabelButton.m in Sources */,
 				C9E415CC2399D6B20057782E /* FancyTabBar.m in Sources */,
 				C967A2A92398A7E800F49965 /* XZQShowZhangScrollView.m in Sources */,
 				C9213BE4239643490062EB6C /* XZQTabBarController.m in Sources */,
 				C967A2B623991EE500F49965 /* XZQTableViewCellOne.m in Sources */,
+				C958D039239B9E1D00EF592A /* WallPaperView.m in Sources */,
 				C9213BEE239671210062EB6C /* MyViewController.m in Sources */,
 				C9F2CA2023974C6B00D705E7 /* XZQVideoTableViewCell.m in Sources */,
 				C967A2AF2398E3C200F49965 /* XZQShowNewContentViewController.m in Sources */,
@@ -646,9 +694,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.it.YouJi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.XZQ.YouJio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -665,9 +713,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.it.YouJi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.XZQ.YouJio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

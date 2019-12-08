@@ -239,12 +239,12 @@ static NSString *ID = @"cell";
 - (void)addNotification{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeScrollViewToLeft) name:@"shipin" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeScrollViewToRight) name:@"shouzhang" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent) name:@"popNewContent_0" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent) name:@"popNewContent_1" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent) name:@"popNewContent_2" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent) name:@"popNewContent_3" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent) name:@"popNewContent_4" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent) name:@"popNewContent_5" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent_0) name:@"popNewContent_0" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent_1) name:@"popNewContent_1" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent_2) name:@"popNewContent_2" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent_3) name:@"popNewContent_3" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent_4) name:@"popNewContent_4" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popNewContent_5) name:@"popNewContent_5" object:nil];
 }
 
 - (void)changeScrollViewToLeft{
@@ -280,12 +280,97 @@ static NSString *ID = @"cell";
     
 }
 
-- (void)popNewContent{
+- (void)popNewContent_0{
     XFunc;
-    XLog(@"%ld",self.szScrollView.index);
+    XLog(@"%lu",(unsigned long)self.szScrollView.index);
     
 //    更改modal效果: vc.modalPresentationStyle = UIModalPresentationFullScreen; 全屏
     
+    //给长图
+    self.contentVc.longImage = [UIImage OriginalImageWithName:@"ShouZhang_LongImage_0"];
+//    self.contentVc.longImage = [UIImage OriginalImageWithName:@"ShouZhang_LongImage_0" toSize:CGSizeMake(414, 1106)];
+    
+//    self.contentVc.modalPresentationStyle = UIModalPresentationFullScreen;
+    
+    //默认为卡片式
+    [self presentViewController:self.contentVc animated:YES completion:^{
+        XLog(@"%f",ScreenW);
+        
+    }];
+}
+
+- (void)popNewContent_1{
+    XFunc;
+    XLog(@"%lu",(unsigned long)self.szScrollView.index);
+    
+//    更改modal效果: vc.modalPresentationStyle = UIModalPresentationFullScreen; 全屏
+    
+    //给长图
+    self.contentVc.longImage = [UIImage OriginalImageWithName:@"ShouZhang_LongImage_1"];
+    
+    //默认为卡片式
+    [self presentViewController:self.contentVc animated:YES completion:^{
+        XLog(@"%f",ScreenW);
+        
+    }];
+}
+
+- (void)popNewContent_2{
+    XFunc;
+    XLog(@"%lu",(unsigned long)self.szScrollView.index);
+    
+//    更改modal效果: vc.modalPresentationStyle = UIModalPresentationFullScreen; 全屏
+    
+    //给长图
+    self.contentVc.longImage = [UIImage OriginalImageWithName:@"ShouZhang_LongImage_2"];
+    
+    //默认为卡片式
+    [self presentViewController:self.contentVc animated:YES completion:^{
+        XLog(@"%f",ScreenW);
+        
+    }];
+}
+
+- (void)popNewContent_3{
+    XFunc;
+    XLog(@"%lu",(unsigned long)self.szScrollView.index);
+    
+//    更改modal效果: vc.modalPresentationStyle = UIModalPresentationFullScreen; 全屏
+    
+    //给长图
+    self.contentVc.longImage = [UIImage OriginalImageWithName:@"ShouZhang_LongImage_3"];
+    
+    //默认为卡片式
+    [self presentViewController:self.contentVc animated:YES completion:^{
+        XLog(@"%f",ScreenW);
+        
+    }];
+}
+
+- (void)popNewContent_4{
+    XFunc;
+    XLog(@"%lu",(unsigned long)self.szScrollView.index);
+    
+//    更改modal效果: vc.modalPresentationStyle = UIModalPresentationFullScreen; 全屏
+    
+    //给长图
+    self.contentVc.longImage = [UIImage OriginalImageWithName:@"ShouZhang_LongImage_4"];
+    
+    //默认为卡片式
+    [self presentViewController:self.contentVc animated:YES completion:^{
+        XLog(@"%f",ScreenW);
+        
+    }];
+}
+
+- (void)popNewContent_5{
+    XFunc;
+    XLog(@"%lu",(unsigned long)self.szScrollView.index);
+    
+//    更改modal效果: vc.modalPresentationStyle = UIModalPresentationFullScreen; 全屏
+    
+    //给长图
+    self.contentVc.longImage = [UIImage OriginalImageWithName:@"ShouZhang_LongImage_5"];
     
     //默认为卡片式
     [self presentViewController:self.contentVc animated:YES completion:^{
@@ -297,6 +382,19 @@ static NSString *ID = @"cell";
 //隐藏状态栏
 - (BOOL)prefersStatusBarHidden{
     return YES;
+}
+
+//移除通知
+- (void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"shipin" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"shouzhang" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"popNewContent_0" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"popNewContent_1" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"popNewContent_2" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"popNewContent_3" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"popNewContent_4" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"popNewContent_5" object:nil];
 }
 
 @end

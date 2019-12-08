@@ -169,7 +169,7 @@ static const float collapseAnimationDuration = 0.5;
 //        XLog(@"button.titleLabel.frame  ---- %@",NSStringFromCGRect(button.titleLabel.frame));//0 0 0 0 11 82 48 23
 //        XLog(@"button.imageView.frame ---  %@",NSStringFromCGRect(button.imageView.frame));//0 -15 0 0
 //        XLog(@"button.titleLabel --%@",button.titleLabel);
-        button.backgroundColor = [UIColor redColor];
+//        button.backgroundColor = [UIColor redColor];
         CGRect frame = button.frame;
         
         //
@@ -216,12 +216,12 @@ static const float collapseAnimationDuration = 0.5;
         
         switch (i) {
             case 0:
-                [button setImage:[UIImage OriginalImageWithName:@"FancyTabBar_camera" toSize:CGSizeMake(btnWH, btnWH)] forState:UIControlStateNormal];
+                [button setImage:[UIImage OriginalImageWithName:@"FancyTabBar_camera" toSize:CGSizeMake(btnW, btnH)] forState:UIControlStateNormal];
                 
                 button.center =  CGPointMake(btn1CenterX,y);
                 break;
             case 1:
-                [button setImage:[UIImage OriginalImageWithName:@"FancyTabBar_draw" toSize:CGSizeMake(btnWH, btnWH)] forState:UIControlStateNormal];
+                [button setImage:[UIImage OriginalImageWithName:@"FancyTabBar_draw" toSize:CGSizeMake(btnW, btnH)] forState:UIControlStateNormal];
                 
                 button.center =  CGPointMake(btn2CenterX,y);
             break;

@@ -35,6 +35,8 @@
         
         [self btnClick:self.previousClickedButton];
         
+        //监听通知 XZQTabBarControllerWantXZQTabBarViewClickMiddleBtn
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(XZQTabBarControllerClickMiddleBtn) name:@"XZQTabBarControllerWantXZQTabBarViewClickMiddleBtn" object:nil];
         
     }
     
@@ -104,7 +106,6 @@
         self.previousClickedButton = btn;
     }
     
-    
     XFunc;
     
     switch (btn.tag) {
@@ -128,6 +129,14 @@
 
     
 }
+
+#pragma mark -----------------------------
+#pragma mark XZQTabBarController 点击middleBtn
+- (void)XZQTabBarControllerClickMiddleBtn{
+    XZQTopImageBottomLabelButton *btn = [self viewWithTag:2];
+    [self btnClick:btn];
+}
+
 
 
 @end

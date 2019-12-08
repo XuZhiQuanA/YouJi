@@ -25,5 +25,5 @@ typedef enum {
 - (void) setUpChoices:(UIViewController*) parentViewController choices:(NSArray*) choices withMainButtonImage:(UIImage*)mainButtonImage;
 - (void) setUpChoices:(UIViewController*) parentViewController choices:(NSArray*) choices withMainButtonImage:(UIImage*)mainButtonImage andMainButtonCustomOrigin:(CGPoint)customOrigin;
 - (void) setUpChoices:(UIViewController*) parentViewController choices:(NSArray*) choices withMainButtonImage:(UIImage*)mainButtonImage andMainButtonCustomOrigin:(CGPoint)customOrigin choicesCoordinates:(NSArray*)choicesCoordinates;
-
+- (void) explode;
 @end

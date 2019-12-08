@@ -12,16 +12,27 @@
 #import "FancyTabBar.h"
 #import "Coordinate.h"
 
+
+
 #define rotateX 179.0f
 #define rotateY 656.0f
 #define rotateWH 56.0f
 
-@interface FancyTabBarViewController ()<FancyTabBarDelegate>
+@interface FancyTabBarViewController ()<FancyTabBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property(nonatomic,strong) FancyTabBar *fancyTabBar;
 @property (nonatomic,strong) UIImageView *backgroundView;
+@property(nonatomic,readwrite,strong) UIImagePickerController *imagePickerController;
 @end
 
 @implementation FancyTabBarViewController
+
+- (UIImagePickerController *)imagePickerController{
+    if (_imagePickerController == nil) {
+        _imagePickerController = [[UIImagePickerController alloc] init];
+    }
+    
+    return _imagePickerController;
+}
 
 - (void)viewDidLoad
 {
@@ -102,9 +113,61 @@
 - (void)optionsButton:(UIButton*)optionButton didSelectItem:(int)index{
     NSLog(@"Hello index %d tapped !", index);
 //GALLERY SEGUE
-  if (index == 1) {
-        [self performSegueWithIdentifier:@"YOUR NEXT VIEW" sender: self];
+//  if (index == 1) {
+//        [self performSegueWithIdentifier:@"YOUR NEXT VIEW" sender: self];
+//}
+    
+    //index == 1 相机
+    
+    switch (index) {
+        case 1:
+            [self takingShooting];
+            break;
+            
+        case 2:
+            //之前的FancyTabBar回到消失状态
+            [self.fancyTabBar explode];
+            
+            //发出通知 出现编辑手账界面效果
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"FancyTabBarViewControllerWantXZQTabBarControllerShowShouZhangViewController" object:nil];
+            
+        break;
+            
+        default:
+            break;
+    }
+    
+    
+    //index == 2 手账
+    
+    
+    
 }
+
+// 录制
+- (void)takingShooting {
+    // 获取支持的媒体格式
+    NSArray * mediaTypes =[UIImagePickerController  availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+    // 判断是否支持需要设置的sourceType
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        self.imagePickerController.mediaTypes = @[mediaTypes[1]];
+        self.imagePickerController.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
+        [self presentViewController:self.imagePickerController animated:YES completion:nil];
+    }else {
+        NSLog(@"当前设备不支持录像");
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"温馨提示"
+                                                                                  message:@"当前设备不支持录像"
+                                                                           preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"确定"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction *action) {
+//                                                              _uploadButton.hidden = NO;
+                                                          }]];
+        [self presentViewController:alertController
+                           animated:YES
+                         completion:nil];
+    }
 }
 
 @end
