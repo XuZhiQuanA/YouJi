@@ -29,6 +29,10 @@
 		C967A2BC239921E900F49965 /* XZQTableViewCellTwo.xib in Resources */ = {isa = PBXBuildFile; fileRef = C967A2BA239921E900F49965 /* XZQTableViewCellTwo.xib */; };
 		C967A2C02399232A00F49965 /* XZQTableViewCellThree.m in Sources */ = {isa = PBXBuildFile; fileRef = C967A2BE2399232A00F49965 /* XZQTableViewCellThree.m */; };
 		C967A2C12399232A00F49965 /* XZQTableViewCellThree.xib in Resources */ = {isa = PBXBuildFile; fileRef = C967A2BF2399232A00F49965 /* XZQTableViewCellThree.xib */; };
+		C994D1BD239DD5BF007631DD /* KBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C994D1BC239DD5BF007631DD /* KBTextView.m */; };
+		C994D1C0239DE2E6007631DD /* PaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C994D1BF239DE2E6007631DD /* PaintingView.m */; };
+		C994D1C3239E4A1E007631DD /* XZQPaintingTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C994D1C2239E4A1E007631DD /* XZQPaintingTabBar.m */; };
+		C9B17F56239CBAF800DB5013 /* XZQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B17F55239CBAF800DB5013 /* XZQTextView.m */; };
 		C9E415C92399D6B20057782E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9E415B42399D6B20057782E /* InfoPlist.strings */; };
 		C9E415CC2399D6B20057782E /* FancyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E415BF2399D6B20057782E /* FancyTabBar.m */; };
 		C9E415D02399D6B20057782E /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E415C32399D6B20057782E /* Coordinate.m */; };
@@ -91,6 +95,14 @@
 		C967A2BD2399232A00F49965 /* XZQTableViewCellThree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQTableViewCellThree.h; sourceTree = "<group>"; };
 		C967A2BE2399232A00F49965 /* XZQTableViewCellThree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQTableViewCellThree.m; sourceTree = "<group>"; };
 		C967A2BF2399232A00F49965 /* XZQTableViewCellThree.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XZQTableViewCellThree.xib; sourceTree = "<group>"; };
+		C994D1BB239DD5BF007631DD /* KBTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KBTextView.h; sourceTree = "<group>"; };
+		C994D1BC239DD5BF007631DD /* KBTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KBTextView.m; sourceTree = "<group>"; };
+		C994D1BE239DE2E6007631DD /* PaintingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaintingView.h; sourceTree = "<group>"; };
+		C994D1BF239DE2E6007631DD /* PaintingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaintingView.m; sourceTree = "<group>"; };
+		C994D1C1239E4A1E007631DD /* XZQPaintingTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQPaintingTabBar.h; sourceTree = "<group>"; };
+		C994D1C2239E4A1E007631DD /* XZQPaintingTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQPaintingTabBar.m; sourceTree = "<group>"; };
+		C9B17F54239CBAF800DB5013 /* XZQTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQTextView.h; sourceTree = "<group>"; };
+		C9B17F55239CBAF800DB5013 /* XZQTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQTextView.m; sourceTree = "<group>"; };
 		C9E415B32399D6B20057782E /* FancyTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBar.h; sourceTree = "<group>"; };
 		C9E415B52399D6B20057782E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9E415B72399D6B20057782E /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -368,6 +380,14 @@
 			children = (
 				C958D037239B9E1D00EF592A /* WallPaperView.h */,
 				C958D038239B9E1D00EF592A /* WallPaperView.m */,
+				C9B17F54239CBAF800DB5013 /* XZQTextView.h */,
+				C9B17F55239CBAF800DB5013 /* XZQTextView.m */,
+				C994D1BB239DD5BF007631DD /* KBTextView.h */,
+				C994D1BC239DD5BF007631DD /* KBTextView.m */,
+				C994D1BE239DE2E6007631DD /* PaintingView.h */,
+				C994D1BF239DE2E6007631DD /* PaintingView.m */,
+				C994D1C1239E4A1E007631DD /* XZQPaintingTabBar.h */,
+				C994D1C2239E4A1E007631DD /* XZQPaintingTabBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -514,11 +534,14 @@
 				C9E415D02399D6B20057782E /* Coordinate.m in Sources */,
 				C9F2CA1623973C9200D705E7 /* XZQNavigationView.m in Sources */,
 				C9213BBD23962BBE0062EB6C /* AppDelegate.m in Sources */,
+				C994D1BD239DD5BF007631DD /* KBTextView.m in Sources */,
 				C9F2CA1023972B2700D705E7 /* UIView+Category.m in Sources */,
 				C9E415D12399D6B20057782E /* UIImage+ImageEffects.m in Sources */,
+				C994D1C0239DE2E6007631DD /* PaintingView.m in Sources */,
 				C967A2C02399232A00F49965 /* XZQTableViewCellThree.m in Sources */,
 				C9213BEA2396439F0062EB6C /* XZQTabBar.m in Sources */,
 				C9E415D32399D6B20057782E /* UIView+Screenshot.m in Sources */,
+				C9B17F56239CBAF800DB5013 /* XZQTextView.m in Sources */,
 				C9213BFB2396799D0062EB6C /* UIImage+Category.m in Sources */,
 				C9213BF12396712C0062EB6C /* WeViewController.m in Sources */,
 				C9F2CA0D239727E000D705E7 /* XZQTabBarView.m in Sources */,
@@ -530,6 +553,7 @@
 				C9E415CC2399D6B20057782E /* FancyTabBar.m in Sources */,
 				C967A2A92398A7E800F49965 /* XZQShowZhangScrollView.m in Sources */,
 				C9213BE4239643490062EB6C /* XZQTabBarController.m in Sources */,
+				C994D1C3239E4A1E007631DD /* XZQPaintingTabBar.m in Sources */,
 				C967A2B623991EE500F49965 /* XZQTableViewCellOne.m in Sources */,
 				C958D039239B9E1D00EF592A /* WallPaperView.m in Sources */,
 				C9213BEE239671210062EB6C /* MyViewController.m in Sources */,

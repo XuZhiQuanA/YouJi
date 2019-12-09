@@ -122,7 +122,7 @@
         x = (btn.tag % colomn) * (wallPaperBtnBaseW + wallPaperBtnBaseSpaceX) + wallPaperBtnBaseX;
         y = (btn.tag / colomn) * (wallPaperBtnBaseH + wallPaperBtnBaseSpaceY) + wallPaperBtnBaseY;
         btn.frame = CGRectMake(x, y, wallPaperBtnBaseW, wallPaperBtnBaseH);
-        [btn setImage:[UIImage OriginalImageWithName:[NSString stringWithFormat:@"EditShouZhang_wallPaper_%ld",i] toSize:btn.frame.size] forState:UIControlStateNormal];
+        [btn setImage:[UIImage OriginalImageWithName:[NSString stringWithFormat:@"EditShouZhang_wallPaper_%ld",(long)i] toSize:btn.frame.size] forState:UIControlStateNormal];
         i++;
     }
     
@@ -138,8 +138,6 @@
     if (CGRectContainsPoint(self.showPopImageView.frame, [touch locationInView:self]) == false) {//如果点击的点不在在showPopImageView的frame里面
         self.hidden = true;
     }
-    
-    
     
 }
 
