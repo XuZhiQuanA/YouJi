@@ -173,6 +173,7 @@
                             </state>
                             <connections>
                                 <action selector="editSZViewAction:" destination="-1" eventType="touchUpInside" id="GrG-eu-yLB"/>
+                                <action selector="lastStep:" destination="-1" eventType="touchUpInside" id="Qs9-Yr-aY3"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7AT-lv-3GR">
@@ -186,6 +187,7 @@
                             </state>
                             <connections>
                                 <action selector="editSZViewAction:" destination="-1" eventType="touchUpInside" id="Ujd-df-pOY"/>
+                                <action selector="nextStep:" destination="-1" eventType="touchUpInside" id="xSq-eg-P4x"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zF-Ze-Yq6">
@@ -199,6 +201,7 @@
                             </state>
                             <connections>
                                 <action selector="editSZViewAction:" destination="-1" eventType="touchUpInside" id="Ekw-no-Os9"/>
+                                <action selector="saveScreenShot:" destination="-1" eventType="touchUpInside" id="PDz-vi-swT"/>
                             </connections>
                         </button>
                     </subviews>
@@ -215,23 +218,15 @@
                         <constraint firstItem="7AT-lv-3GR" firstAttribute="leading" secondItem="Mm2-7z-5TY" secondAttribute="leading" constant="246" id="zjE-wK-jnH"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWP-WB-Pxa">
-                    <rect key="frame" x="0.0" y="49" width="414" height="609"/>
-                    <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="dd5-i5-0fU" secondAttribute="trailing" id="1xp-9x-gsr"/>
-                <constraint firstItem="gWP-WB-Pxa" firstAttribute="top" secondItem="Mm2-7z-5TY" secondAttribute="bottom" id="DUz-Ln-yOP"/>
                 <constraint firstItem="Mm2-7z-5TY" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="G1d-5e-vTu"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Mm2-7z-5TY" secondAttribute="trailing" id="Hdx-e7-xzh"/>
                 <constraint firstItem="dd5-i5-0fU" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="UB9-lW-7iJ"/>
-                <constraint firstItem="dd5-i5-0fU" firstAttribute="top" secondItem="gWP-WB-Pxa" secondAttribute="bottom" id="emk-A6-LRB"/>
                 <constraint firstItem="Mm2-7z-5TY" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="idQ-Wm-wdZ"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="dd5-i5-0fU" secondAttribute="bottom" id="kAr-Tu-0rP"/>
-                <constraint firstItem="gWP-WB-Pxa" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="omC-Lt-TKT"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="gWP-WB-Pxa" secondAttribute="trailing" id="t3e-sO-WkZ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>

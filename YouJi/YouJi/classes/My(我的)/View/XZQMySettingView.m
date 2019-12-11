@@ -57,6 +57,9 @@ const CGFloat quitLoginBtnH = 49;
        //添加子控件
         [self addChild];
         
+        //XZQTabBarControllerWantShowMySettingView
+        
+        
     }
     
     return self;
@@ -232,8 +235,56 @@ const CGFloat quitLoginBtnH = 49;
 #pragma mark -----------------------------
 #pragma mark UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    switch (indexPath.row) {
+        //头像
+        case 0:
+            [self changeHeadPortrait];
+            break;
+        
+        //昵称
+        case 1:
+
+            [self changeName:indexPath tableView:tableView];
+            break;
+            
+        //常见问题
+        case 2:
+        break;
+            
+        default:
+            break;
+    }
+    
     XFunc;
 }
+
+#pragma mark -----------------------------
+#pragma mark 更换头像
+- (void)changeHeadPortrait{
+    //从相册中选择
+    
+    //发出通知 弹出系统相册
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"XZQMySettingViewWantShowSystemAlbum" object:nil];
+    
+    XFunc;
+}
+
+#pragma mark -----------------------------
+#pragma mark 更改昵称
+- (void)changeName:(NSIndexPath *)indexPath tableView:(UITableView *)tableView{
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"XZQMySettingViewWangToChangeUserName" object:nil];
+    XZQTableViewCellTwo *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    cell.nameLabel.text = @"123";
+    
+    [cell.nameLabel becomeFirstResponder];
+    
+    
+    XFunc;
+}
+
+
 
 #pragma mark -----------------------------
 #pragma mark 监听返回按钮
@@ -249,6 +300,9 @@ const CGFloat quitLoginBtnH = 49;
 //    [[NSNotificationCenter defaultCenter] postNotificationName:@"XZQMySettingViewWantXZQTabBarControllerToShowMyVCView" object:nil];
     
 }
+
+
+
 
 
 

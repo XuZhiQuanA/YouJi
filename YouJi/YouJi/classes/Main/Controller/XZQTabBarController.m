@@ -25,7 +25,7 @@
 #define rotateWH 56
 
 
-@interface XZQTabBarController ()
+@interface XZQTabBarController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 /**我的-设置界面 用于占位的父视图 位于界面的右边 设置界面*/
 @property(nonatomic,readwrite,weak) XZQMySettingView *placeHolderRightSuperView;
@@ -45,6 +45,10 @@
 
 /** 编辑手账控制器*/
 @property(nonatomic,readwrite,weak) ShouZhangViewController *szVc;
+
+/** 相册管理Vc*/
+@property(nonatomic,readwrite,strong) UIImagePickerController *picker;
+
 
 @end
 
@@ -162,6 +166,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showShouZhangEditView) name:@"FancyTabBarViewControllerWantXZQTabBarControllerShowShouZhangViewController" object:nil];
     //ShouZhangViewControllerWantXZQTabBarControllerShowFancyView
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showFancyView) name:@"ShouZhangViewControllerWantXZQTabBarControllerShowFancyView" object:nil];
+    
+    //XZQMySettingViewWantShowSystemAlbum
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSystemAlbum) name:@"XZQMySettingViewWantShowSystemAlbum" object:nil];
+    
     
 }
 
@@ -330,6 +338,69 @@
 }
 
 
+#pragma mark -----------------------------
+#pragma mark 展示系统相册
+- (void)showSystemAlbum{
+    XFunc;
+    [self presentViewController:self.picker animated:YES completion:nil];
+}
+
+#pragma mark -----------------------------
+#pragma mark UIImagePickerControllerDelegate || UINavigationControllerDelegate代理方法
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+//    获取图片
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+
+    XLog(@"imagePickerController - %@",image);
+    
+//    self.showSelectedImageFromAlbum.hidden = false;
+//    self.showSelectedImageFromAlbum.image = image;
+    
+//    获取图片后返回
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:image forKey:@"touxiang"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"XZQTabBarControllerWantChangeTouXiang" object:nil userInfo:dict];
+}
+
+//按取消按钮时候的功能
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+//    返回
+//    [picker dismissViewControllerAnimated:YES completion:nil];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+//    [UIView animateWithDuration:0.25 animations:^{
+//        self.placeHolderRightSuperView.frame = CGRectMake(0, 0, ScreenW, ScreenH);
+//    }];
+    
+    
+    
+    
+    
+}
+
+
+
+#pragma mark -----------------------------
+#pragma mark lazy load
+- (UIImagePickerController *)picker{
+    
+    if (_picker == nil) {
+        _picker = [[UIImagePickerController alloc] init];
+        _picker.delegate = self;
+        _picker.allowsEditing = true;
+        _picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    return _picker;
+}
+
+
+
+
 
 #pragma mark -----------------------------
 #pragma mark 移除通知
@@ -338,16 +409,17 @@
 /// 移除通知
 - (void)dealloc{
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"XZQTabBarViewPostToChangeXZQTabBarControllerCurrentShowedChildControllerView_We" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"XZQTabBarViewPostToChangeXZQTabBarControllerCurrentShowedChildControllerView_Middle" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"XZQTabBarViewPostToChangeXZQTabBarControllerCurrentShowedChildControllerView_My" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MyViewControllerToPopSettingView" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"XZQMySettingViewWantXZQTabBarControllerReturnToShowMyVCView" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FancyTabBarWantXZQTabBarControllerQuitBottomView" object:nil];
-    //FancyTabBarViewControllerWantXZQTabBarControllerShowShouZhangViewController
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FancyTabBarViewControllerWantXZQTabBarControllerShowShouZhangViewController" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ShouZhangViewControllerWantXZQTabBarControllerShowFancyView" object:nil];
-    
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"XZQTabBarViewPostToChangeXZQTabBarControllerCurrentShowedChildControllerView_We" object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"XZQTabBarViewPostToChangeXZQTabBarControllerCurrentShowedChildControllerView_Middle" object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"XZQTabBarViewPostToChangeXZQTabBarControllerCurrentShowedChildControllerView_My" object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MyViewControllerToPopSettingView" object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"XZQMySettingViewWantXZQTabBarControllerReturnToShowMyVCView" object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FancyTabBarWantXZQTabBarControllerQuitBottomView" object:nil];
+//    //FancyTabBarViewControllerWantXZQTabBarControllerShowShouZhangViewController
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FancyTabBarViewControllerWantXZQTabBarControllerShowShouZhangViewController" object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ShouZhangViewControllerWantXZQTabBarControllerShowFancyView" object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"XZQMySettingViewWantShowSystemAlbum" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
 }
 

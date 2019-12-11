@@ -7,6 +7,7 @@
 //
 
 #import "UIImage+Category.h"
+#import "UIView+Category.h"
 
 #ifndef YouJi_pch
 #define YouJi_pch

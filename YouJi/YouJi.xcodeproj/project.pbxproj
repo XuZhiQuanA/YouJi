@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C90BA726239F628200A8DC8C /* XZQPopBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = C90BA725239F628200A8DC8C /* XZQPopBoxView.m */; };
 		C9213BBD23962BBE0062EB6C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BBC23962BBE0062EB6C /* AppDelegate.m */; };
 		C9213BC623962BBE0062EB6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9213BC423962BBE0062EB6C /* Main.storyboard */; };
 		C9213BC823962BBF0062EB6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9213BC723962BBF0062EB6C /* Assets.xcassets */; };
@@ -17,6 +18,8 @@
 		C9213BEE239671210062EB6C /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BED239671210062EB6C /* MyViewController.m */; };
 		C9213BF12396712C0062EB6C /* WeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BF02396712C0062EB6C /* WeViewController.m */; };
 		C9213BFB2396799D0062EB6C /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BFA2396799D0062EB6C /* UIImage+Category.m */; };
+		C9490AAA23A0AC5100299CBD /* MyBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = C9490AA823A0AC5100299CBD /* MyBezierPath.m */; };
+		C9490AAD23A0D18100299CBD /* XZQButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9490AAC23A0D18100299CBD /* XZQButton.m */; };
 		C958D035239B6C6D00EF592A /* ShouZhangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C958D033239B6C6D00EF592A /* ShouZhangViewController.m */; };
 		C958D036239B6C6D00EF592A /* ShouZhangViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C958D034239B6C6D00EF592A /* ShouZhangViewController.xib */; };
 		C958D039239B9E1D00EF592A /* WallPaperView.m in Sources */ = {isa = PBXBuildFile; fileRef = C958D038239B9E1D00EF592A /* WallPaperView.m */; };
@@ -56,6 +59,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C90BA724239F628200A8DC8C /* XZQPopBoxView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQPopBoxView.h; sourceTree = "<group>"; };
+		C90BA725239F628200A8DC8C /* XZQPopBoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQPopBoxView.m; sourceTree = "<group>"; };
 		C9213BB823962BBD0062EB6C /* YouJi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouJi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9213BBB23962BBE0062EB6C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C9213BBC23962BBE0062EB6C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../AppDelegate.m; sourceTree = "<group>"; };
@@ -75,6 +80,10 @@
 		C9213BF02396712C0062EB6C /* WeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeViewController.m; sourceTree = "<group>"; };
 		C9213BF92396799D0062EB6C /* UIImage+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
 		C9213BFA2396799D0062EB6C /* UIImage+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
+		C9490AA823A0AC5100299CBD /* MyBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBezierPath.m; sourceTree = "<group>"; };
+		C9490AA923A0AC5100299CBD /* MyBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBezierPath.h; sourceTree = "<group>"; };
+		C9490AAB23A0D18100299CBD /* XZQButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQButton.h; sourceTree = "<group>"; };
+		C9490AAC23A0D18100299CBD /* XZQButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQButton.m; sourceTree = "<group>"; };
 		C958D032239B6C6D00EF592A /* ShouZhangViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShouZhangViewController.h; sourceTree = "<group>"; };
 		C958D033239B6C6D00EF592A /* ShouZhangViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShouZhangViewController.m; sourceTree = "<group>"; };
 		C958D034239B6C6D00EF592A /* ShouZhangViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShouZhangViewController.xib; sourceTree = "<group>"; };
@@ -386,8 +395,14 @@
 				C994D1BC239DD5BF007631DD /* KBTextView.m */,
 				C994D1BE239DE2E6007631DD /* PaintingView.h */,
 				C994D1BF239DE2E6007631DD /* PaintingView.m */,
+				C9490AA923A0AC5100299CBD /* MyBezierPath.h */,
+				C9490AA823A0AC5100299CBD /* MyBezierPath.m */,
 				C994D1C1239E4A1E007631DD /* XZQPaintingTabBar.h */,
 				C994D1C2239E4A1E007631DD /* XZQPaintingTabBar.m */,
+				C90BA724239F628200A8DC8C /* XZQPopBoxView.h */,
+				C90BA725239F628200A8DC8C /* XZQPopBoxView.m */,
+				C9490AAB23A0D18100299CBD /* XZQButton.h */,
+				C9490AAC23A0D18100299CBD /* XZQButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -531,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C967A2BB239921E900F49965 /* XZQTableViewCellTwo.m in Sources */,
+				C9490AAA23A0AC5100299CBD /* MyBezierPath.m in Sources */,
 				C9E415D02399D6B20057782E /* Coordinate.m in Sources */,
 				C9F2CA1623973C9200D705E7 /* XZQNavigationView.m in Sources */,
 				C9213BBD23962BBE0062EB6C /* AppDelegate.m in Sources */,
@@ -557,6 +573,8 @@
 				C967A2B623991EE500F49965 /* XZQTableViewCellOne.m in Sources */,
 				C958D039239B9E1D00EF592A /* WallPaperView.m in Sources */,
 				C9213BEE239671210062EB6C /* MyViewController.m in Sources */,
+				C90BA726239F628200A8DC8C /* XZQPopBoxView.m in Sources */,
+				C9490AAD23A0D18100299CBD /* XZQButton.m in Sources */,
 				C9F2CA2023974C6B00D705E7 /* XZQVideoTableViewCell.m in Sources */,
 				C967A2AF2398E3C200F49965 /* XZQShowNewContentViewController.m in Sources */,
 				C9F2CA2423974CFD00D705E7 /* XZQVideoItem.m in Sources */,

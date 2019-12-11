@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+
 @interface XZQPaintingTabBar : UIView
+
+
 
 @end
 

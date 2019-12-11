@@ -27,8 +27,6 @@
         [self setupChild];
         
         [self btnClick:self.previousClickedButton];
-        
-        static dispatch_once_t onceToken;
        
     }
     

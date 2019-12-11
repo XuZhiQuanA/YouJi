@@ -8,17 +8,37 @@
 
 #import "XZQTableViewCellOne.h"
 
+@interface XZQTableViewCellOne()
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageV;
+
+
+
+@end
+
 @implementation XZQTableViewCellOne
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    [self receiceNotification];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+#pragma mark -----------------------------
+#pragma mark 接收通知
+- (void)receiceNotification{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTouXiang:) name:@"XZQTabBarControllerWantChangeTouXiang" object:nil];
+}
 
-    // Configure the view for the selected state
+#pragma mark -----------------------------
+#pragma mark 改变头像
+- (void)changeTouXiang:(NSNotification *)notification{
+    
+    UIImage *image = notification.userInfo[@"touxiang"];
+    self.imageV.image = image;
+    
+    
 }
 
 @end

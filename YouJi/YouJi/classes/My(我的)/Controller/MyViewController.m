@@ -52,7 +52,10 @@
     //1.创建子控件
     [self setupChild];
     
-    //2.布局
+    //2.监听通知
+    [self addNotification];
+    
+    
 }
 
 
@@ -185,7 +188,10 @@
     self.topBackGroundImageView.image = [UIImage OriginalImageWithName:@"My_topBackGroundImage" toSize:self.topBackGroundImageView.bounds.size];
     
     self.personImageView.frame = CGRectMake(152, 62, 110, 110);
-    self.personImageView.image = [UIImage OriginalImageWithName:@"My_personImage" toSize:self.personImageView.bounds.size];
+    if (self.personImageView.image == nil) {
+        self.personImageView.image = [UIImage OriginalImageWithName:@"My_personImage" toSize:self.personImageView.bounds.size];
+    }
+    
     
     self.personNameLabel.frame = CGRectMake(185, 199, 44, 31);
     [self.personNameLabel sizeToFit];
@@ -223,8 +229,30 @@
 
 - (void)dealloc{
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MyViewControllerToPopSettingView" object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MyViewControllerToPopSettingView" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
 }
+
+
+#pragma mark -----------------------------
+#pragma mark 监听通知
+- (void)addNotification{
+    
+    //XZQTabBarControllerWantChangeTouXiang
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTouXiang:) name:@"XZQTabBarControllerWantChangeTouXiang" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popSettingView) name:@"XZQTabBarControllerWantShowMySettingView" object:nil];
+}
+
+#pragma mark -----------------------------
+#pragma mark 改变头像
+- (void)changeTouXiang:(NSNotification *)notification{
+    
+    UIImage *image = notification.userInfo[@"touxiang"];
+    self.personImageView.image = image;
+    
+    
+}
+
 
 @end

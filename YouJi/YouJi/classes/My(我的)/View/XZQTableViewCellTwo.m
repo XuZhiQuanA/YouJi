@@ -8,17 +8,45 @@
 
 #import "XZQTableViewCellTwo.h"
 
+
+@interface XZQTableViewCellTwo()
+
+
+
+@end
+
 @implementation XZQTableViewCellTwo
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    //监听通知
+    [self receiveNotification];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+#pragma mark -----------------------------
+#pragma mark 监听通知
+- (void)receiveNotification{
+    
+    //XZQMySettingViewWangToChangeUserName
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startEditing) name:@"XZQMySettingViewWangToChangeUserName" object:nil];
+    
 }
+
+#pragma mark -----------------------------
+#pragma mark 开始编辑
+- (void)startEditing{
+    
+    XFunc;
+    
+    [self.nameLabel becomeFirstResponder];
+    
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 @end
