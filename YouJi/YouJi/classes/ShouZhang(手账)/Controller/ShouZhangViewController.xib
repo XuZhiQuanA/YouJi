@@ -25,7 +25,7 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EditShouZhang_bottomBar_backImage" translatesAutoresizingMaskIntoConstraints="NO" id="qCI-i8-Wro">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
                         </imageView>
-                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdI-64-9Yb">
+                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdI-64-9Yb" customClass="XZQNoHighlightedButton">
                             <rect key="frame" x="35" y="14" width="33" height="33"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="33" id="CAe-jh-YyU"/>
@@ -37,7 +37,7 @@
                                 <action selector="editSZViewAction:" destination="-1" eventType="touchUpInside" id="yA6-rA-Qh0"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReQ-sG-fOj">
+                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReQ-sG-fOj" customClass="XZQNoHighlightedButton">
                             <rect key="frame" x="109" y="13" width="35" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="35" id="FxP-0y-aH6"/>
@@ -49,7 +49,7 @@
                                 <action selector="editSZViewAction:" destination="-1" eventType="touchUpInside" id="HMU-Ie-JrH"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Bq-Hs-IeG">
+                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Bq-Hs-IeG" customClass="XZQNoHighlightedButton">
                             <rect key="frame" x="192" y="14" width="33" height="33"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="33" id="H2o-6a-PCi"/>
@@ -61,7 +61,7 @@
                                 <action selector="editSZViewAction:" destination="-1" eventType="touchUpInside" id="4QC-Yq-zq7"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCa-3g-V0g">
+                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCa-3g-V0g" customClass="XZQNoHighlightedButton">
                             <rect key="frame" x="273" y="13" width="30" height="37"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="37" id="NUc-mE-eIi"/>
@@ -73,7 +73,7 @@
                                 <action selector="editSZViewAction:" destination="-1" eventType="touchUpInside" id="ehR-oH-sQO"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZb-cF-Own">
+                        <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZb-cF-Own" customClass="XZQNoHighlightedButton">
                             <rect key="frame" x="344" y="13" width="35" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="35" id="BZ9-jK-h2W"/>

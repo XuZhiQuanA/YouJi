@@ -219,6 +219,8 @@
     }];
 }
 
+
+
 #pragma mark -----------------------------
 #pragma mark 我的-设置界面
 - (void)setupMySettingView{

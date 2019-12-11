@@ -9,7 +9,7 @@
 #import "XZQTableViewCellTwo.h"
 
 
-@interface XZQTableViewCellTwo()
+@interface XZQTableViewCellTwo()<UITextFieldDelegate>
 
 
 
@@ -23,6 +23,9 @@
     
     //监听通知
     [self receiveNotification];
+    
+    //设置nameTextField的代理为自身
+    self.nameTextField.delegate = self;
 }
 
 #pragma mark -----------------------------
@@ -32,15 +35,28 @@
     //XZQMySettingViewWangToChangeUserName
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startEditing) name:@"XZQMySettingViewWangToChangeUserName" object:nil];
     
+//    XZQMySettingViewWantHideKeyBoard
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeyBoard) name:@"XZQMySettingViewWantHideKeyBoard" object:nil];
 }
+
+
+//停止编辑
+- (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason{
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:textField.text forKey:@"userName"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"saveUserName" object:nil userInfo:dict];
+    
+}
+
 
 #pragma mark -----------------------------
 #pragma mark 开始编辑
-- (void)startEditing{
+- (void)hideKeyBoard{
     
     XFunc;
     
-    [self.nameLabel becomeFirstResponder];
+    [self.nameTextField resignFirstResponder];
     
 }
 

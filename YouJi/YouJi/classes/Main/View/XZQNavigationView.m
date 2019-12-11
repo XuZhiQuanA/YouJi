@@ -14,11 +14,14 @@
 /**之前选中的按钮 */
 @property(nonatomic,readwrite,strong) XZQOnlyLabelButton *previousClickedButton;
 
+@property(nonatomic,readwrite,weak) XZQOnlyLabelButton *shouBtn;
+
 @end
 
 @implementation XZQNavigationView
 
 - (instancetype)initWithFrame:(CGRect)frame{
+    
     self = [super initWithFrame:frame];
     
     if (self) {
@@ -27,6 +30,9 @@
         [self setupChild];
         
         [self btnClick:self.previousClickedButton];
+        
+        //监听通知
+        [self receiveNotification];
        
     }
     
@@ -59,6 +65,7 @@
     shouBtn.tag = 2;
     [shouBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:shouBtn];
+    self.shouBtn = shouBtn;
 }
 
 - (void)btnClick:(XZQOnlyLabelButton *)btn{
@@ -83,6 +90,19 @@
     }
     
 }
+
+#pragma mark -----------------------------
+#pragma mark receiveNotification
+- (void)receiveNotification{
+    //clickShouZhangBtn
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickShouZhangBtn) name:@"clickShouZhangBtn" object:nil];
+}
+
+- (void)clickShouZhangBtn{
+    [self btnClick:self.shouBtn];
+}
+
 
 
 @end

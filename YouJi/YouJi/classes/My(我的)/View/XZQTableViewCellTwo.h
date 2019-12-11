@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XZQTableViewCellTwo : UITableViewCell
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 
 @end
 

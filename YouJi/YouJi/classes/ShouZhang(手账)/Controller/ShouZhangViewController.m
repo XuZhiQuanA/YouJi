@@ -15,6 +15,7 @@
 #import "XZQPaintingTabBar.h"
 
 #import "PaintingView.h"
+#import "XZQNoHighlightedButton.h"
 
 #define wallPaperViewH 658
 
@@ -38,11 +39,15 @@
 /** 限制拖动的范围*/
 @property(nonatomic,readwrite,weak) UIView *showSelectedImageFromAlbumSuperView;
 
+/** 显示壁纸的imageView*/
+@property(nonatomic,readwrite,weak) UIImageView *wallPaperImageV;
+
 /** 手账记录textField*/
 @property(nonatomic,readwrite,weak) UITextField *szTextField;
 
 /** 编辑手账textView*/
 @property(nonatomic,readwrite,weak) XZQTextView *textView;
+
 
 @property (weak, nonatomic) IBOutlet UIView *tabBarView;
 
@@ -53,6 +58,9 @@
 
 /**从图形上下文中获取的图片 */
 @property(nonatomic,readwrite,strong) UIImage *imageFromCGContext;
+
+/**之前选中的按钮 */
+@property(nonatomic,readwrite,strong) XZQNoHighlightedButton *previousSelectedBtn;
 
 
 @end
@@ -73,13 +81,12 @@
     
 }
 
-
-
-
 #pragma mark -----------------------------
 #pragma mark 接收通知
 - (void)receiveNotification{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showTabBar) name:@"XZQPaintingTabBarWantShowShowZhangTabBar" object:nil];
+    //changeWallPaper
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeWallPaper:) name:@"changeWallPaper" object:nil];
 }
 
 #pragma mark -----------------------------
@@ -89,10 +96,26 @@
     [self reduceMiddleViewHeight];
 }
 
+- (void)changeWallPaper:(NSNotification *)notification{
+    
+    UIImage *wallPaper = notification.userInfo[@"wallPaper"];
+    self.wallPaperImageV.image = wallPaper;
+    
+}
 
+static NSInteger i = 0;
+static NSInteger j = 0;
 
 //界面所有的按钮都会来到这里
-- (IBAction)editSZViewAction:(UIButton *)sender {
+- (IBAction)editSZViewAction:(XZQNoHighlightedButton *)sender {
+    
+    
+    if (sender.tag >4 && sender.tag < 10) {
+        self.previousSelectedBtn.selected = false;
+        sender.selected = true;
+        self.previousSelectedBtn = sender;
+    }
+    
     XFunc;
     XLog(@"%ld",(long)sender.tag);
     
@@ -125,15 +148,29 @@
             
         case 7:
             
-            //图片 - 点击图片按钮 弹出图片选择器 选择完成后 将图片以一定尺寸固定在界面上 可以旋转、移动、缩放
-            [self popSystemAlbum];
+            if (i % 2 == 0 ) {//处理点击两次不同操作问题
+                //图片 - 点击图片按钮 弹出图片选择器 选择完成后 将图片以一定尺寸固定在界面上 可以旋转、移动、缩放
+                [self popSystemAlbum];
+            }else{
+                self.showSelectedImageFromAlbum.hidden = true;
+            }
+            
+            i++;
             break;
         case 8:
-        
-            //文字 点击文字按钮 界面中显示出隐藏的textField按钮 弹出键盘输入文字
-//            [self editSZText];
-            //editTextView
-            [self editTextView];
+
+            if (j % 2 == 0) {
+                //文字 点击文字按钮 界面中显示出隐藏的textField按钮 弹出键盘输入文字
+                //            [self editSZText];
+                //editTextView
+                [self editTextView];
+                
+            }else{
+                self.textView.hidden = true;
+            }
+            
+            j++;
+            
         break;
             
         case 9:
@@ -324,6 +361,8 @@
     
 //    self.middleView.bounds = CGRectMake(0, 0, self.middleView.bounds.size.width, (self.middleView.bounds.size.height + tabBarOrigionalH - tabBarPaintingTabBarH));
     self.showSelectedImageFromAlbumSuperView.frame = CGRectMake(0, 49, ScreenW, (self.middleView.bounds.size.height + tabBarOrigionalH - tabBarPaintingTabBarH));
+    self.wallPaperImageV.frame = self.showSelectedImageFromAlbumSuperView.bounds;
+    
     self.middleView.frame = self.showSelectedImageFromAlbumSuperView.bounds;
 
     
@@ -331,6 +370,7 @@
 
 - (void)reduceMiddleViewHeight{
     self.showSelectedImageFromAlbumSuperView.frame = CGRectMake(0, 49, ScreenW, middleViewH);
+    self.wallPaperImageV.frame = self.showSelectedImageFromAlbumSuperView.bounds;
     self.middleView.frame = self.showSelectedImageFromAlbumSuperView.bounds;
 }
 
@@ -425,7 +465,7 @@
         UIImageView *imageV = [[UIImageView alloc] init];
         imageV.userInteractionEnabled = true;
         imageV.contentMode = UIViewContentModeScaleAspectFit;
-        imageV.backgroundColor = [UIColor redColor];
+        
         imageV.hidden = true;
 //        [self.view addSubview:imageV];
         [self.showSelectedImageFromAlbumSuperView addSubview:imageV];
@@ -456,10 +496,11 @@
 - (UIView *)showSelectedImageFromAlbumSuperView{
     if (_showSelectedImageFromAlbumSuperView == nil) {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, middleViewY, ScreenW, middleViewH)];
-//        view.backgroundColor = [UIColor redColor];
         view.clipsToBounds = true;
         [self.view addSubview:view];
         _showSelectedImageFromAlbumSuperView = view;
+        
+        self.wallPaperImageV.contentMode = UIViewContentModeScaleAspectFill;
     }
     
     return _showSelectedImageFromAlbumSuperView;
@@ -524,6 +565,18 @@
 #pragma mark dealloc
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (UIImageView *)wallPaperImageV{
+    
+    if (_wallPaperImageV == nil) {
+        UIImageView *imageV = [[UIImageView alloc] initWithFrame:self.showSelectedImageFromAlbumSuperView.bounds];
+        [self.showSelectedImageFromAlbumSuperView addSubview:imageV];
+        
+        _wallPaperImageV = imageV;
+    }
+    
+    return _wallPaperImageV;
 }
 
 @end

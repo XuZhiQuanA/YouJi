@@ -276,9 +276,7 @@ const CGFloat quitLoginBtnH = 49;
 //    [[NSNotificationCenter defaultCenter] postNotificationName:@"XZQMySettingViewWangToChangeUserName" object:nil];
     XZQTableViewCellTwo *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    cell.nameLabel.text = @"123";
-    
-    [cell.nameLabel becomeFirstResponder];
+    [cell.nameTextField becomeFirstResponder];
     
     
     XFunc;
@@ -292,6 +290,9 @@ const CGFloat quitLoginBtnH = 49;
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"XZQMySettingViewWantXZQTabBarControllerReturnToShowMyVCView" object:nil];
 
+    //XZQMySettingViewWantHideKeyBoard
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"XZQMySettingViewWantHideKeyBoard" object:nil];
+    
 }
 
 - (void)quitToMyView:(UIButton *)btn{
@@ -301,6 +302,11 @@ const CGFloat quitLoginBtnH = 49;
     
 }
 
+#pragma mark -----------------------------
+#pragma mark touchBegin
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"XZQMySettingViewWantHideKeyBoard" object:nil];
+}
 
 
 

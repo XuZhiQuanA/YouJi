@@ -105,6 +105,7 @@
         
         UILabel *personNameLabel = [[UILabel alloc] init];
         personNameLabel.text = @"嘿嘿";
+        personNameLabel.textAlignment = NSTextAlignmentCenter;
         personNameLabel.font = [UIFont systemFontOfSize:22];
         personNameLabel.textColor = XColor(124, 128, 128);
         self.personNameLabel = personNameLabel;
@@ -138,13 +139,13 @@
     
     UIButton *publicSZBtn = [[UIButton alloc] init];
     publicSZBtn.tag = 1;
-    [publicSZBtn addTarget:self action:@selector(popSZ) forControlEvents:UIControlEventTouchUpInside];
+    [publicSZBtn addTarget:self action:@selector(popSZ:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:publicSZBtn];
     self.publicSZBtn = publicSZBtn;
     
     UIButton *privateSZBtn = [[UIButton alloc] init];
     privateSZBtn.tag = 2;
-    [privateSZBtn addTarget:self action:@selector(popSZ) forControlEvents:UIControlEventTouchUpInside];
+    [privateSZBtn addTarget:self action:@selector(popSZ:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:privateSZBtn];
     self.privateSZBtn = privateSZBtn;
     
@@ -170,7 +171,27 @@
 }
 
 //弹出手账界面
-- (void)popSZ{
+- (void)popSZ:(UIButton *)btn{
+    
+    switch (btn.tag) {
+            //公开
+        case 1:
+            
+            //点击WeBtn
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"clickWeBtn" object:nil];
+            //点击手账btn
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"clickShouZhangBtn" object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"shouzhang" object:nil];
+            break;
+            
+            //私密
+        case 2:
+        
+            break;
+            
+        default:
+            break;
+    }
     
 }
 
@@ -193,8 +214,9 @@
     }
     
     
-    self.personNameLabel.frame = CGRectMake(185, 199, 44, 31);
-    [self.personNameLabel sizeToFit];
+    self.personNameLabel.frame = CGRectMake(105, 199, 327, 31);
+    self.personNameLabel.center = CGPointMake(self.personImageView.center.x, self.personNameLabel.center.y);
+    
     
     self.rightTopBtn.frame = CGRectMake(368, 19, 30, 25);
     [self.rightTopBtn setBackgroundImage:[UIImage OriginalImageWithName:@"My_rightTopBtnBackGroundImage" toSize:self.rightTopBtn.bounds.size] forState:UIControlStateNormal];
@@ -242,6 +264,9 @@
     //XZQTabBarControllerWantChangeTouXiang
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTouXiang:) name:@"XZQTabBarControllerWantChangeTouXiang" object:nil];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popSettingView) name:@"XZQTabBarControllerWantShowMySettingView" object:nil];
+    
+    //saveUserName
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveUserName:) name:@"saveUserName" object:nil];
 }
 
 #pragma mark -----------------------------
@@ -251,6 +276,14 @@
     UIImage *image = notification.userInfo[@"touxiang"];
     self.personImageView.image = image;
     
+    
+}
+
+- (void)saveUserName:(NSNotification *)notification{
+    
+    NSString *text = notification.userInfo[@"userName"];
+    
+    self.personNameLabel.text = text;
     
 }
 

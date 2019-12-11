@@ -122,10 +122,23 @@
         x = (btn.tag % colomn) * (wallPaperBtnBaseW + wallPaperBtnBaseSpaceX) + wallPaperBtnBaseX;
         y = (btn.tag / colomn) * (wallPaperBtnBaseH + wallPaperBtnBaseSpaceY) + wallPaperBtnBaseY;
         btn.frame = CGRectMake(x, y, wallPaperBtnBaseW, wallPaperBtnBaseH);
+        btn.tag = (i+1);
+        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         [btn setImage:[UIImage OriginalImageWithName:[NSString stringWithFormat:@"EditShouZhang_wallPaper_%ld",(long)i] toSize:btn.frame.size] forState:UIControlStateNormal];
         i++;
     }
     
+}
+
+#pragma mark -----------------------------
+#pragma mark btnClick
+
+- (void)btnClick:(UIButton *)btn{
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:btn.currentImage forKey:@"wallPaper"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"changeWallPaper" object:nil userInfo:dict];
+
 }
 
 #pragma mark -----------------------------

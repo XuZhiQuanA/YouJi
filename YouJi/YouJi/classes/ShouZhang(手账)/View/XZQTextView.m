@@ -137,29 +137,29 @@
 //    [pan setTranslation:CGPointZero inView:pan.view];
     
     
-    if (self.frame.origin.y >= (ScreenH - 78-self.frame.size.height)) {
-         CGRect frame = self.frame;
-         frame.origin.y = (ScreenH - 78-self.frame.size.height);
-         self.frame = frame;
-     }
-     
-     if (self.frame.origin.y <= 49) {
-         CGRect frame = self.frame;
-         frame.origin.y = 49;
-         self.frame = frame;
-     }
-     
-     if (self.frame.origin.x >= (ScreenW-self.frame.size.width)) {
-         CGRect frame = self.frame;
-         frame.origin.x = (ScreenW-self.frame.size.width);
-         self.frame = frame;
-     }
-     
-     if (self.frame.origin.x <= 0) {
-         CGRect frame = self.frame;
-         frame.origin.x = 0;
-         self.frame = frame;
-     }
+//    if (self.frame.origin.y >= (ScreenH - 78-self.frame.size.height)) {
+//         CGRect frame = self.frame;
+//         frame.origin.y = (ScreenH - 78-self.frame.size.height);
+//         self.frame = frame;
+//     }
+//
+//     if (self.frame.origin.y <= 49) {
+//         CGRect frame = self.frame;
+//         frame.origin.y = 49;
+//         self.frame = frame;
+//     }
+//
+//     if (self.frame.origin.x >= (ScreenW-self.frame.size.width)) {
+//         CGRect frame = self.frame;
+//         frame.origin.x = (ScreenW-self.frame.size.width);
+//         self.frame = frame;
+//     }
+//
+//     if (self.frame.origin.x <= 0) {
+//         CGRect frame = self.frame;
+//         frame.origin.x = 0;
+//         self.frame = frame;
+//     }
     
     
     

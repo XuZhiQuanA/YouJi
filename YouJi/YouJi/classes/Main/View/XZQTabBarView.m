@@ -18,6 +18,9 @@
 /**之前选中的按钮 */
 @property(nonatomic,readwrite,strong) XZQTopImageBottomLabelButton *previousClickedButton;
 
+/** 中间的按钮*/
+@property(nonatomic,readwrite,weak) XZQTopImageBottomLabelButton *weBtn;
+
 @end
 
 @implementation XZQTabBarView
@@ -35,8 +38,10 @@
         
         [self btnClick:self.previousClickedButton];
         
-        //监听通知 XZQTabBarControllerWantXZQTabBarViewClickMiddleBtn
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(XZQTabBarControllerClickMiddleBtn) name:@"XZQTabBarControllerWantXZQTabBarViewClickMiddleBtn" object:nil];
+        
+        
+        //监听通知
+        [self receiveNsnotification];
         
     }
     
@@ -49,18 +54,7 @@
     self.backGroundImageView.image = backGroundImage;
 }
 
-#pragma mark -----------------------------
-#pragma mark 懒加载
-- (UIImageView *)backGroundImageView{
-    if (_backGroundImageView == nil) {
-        
-        UIImageView *imageV = [[UIImageView alloc] initWithFrame:self.bounds];
-        _backGroundImageView = imageV;
-        [self addSubview:_backGroundImageView];
-    }
-    
-    return _backGroundImageView;
-}
+
 
 
 #pragma mark -----------------------------
@@ -76,6 +70,7 @@
     weBtn.tag = 1;
     [weBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:weBtn];
+    self.weBtn = weBtn;
     
     self.previousClickedButton = weBtn;
     
@@ -85,6 +80,7 @@
     middleBtn.tag = 2;
     [middleBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:middleBtn];
+    
     
     //我的按钮
     XZQTopImageBottomLabelButton *myBtn = [[XZQTopImageBottomLabelButton alloc] initWithFrame:CGRectMake(313, 29, 31, 55) Title:@"我的" NormalImage:[UIImage OriginalImageWithName:@"My" toSize:CGSizeMake(31, 34)] SelectedImage:[UIImage OriginalImageWithName:@"My_Selected" toSize:CGSizeMake(31, 34)]];
@@ -137,6 +133,35 @@
     [self btnClick:btn];
 }
 
+#pragma mark -----------------------------
+#pragma mark 接收通知
+- (void)receiveNsnotification{
+    //监听通知 XZQTabBarControllerWantXZQTabBarViewClickMiddleBtn
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(XZQTabBarControllerClickMiddleBtn) name:@"XZQTabBarControllerWantXZQTabBarViewClickMiddleBtn" object:nil];
+    
+    //clickWeBtn
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickWeBtn) name:@"clickWeBtn" object:nil];
+}
 
+- (void)clickWeBtn{
+    [self btnClick:self.weBtn];
+}
+
+
+
+
+
+#pragma mark -----------------------------
+#pragma mark 懒加载
+- (UIImageView *)backGroundImageView{
+    if (_backGroundImageView == nil) {
+        
+        UIImageView *imageV = [[UIImageView alloc] initWithFrame:self.bounds];
+        _backGroundImageView = imageV;
+        [self addSubview:_backGroundImageView];
+    }
+    
+    return _backGroundImageView;
+}
 
 @end
