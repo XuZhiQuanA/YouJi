@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "XZQTabBarController.h"
+#import "LRViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,9 +23,11 @@
     //1.创建窗口 - 必须得写 不然黑屏
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    XZQTabBarController *tabBarVc = [[XZQTabBarController alloc] init];
+//    XZQTabBarController *tabBarVc = [[XZQTabBarController alloc] init];
+    
+    LRViewController *lrVc = [[LRViewController alloc] init];
 
-    self.window.rootViewController = tabBarVc;
+    self.window.rootViewController = lrVc;
     
     [self.window makeKeyAndVisible];
     

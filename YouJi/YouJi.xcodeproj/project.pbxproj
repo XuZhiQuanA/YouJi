@@ -46,6 +46,11 @@
 		C9E415DC2399DB180057782E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E415DB2399DB180057782E /* CoreGraphics.framework */; };
 		C9E415DE2399DB1F0057782E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E415DD2399DB1F0057782E /* Foundation.framework */; };
 		C9E415E02399DB2A0057782E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E415DF2399DB2A0057782E /* UIKit.framework */; };
+		C9EC1FD923ADF9AB0082D9BD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EC1FD723ADF9AB0082D9BD /* LoginViewController.m */; };
+		C9EC1FDA23ADF9AB0082D9BD /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9EC1FD823ADF9AB0082D9BD /* LoginViewController.xib */; };
+		C9EC1FDE23ADFA690082D9BD /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EC1FDC23ADFA690082D9BD /* RegisterViewController.m */; };
+		C9EC1FDF23ADFA690082D9BD /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9EC1FDD23ADFA690082D9BD /* RegisterViewController.xib */; };
+		C9EC1FE223ADFAF00082D9BD /* LRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EC1FE123ADFAF00082D9BD /* LRViewController.m */; };
 		C9F2CA0D239727E000D705E7 /* XZQTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA0C239727E000D705E7 /* XZQTabBarView.m */; };
 		C9F2CA1023972B2700D705E7 /* UIView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA0F23972B2700D705E7 /* UIView+Category.m */; };
 		C9F2CA1323972E3E00D705E7 /* XZQTopImageBottomLabelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2CA1223972E3E00D705E7 /* XZQTopImageBottomLabelButton.m */; };
@@ -130,6 +135,14 @@
 		C9E415DB2399DB180057782E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C9E415DD2399DB1F0057782E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9E415DF2399DB2A0057782E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C9EC1FD623ADF9AB0082D9BD /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		C9EC1FD723ADF9AB0082D9BD /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		C9EC1FD823ADF9AB0082D9BD /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		C9EC1FDB23ADFA690082D9BD /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		C9EC1FDC23ADFA690082D9BD /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		C9EC1FDD23ADFA690082D9BD /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		C9EC1FE023ADFAF00082D9BD /* LRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRViewController.h; sourceTree = "<group>"; };
+		C9EC1FE123ADFAF00082D9BD /* LRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LRViewController.m; sourceTree = "<group>"; };
 		C9F2CA0B239727E000D705E7 /* XZQTabBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQTabBarView.h; sourceTree = "<group>"; };
 		C9F2CA0C239727E000D705E7 /* XZQTabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQTabBarView.m; sourceTree = "<group>"; };
 		C9F2CA0E23972B2700D705E7 /* UIView+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Category.h"; sourceTree = "<group>"; };
@@ -198,6 +211,7 @@
 		C9213BDD23963D4D0062EB6C /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C9EC1FD123ADF9560082D9BD /* LoginRegister(登录注册) */,
 				C958D02B239B6B8D00EF592A /* ShouZhang(手账) */,
 				C9213BF8239679760062EB6C /* Tool(工具类) */,
 				C9213BE1239643200062EB6C /* My(我的) */,
@@ -467,6 +481,45 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C9EC1FD123ADF9560082D9BD /* LoginRegister(登录注册) */ = {
+			isa = PBXGroup;
+			children = (
+				C9EC1FD523ADF9870082D9BD /* Model */,
+				C9EC1FD423ADF9810082D9BD /* View */,
+				C9EC1FD223ADF96F0082D9BD /* Controller */,
+			);
+			path = "LoginRegister(登录注册)";
+			sourceTree = "<group>";
+		};
+		C9EC1FD223ADF96F0082D9BD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C9EC1FD623ADF9AB0082D9BD /* LoginViewController.h */,
+				C9EC1FD723ADF9AB0082D9BD /* LoginViewController.m */,
+				C9EC1FD823ADF9AB0082D9BD /* LoginViewController.xib */,
+				C9EC1FDB23ADFA690082D9BD /* RegisterViewController.h */,
+				C9EC1FDC23ADFA690082D9BD /* RegisterViewController.m */,
+				C9EC1FDD23ADFA690082D9BD /* RegisterViewController.xib */,
+				C9EC1FE023ADFAF00082D9BD /* LRViewController.h */,
+				C9EC1FE123ADFAF00082D9BD /* LRViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C9EC1FD423ADF9810082D9BD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9EC1FD523ADF9870082D9BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -525,6 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C967A2C12399232A00F49965 /* XZQTableViewCellThree.xib in Resources */,
+				C9EC1FDF23ADFA690082D9BD /* RegisterViewController.xib in Resources */,
 				C9F2CA262397B22E00D705E7 /* YouJi.plist in Resources */,
 				C958D036239B6C6D00EF592A /* ShouZhangViewController.xib in Resources */,
 				C9213BCB23962BBF0062EB6C /* LaunchScreen.storyboard in Resources */,
@@ -532,6 +586,7 @@
 				C9213BC823962BBF0062EB6C /* Assets.xcassets in Resources */,
 				C967A2BC239921E900F49965 /* XZQTableViewCellTwo.xib in Resources */,
 				C9213BC623962BBE0062EB6C /* Main.storyboard in Resources */,
+				C9EC1FDA23ADF9AB0082D9BD /* LoginViewController.xib in Resources */,
 				C9E415C92399D6B20057782E /* InfoPlist.strings in Resources */,
 				C9E415D22399D6B20057782E /* FancyTabBar-Info.plist in Resources */,
 				C9F2CA2123974C6B00D705E7 /* XZQVideoTableViewCell.xib in Resources */,
@@ -547,7 +602,9 @@
 			files = (
 				C967A2BB239921E900F49965 /* XZQTableViewCellTwo.m in Sources */,
 				C9490AAA23A0AC5100299CBD /* MyBezierPath.m in Sources */,
+				C9EC1FDE23ADFA690082D9BD /* RegisterViewController.m in Sources */,
 				C9E415D02399D6B20057782E /* Coordinate.m in Sources */,
+				C9EC1FE223ADFAF00082D9BD /* LRViewController.m in Sources */,
 				C9F2CA1623973C9200D705E7 /* XZQNavigationView.m in Sources */,
 				C9213BBD23962BBE0062EB6C /* AppDelegate.m in Sources */,
 				C994D1BD239DD5BF007631DD /* KBTextView.m in Sources */,
@@ -577,6 +634,7 @@
 				C9490AAD23A0D18100299CBD /* XZQButton.m in Sources */,
 				C9F2CA2023974C6B00D705E7 /* XZQVideoTableViewCell.m in Sources */,
 				C967A2AF2398E3C200F49965 /* XZQShowNewContentViewController.m in Sources */,
+				C9EC1FD923ADF9AB0082D9BD /* LoginViewController.m in Sources */,
 				C9F2CA2423974CFD00D705E7 /* XZQVideoItem.m in Sources */,
 				C9F2CA1C2397431000D705E7 /* XZQNoHighlightedButton.m in Sources */,
 				C9F2CA1323972E3E00D705E7 /* XZQTopImageBottomLabelButton.m in Sources */,
