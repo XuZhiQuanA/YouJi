@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "XZQTabBarController.h"
+//#import "XZQTabBarController.h"
 #import "LRViewController.h"
+//#import <ShareSDK/ShareSDK.h>
 
 @interface AppDelegate ()
 

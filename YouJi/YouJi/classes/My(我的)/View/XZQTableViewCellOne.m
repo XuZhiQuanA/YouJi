@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageV;
 
-
+@property(nonatomic,readwrite,strong) NSUserDefaults *userDefault;
 
 @end
 
@@ -23,6 +23,21 @@
     // Initialization code
     
     [self receiceNotification];
+    
+    //3.之前有没有设置头像
+    [self checkPersonalImage];
+}
+
+#pragma mark -----------------------------
+#pragma mark 检测之前有没有设置过头像
+- (void)checkPersonalImage{
+    //personalImage
+    if ([self.userDefault dataForKey:@"UserHeadImageData"] != nil) {
+        NSData *userHeadImageData = [self.userDefault dataForKey:@"UserHeadImageData"];
+        UIImage *userHeadImage = [UIImage imageWithData:userHeadImageData];
+        self.imageV.contentMode = UIViewContentModeScaleAspectFit;
+        self.imageV.image = userHeadImage;
+    }
 }
 
 #pragma mark -----------------------------
@@ -39,6 +54,16 @@
     self.imageV.image = image;
     
     
+}
+
+#pragma mark -----------------------------
+#pragma mark 懒加载
+- (NSUserDefaults *)userDefault{
+    if (_userDefault == nil) {
+        _userDefault = [NSUserDefaults standardUserDefaults];
+    }
+    
+    return _userDefault;
 }
 
 @end

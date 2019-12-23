@@ -34,7 +34,7 @@
     [self addChildVC];
     
     //2.默认登录界面先出现
-    self.childVcViewIndex = 0;
+//    self.childVcViewIndex = 0;
     [self changeChildVcViewWithIndex:self.childVcViewIndex];
     
     
@@ -60,7 +60,7 @@
 #pragma mark 切换子控件view
 
 - (void)changeChildVcViewWithIndex:(NSInteger)index{
-    
+    XFunc
     UIViewController *vc;
     
     if (index < self.childViewControllers.count && index >= 0) {
@@ -71,18 +71,11 @@
         
         UIView *view = vc.view;
         view.frame = CGRectMake(index*ScreenW, 0, ScreenW, ScreenH);
-        [self.view addSubview:view];
+        [self.contentScrollView addSubview:view];
         
     }
     
-    __weak typeof(self) weakSelf = self;
-    
-    [UIView animateWithDuration:0.5 animations:^{
-        
-        weakSelf.contentScrollView.contentOffset = CGPointMake(index*ScreenW, weakSelf.contentScrollView.contentOffset.y);
-        
-        
-    }];
+    [self.contentScrollView setContentOffset:CGPointMake(index*ScreenW, self.contentScrollView.contentOffset.y) animated:YES];
     
 }
 
@@ -96,7 +89,7 @@
     
     if (_contentScrollView == nil) {
         
-        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, ScreenW*2, ScreenH)];
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
         scrollView.contentSize = CGSizeMake(ScreenW*2, 0);
         scrollView.scrollEnabled = false;
         _contentScrollView = scrollView;

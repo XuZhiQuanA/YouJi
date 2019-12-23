@@ -65,20 +65,21 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omW-Xc-cjX">
                             <rect key="frame" x="46" y="58" width="317" height="35"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginRegister_phoneImage" translatesAutoresizingMaskIntoConstraints="NO" id="Sjm-tG-RbI">
-                                    <rect key="frame" x="0.0" y="0.0" width="14" height="35"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginRegister_Register_phone" translatesAutoresizingMaskIntoConstraints="NO" id="Sjm-tG-RbI">
+                                    <rect key="frame" x="0.0" y="2" width="33" height="33"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="14" id="STa-g8-r7W"/>
+                                        <constraint firstAttribute="height" constant="33" id="DI6-QG-VNs"/>
+                                        <constraint firstAttribute="width" constant="33" id="STa-g8-r7W"/>
                                     </constraints>
                                 </imageView>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入电话号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZC-mI-PrC">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入电话号码" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="hZC-mI-PrC">
                                     <rect key="frame" x="47" y="7" width="120" height="23"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="120" id="H4T-9S-t3I"/>
                                         <constraint firstAttribute="height" constant="23" id="PPI-jp-Yxb"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rIQ-at-bMF">
                                     <rect key="frame" x="47" y="34" width="270" height="1"/>
@@ -97,7 +98,6 @@
                                 <constraint firstAttribute="height" constant="35" id="a0w-ge-GOk"/>
                                 <constraint firstItem="hZC-mI-PrC" firstAttribute="leading" secondItem="omW-Xc-cjX" secondAttribute="leading" constant="47" id="gNd-NB-dCE"/>
                                 <constraint firstItem="rIQ-at-bMF" firstAttribute="leading" secondItem="hZC-mI-PrC" secondAttribute="leading" id="l0l-EB-6Qe"/>
-                                <constraint firstItem="Sjm-tG-RbI" firstAttribute="top" secondItem="omW-Xc-cjX" secondAttribute="top" id="qvJ-ey-eqq"/>
                                 <constraint firstAttribute="trailing" secondItem="rIQ-at-bMF" secondAttribute="trailing" id="uQ8-fK-WhV"/>
                                 <constraint firstAttribute="width" constant="317" id="wO5-bi-f8N"/>
                             </constraints>
@@ -111,7 +111,7 @@
                                         <constraint firstAttribute="width" constant="33" id="keT-xX-KaI"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28r-dB-8Ev">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28r-dB-8Ev" customClass="XZQNoHighlightedButton">
                                     <rect key="frame" x="218" y="0.0" width="94" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="Jet-gn-eJw"/>
@@ -125,7 +125,7 @@
                                         <action selector="sendCheckBtnClick:" destination="-1" eventType="touchUpInside" id="9gR-7p-1Hs"/>
                                     </connections>
                                 </button>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UzO-uU-a9C">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="UzO-uU-a9C">
                                     <rect key="frame" x="47" y="7" width="112" height="23"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="112" id="6yu-5g-qy6"/>
@@ -165,14 +165,14 @@
                                         <constraint firstAttribute="width" constant="28" id="p6H-Pf-SMh"/>
                                     </constraints>
                                 </imageView>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u8I-EZ-wRk">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="u8I-EZ-wRk">
                                     <rect key="frame" x="47" y="7" width="120" height="23"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="120" id="DwU-PK-61v"/>
                                         <constraint firstAttribute="height" constant="23" id="E1i-XM-WSf"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" textContentType="password"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILg-Vh-H6Z">
                                     <rect key="frame" x="47" y="34" width="270" height="1"/>
@@ -240,8 +240,8 @@
     <resources>
         <image name="EditShouZhang_innerIconOfTopBar_return" width="239" height="417"/>
         <image name="LoginRegister_Register_check" width="299" height="293"/>
+        <image name="LoginRegister_Register_phone" width="34" height="34"/>
         <image name="LoginRegister_Register_registerBtnBackground" width="300" height="56"/>
         <image name="LoginRegister_lockImage" width="192" height="226"/>
-        <image name="LoginRegister_phoneImage" width="80" height="263"/>
     </resources>
 </document>

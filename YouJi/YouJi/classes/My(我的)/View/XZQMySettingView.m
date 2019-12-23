@@ -127,7 +127,7 @@ const CGFloat quitLoginBtnH = 49;
         
         
         UIView *middlePlaceHolderSuperView = [[UIView alloc] init];
-        middlePlaceHolderSuperView.backgroundColor = [UIColor blueColor];
+//        middlePlaceHolderSuperView.backgroundColor = [UIColor blueColor];
         self.middlePlaceHolderSuperView = middlePlaceHolderSuperView;
         middlePlaceHolderSuperView;
         
@@ -152,8 +152,9 @@ const CGFloat quitLoginBtnH = 49;
         
         UIButton *quitLoginBtn = [[UIButton alloc] init];
         quitLoginBtn.titleLabel.text = @"退出登录";
-        quitLoginBtn.backgroundColor = [UIColor yellowColor];
-//        [quitLoginBtn addTarget:self action:@selector(quitToMyView:) forControlEvents:UIControlEventTouchUpInside];
+
+        [quitLoginBtn setBackgroundImage:[UIImage OriginalImageWithName:@"My_quitLogin" toSize:CGSizeMake(quitLoginBtnW, quitLoginBtnH)] forState:UIControlStateNormal];
+        [quitLoginBtn addTarget:self action:@selector(quitToMyView:) forControlEvents:UIControlEventTouchUpInside];
         self.quitLoginBtn = quitLoginBtn;
         quitLoginBtn;
         

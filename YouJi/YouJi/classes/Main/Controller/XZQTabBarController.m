@@ -7,18 +7,14 @@
 //
 
 #import "XZQTabBarController.h"
-
 #import "WeViewController.h"
 #import "MyViewController.h"
-
 #import "XZQTabBarView.h"
 #import "XZQNavigationView.h"
-
 #import "XZQMySettingView.h"
-
 #import "FancyTabBarViewController.h"
-
 #import "ShouZhangViewController.h"
+#import "UIImage+Category.h"
 
 #define rotateX 179
 #define rotateY 656
@@ -48,6 +44,8 @@
 
 /** 相册管理Vc*/
 @property(nonatomic,readwrite,strong) UIImagePickerController *picker;
+
+@property(nonatomic,readwrite,strong) NSUserDefaults *userDefault;
 
 
 @end
@@ -229,7 +227,7 @@
     XZQMySettingView *placeHolderRightSuperView = ({
         
         XZQMySettingView *placeHolderRightSuperView = [[XZQMySettingView alloc] init];
-        placeHolderRightSuperView.backgroundColor = [UIColor redColor];
+        placeHolderRightSuperView.backgroundColor = [UIColor whiteColor];
         self.placeHolderRightSuperView = placeHolderRightSuperView;
         
     });
@@ -353,11 +351,6 @@
 {
 //    获取图片
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-
-    XLog(@"imagePickerController - %@",image);
-    
-//    self.showSelectedImageFromAlbum.hidden = false;
-//    self.showSelectedImageFromAlbum.image = image;
     
 //    获取图片后返回
     [picker dismissViewControllerAnimated:YES completion:nil];
@@ -365,6 +358,12 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:image forKey:@"touxiang"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"XZQTabBarControllerWantChangeTouXiang" object:nil userInfo:dict];
+    
+    //将头像图片变成 NSData 存在plist中
+    
+    
+    [self.userDefault setObject:[UIImage getDataFromImage:image] forKey:@"UserHeadImageData"];
+    [self.userDefault synchronize];
 }
 
 //按取消按钮时候的功能
@@ -384,6 +383,11 @@
     
 }
 
+#pragma mark -----------------------------
+#pragma mark 将UIImage转换为NSData
+
+
+
 
 
 #pragma mark -----------------------------
@@ -400,7 +404,13 @@
     return _picker;
 }
 
-
+- (NSUserDefaults *)userDefault{
+    if (_userDefault == nil) {
+        _userDefault = [NSUserDefaults standardUserDefaults];
+    }
+    
+    return _userDefault;
+}
 
 
 

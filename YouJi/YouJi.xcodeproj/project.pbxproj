@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		907B048FC37744F70015A5F5 /* libPods-YouJi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 626CD1D9E426DC4B05DDFA39 /* libPods-YouJi.a */; };
 		C90BA726239F628200A8DC8C /* XZQPopBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = C90BA725239F628200A8DC8C /* XZQPopBoxView.m */; };
 		C9213BBD23962BBE0062EB6C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9213BBC23962BBE0062EB6C /* AppDelegate.m */; };
 		C9213BC623962BBE0062EB6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9213BC423962BBE0062EB6C /* Main.storyboard */; };
@@ -64,9 +65,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09021DF0F1353ED905E01B3D /* Pods-YouJi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouJi.release.xcconfig"; path = "Target Support Files/Pods-YouJi/Pods-YouJi.release.xcconfig"; sourceTree = "<group>"; };
+		626CD1D9E426DC4B05DDFA39 /* libPods-YouJi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YouJi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		80DAF132D234E38B0C6EB603 /* Pods-YouJi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouJi.debug.xcconfig"; path = "Target Support Files/Pods-YouJi/Pods-YouJi.debug.xcconfig"; sourceTree = "<group>"; };
 		C90BA724239F628200A8DC8C /* XZQPopBoxView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQPopBoxView.h; sourceTree = "<group>"; };
 		C90BA725239F628200A8DC8C /* XZQPopBoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQPopBoxView.m; sourceTree = "<group>"; };
-		C9213BB823962BBD0062EB6C /* YouJi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouJi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9213BB823962BBD0062EB6C /* 游记.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "游记.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9213BBB23962BBE0062EB6C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C9213BBC23962BBE0062EB6C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../AppDelegate.m; sourceTree = "<group>"; };
 		C9213BC523962BBE0062EB6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,6 +121,13 @@
 		C994D1C2239E4A1E007631DD /* XZQPaintingTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQPaintingTabBar.m; sourceTree = "<group>"; };
 		C9B17F54239CBAF800DB5013 /* XZQTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQTextView.h; sourceTree = "<group>"; };
 		C9B17F55239CBAF800DB5013 /* XZQTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQTextView.m; sourceTree = "<group>"; };
+		C9BA1BC223B0704200F33A50 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		C9BA1BC423B0705100F33A50 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		C9BA1BC623B0705F00F33A50 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C9BA1BC823B0706F00F33A50 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		C9BA1BCA23B0709500F33A50 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		C9BA1BCC23B070A000F33A50 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		C9BA1BCE23B070A800F33A50 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		C9E415B32399D6B20057782E /* FancyTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBar.h; sourceTree = "<group>"; };
 		C9E415B52399D6B20057782E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9E415B72399D6B20057782E /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -171,25 +182,36 @@
 				C9E415E02399DB2A0057782E /* UIKit.framework in Frameworks */,
 				C9E415DE2399DB1F0057782E /* Foundation.framework in Frameworks */,
 				C9E415DC2399DB180057782E /* CoreGraphics.framework in Frameworks */,
+				907B048FC37744F70015A5F5 /* libPods-YouJi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B04F0FF2E9B68CE50C38308A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				80DAF132D234E38B0C6EB603 /* Pods-YouJi.debug.xcconfig */,
+				09021DF0F1353ED905E01B3D /* Pods-YouJi.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C9213BAF23962BBD0062EB6C = {
 			isa = PBXGroup;
 			children = (
 				C9213BBA23962BBD0062EB6C /* YouJi */,
 				C9213BB923962BBD0062EB6C /* Products */,
 				C9E415DA2399DB180057782E /* Frameworks */,
+				B04F0FF2E9B68CE50C38308A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		C9213BB923962BBD0062EB6C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C9213BB823962BBD0062EB6C /* YouJi.app */,
+				C9213BB823962BBD0062EB6C /* 游记.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -370,8 +392,7 @@
 		C9213BF8239679760062EB6C /* Tool(工具类) */ = {
 			isa = PBXGroup;
 			children = (
-				C9213BF92396799D0062EB6C /* UIImage+Category.h */,
-				C9213BFA2396799D0062EB6C /* UIImage+Category.m */,
+				C9BA1BD023B0D2D800F33A50 /* UIImage */,
 				C9F2CA0E23972B2700D705E7 /* UIView+Category.h */,
 				C9F2CA0F23972B2700D705E7 /* UIView+Category.m */,
 			);
@@ -428,6 +449,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C9BA1BD023B0D2D800F33A50 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				C9213BF92396799D0062EB6C /* UIImage+Category.h */,
+				C9213BFA2396799D0062EB6C /* UIImage+Category.m */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
 		C9E415AF2399D65B0057782E /* Catogary */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,9 +504,17 @@
 		C9E415DA2399DB180057782E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9BA1BCE23B070A800F33A50 /* AssetsLibrary.framework */,
+				C9BA1BCC23B070A000F33A50 /* Photos.framework */,
+				C9BA1BCA23B0709500F33A50 /* ImageIO.framework */,
+				C9BA1BC823B0706F00F33A50 /* AuthenticationServices.framework */,
+				C9BA1BC623B0705F00F33A50 /* libsqlite3.tbd */,
+				C9BA1BC423B0705100F33A50 /* libz.tbd */,
+				C9BA1BC223B0704200F33A50 /* libc++.tbd */,
 				C9E415DF2399DB2A0057782E /* UIKit.framework */,
 				C9E415DD2399DB1F0057782E /* Foundation.framework */,
 				C9E415DB2399DB180057782E /* CoreGraphics.framework */,
+				626CD1D9E426DC4B05DDFA39 /* libPods-YouJi.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -527,9 +565,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9213BD123962BBF0062EB6C /* Build configuration list for PBXNativeTarget "YouJi" */;
 			buildPhases = (
+				124E0C9C28C8161771421A5C /* [CP] Check Pods Manifest.lock */,
 				C9213BB423962BBD0062EB6C /* Sources */,
 				C9213BB523962BBD0062EB6C /* Frameworks */,
 				C9213BB623962BBD0062EB6C /* Resources */,
+				56D450963EEE8C78B4A47B91 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -537,7 +577,7 @@
 			);
 			name = YouJi;
 			productName = YouJi;
-			productReference = C9213BB823962BBD0062EB6C /* YouJi.app */;
+			productReference = C9213BB823962BBD0062EB6C /* 游记.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -594,6 +634,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		124E0C9C28C8161771421A5C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YouJi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56D450963EEE8C78B4A47B91 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YouJi/Pods-YouJi-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YouJi/Pods-YouJi-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YouJi/Pods-YouJi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C9213BB423962BBD0062EB6C /* Sources */ = {
@@ -725,6 +807,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -776,6 +859,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -783,10 +867,17 @@
 		};
 		C9213BD223962BBF0062EB6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80DAF132D234E38B0C6EB603 /* Pods-YouJi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7CD9HT5NB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDK/SMSSDK",
+					"$(PROJECT_DIR)/SDK/MobPush",
+					"$(PROJECT_DIR)/SDK/Required",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = YouJi/YouJi.pch;
 				INFOPLIST_FILE = YouJi/Info.plist;
@@ -794,18 +885,25 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.XZQ.YouJio;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.XZQ.YouJi;
+				PRODUCT_NAME = "游记";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		C9213BD323962BBF0062EB6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09021DF0F1353ED905E01B3D /* Pods-YouJi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7CD9HT5NB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDK/SMSSDK",
+					"$(PROJECT_DIR)/SDK/MobPush",
+					"$(PROJECT_DIR)/SDK/Required",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = YouJi/YouJi.pch;
 				INFOPLIST_FILE = YouJi/Info.plist;
@@ -813,8 +911,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.XZQ.YouJio;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.XZQ.YouJi;
+				PRODUCT_NAME = "游记";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

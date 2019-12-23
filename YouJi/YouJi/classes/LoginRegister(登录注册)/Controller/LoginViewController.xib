@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="personalImageView" destination="06q-D4-c09" id="psF-CM-Oas"/>
                 <outlet property="phoneNumberTextField" destination="SmV-Cu-fW7" id="l62-n6-ibH"/>
                 <outlet property="pwdTextField" destination="WdA-X6-Ipc" id="1XH-kE-hIH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -36,16 +37,16 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xa-u6-zFc">
                             <rect key="frame" x="0.0" y="0.0" width="310" height="62"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y4P-tx-Ve2">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginRegister_Login_phoneNumberTextFieldBackGround" translatesAutoresizingMaskIntoConstraints="NO" id="Y4P-tx-Ve2">
                                     <rect key="frame" x="0.0" y="0.0" width="310" height="62"/>
                                 </imageView>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入电话号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SmV-Cu-fW7">
-                                    <rect key="frame" x="50" y="10" width="210" height="42"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入电话号码" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="SmV-Cu-fW7">
+                                    <rect key="frame" x="70" y="10" width="190" height="42"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 </textField>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="SmV-Cu-fW7" secondAttribute="trailing" constant="50" id="2VN-LL-lZu"/>
                                 <constraint firstAttribute="height" constant="62" id="6kD-ug-MGR"/>
@@ -54,25 +55,25 @@
                                 <constraint firstAttribute="bottom" secondItem="SmV-Cu-fW7" secondAttribute="bottom" constant="10" id="Kr1-AE-UwH"/>
                                 <constraint firstAttribute="trailing" secondItem="Y4P-tx-Ve2" secondAttribute="trailing" id="lWW-Ap-UyH"/>
                                 <constraint firstItem="Y4P-tx-Ve2" firstAttribute="top" secondItem="9xa-u6-zFc" secondAttribute="top" id="odT-bF-GLK"/>
-                                <constraint firstItem="SmV-Cu-fW7" firstAttribute="leading" secondItem="9xa-u6-zFc" secondAttribute="leading" constant="50" id="tC5-1B-5Po"/>
+                                <constraint firstItem="SmV-Cu-fW7" firstAttribute="leading" secondItem="9xa-u6-zFc" secondAttribute="leading" constant="70" id="tC5-1B-5Po"/>
                                 <constraint firstItem="Y4P-tx-Ve2" firstAttribute="leading" secondItem="9xa-u6-zFc" secondAttribute="leading" id="wSD-zI-U0g"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2or-Hp-Udd">
                             <rect key="frame" x="0.0" y="100" width="310" height="62"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k6N-ev-2Y5">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginRegister_Login_pwdTextFieldBackGround" translatesAutoresizingMaskIntoConstraints="NO" id="k6N-ev-2Y5">
                                     <rect key="frame" x="0.0" y="0.0" width="310" height="62"/>
                                 </imageView>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WdA-X6-Ipc">
-                                    <rect key="frame" x="50" y="10" width="210" height="42"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WdA-X6-Ipc">
+                                    <rect key="frame" x="70" y="10" width="190" height="42"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" textContentType="password"/>
                                 </textField>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="WdA-X6-Ipc" firstAttribute="leading" secondItem="2or-Hp-Udd" secondAttribute="leading" constant="50" id="F3j-3O-MuS"/>
+                                <constraint firstItem="WdA-X6-Ipc" firstAttribute="leading" secondItem="2or-Hp-Udd" secondAttribute="leading" constant="70" id="F3j-3O-MuS"/>
                                 <constraint firstAttribute="bottom" secondItem="WdA-X6-Ipc" secondAttribute="bottom" constant="10" id="GPx-r9-0Kt"/>
                                 <constraint firstAttribute="height" constant="62" id="LPr-sR-kqt"/>
                                 <constraint firstItem="k6N-ev-2Y5" firstAttribute="leading" secondItem="2or-Hp-Udd" secondAttribute="leading" id="V2M-yK-YD2"/>
@@ -154,6 +155,8 @@
         <image name="LoginRegister_Login_backGround" width="1080" height="1919"/>
         <image name="LoginRegister_Login_loginBtnBackground" width="250" height="56"/>
         <image name="LoginRegister_Login_personalImage" width="500" height="500"/>
+        <image name="LoginRegister_Login_phoneNumberTextFieldBackGround" width="310" height="62"/>
+        <image name="LoginRegister_Login_pwdTextFieldBackGround" width="310" height="62"/>
         <image name="LoginRegister_Login_registerBtnBackground" width="250" height="56"/>
     </resources>
 </document>
