@@ -37,6 +37,9 @@
 /** 颜色框superView*/
 @property(nonatomic,readwrite,weak) XZQPopBoxView *paintColorPopBoxView;
 
+/**选中的按钮 */
+@property(nonatomic,readwrite,strong) UIButton *selectedBtn;
+
 @end
 
 @implementation XZQPaintingTabBar
@@ -181,12 +184,24 @@
 static NSInteger i = 0;
 static NSInteger j = 0;
 - (void)showPaintColorPopBox:(UIButton *)btn{
+    
+    if(btn !=self.selectedBtn) {
+      self.selectedBtn.selected=NO;
+      btn.selected=YES;
+      self.selectedBtn= btn;
+    }else{
+      self.selectedBtn.selected=YES;
+    }
 
     
-    if (i % 2 == 0)
+    if (i % 2 == 0){
         [self.paintColorPopBoxView showPopBoxColor:showPopBoxColor];
-    else
+        btn.selected = true;
+    }
+    else{
         [self.paintColorPopBoxView showPopBoxColor:showPopBoxNone];
+        btn.selected = false;
+    }
     
     i++;
     j=0;
@@ -200,11 +215,23 @@ static NSInteger j = 0;
 
 
 - (void)showPaintSizePopBox:(UIButton *)btn{
+    
+    if(btn !=self.selectedBtn) {
+      self.selectedBtn.selected=NO;
+      btn.selected=YES;
+      self.selectedBtn= btn;
+    }else{
+      self.selectedBtn.selected=YES;
+    }
 
-    if (j % 2 == 0)
+    if (j % 2 == 0){
         [self.paintColorPopBoxView showPopBoxSize:showPopBoxSize];
-    else
+        btn.selected = true;
+    }
+    else{
         [self.paintColorPopBoxView showPopBoxSize:showPopBoxNone];
+        btn.selected = false;
+    }
     
     j++;
     i=0;

@@ -31,6 +31,9 @@
     
     //之前有没有设置头像
     [self checkPersonalImage];
+    
+    //让pwdTextField为密码框
+    self.pwdTextField.secureTextEntry = YES;
 }
 
 #pragma mark -----------------------------

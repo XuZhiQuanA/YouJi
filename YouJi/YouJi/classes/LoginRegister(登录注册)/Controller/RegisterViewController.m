@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *checkTextField;
 @property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
 
-
 @property (weak, nonatomic) IBOutlet UIButton *checkBtn;
 
 @property(nonatomic,readwrite,weak) UIViewController *parentVc;
@@ -38,10 +37,16 @@
     // Do any additional setup after loading the view from its nib.
     
     self.seconds = 60;
+    
+    //让pwdTextField为密码框
+    self.pwdTextField.secureTextEntry = YES;
 }
 
 
 - (IBAction)returnToLogin:(UIButton *)sender {
+    
+    //退出所有键盘
+    [self quitAllKeyBoard];
     
     if (self.parentVc != nil) {
         if (self.parentVc.view.tag == 1) {

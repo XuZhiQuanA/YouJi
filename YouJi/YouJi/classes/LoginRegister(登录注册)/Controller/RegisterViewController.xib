@@ -73,9 +73,9 @@
                                     </constraints>
                                 </imageView>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入电话号码" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="hZC-mI-PrC">
-                                    <rect key="frame" x="47" y="7" width="120" height="23"/>
+                                    <rect key="frame" x="47" y="7" width="260" height="23"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="120" id="H4T-9S-t3I"/>
+                                        <constraint firstAttribute="width" constant="260" id="H4T-9S-t3I"/>
                                         <constraint firstAttribute="height" constant="23" id="PPI-jp-Yxb"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -126,9 +126,9 @@
                                     </connections>
                                 </button>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="UzO-uU-a9C">
-                                    <rect key="frame" x="47" y="7" width="112" height="23"/>
+                                    <rect key="frame" x="47" y="7" width="170" height="23"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="112" id="6yu-5g-qy6"/>
+                                        <constraint firstAttribute="width" constant="170" id="6yu-5g-qy6"/>
                                         <constraint firstAttribute="height" constant="23" id="prP-Mk-Ri9"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -166,9 +166,9 @@
                                     </constraints>
                                 </imageView>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="u8I-EZ-wRk">
-                                    <rect key="frame" x="47" y="7" width="120" height="23"/>
+                                    <rect key="frame" x="47" y="7" width="260" height="23"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="120" id="DwU-PK-61v"/>
+                                        <constraint firstAttribute="width" constant="260" id="DwU-PK-61v"/>
                                         <constraint firstAttribute="height" constant="23" id="E1i-XM-WSf"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

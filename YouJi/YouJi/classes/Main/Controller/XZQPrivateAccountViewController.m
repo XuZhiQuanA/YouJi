@@ -40,6 +40,15 @@
 /** 第二张Year图*/
 @property(nonatomic,readwrite,weak) UIImageView *secondImageView;
 
+/** 公有或者私有账本的父view*/
+@property(nonatomic,readwrite,weak) UIView *publicOrPrivateSuperView;
+
+/** 公有账本btn*/
+@property(nonatomic,readwrite,weak) UIButton *publicOrPrivateSuperViewSubButtonTopBtn;
+
+/** 私有账本btn*/
+@property(nonatomic,readwrite,weak) UIButton *publicOrPrivateSuperViewSubButtonBottomBtn;
+
 @end
 
 @implementation XZQPrivateAccountViewController
@@ -95,6 +104,12 @@
         UILabel *textLabel = [[UILabel alloc] init];
         textLabel.text = @"私密账本";
         textLabel.font = [UIFont systemFontOfSize:25];
+        textLabel.userInteractionEnabled = true;//XColor(92, 94, 94)
+        textLabel.textColor = XColor(92, 94, 94);
+        //添加点按手势
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTextLabel)];
+        [textLabel addGestureRecognizer:tap];
+        
         textLabel;
         
     });
@@ -105,6 +120,7 @@
     UIButton *selectBtn = ({
         
         UIButton *selectBtn = [[UIButton alloc] init];
+        [selectBtn addTarget:self action:@selector(tapTextLabel) forControlEvents:UIControlEventTouchUpInside];
         selectBtn.backgroundColor = [UIColor redColor];
         selectBtn;
         
@@ -157,11 +173,96 @@
     self.innerSecondBtn = innerSecondBtn;
     [middleScrollView addSubview:innerSecondBtn];
     
+    //publicOrPrivateSuperView
+    UIView *publicOrPrivateSuperView = ({
+        
+        UIView *publicOrPrivateSuperView = [[UIView alloc] initWithFrame:CGRectMake(117, 60, 180, 114)];
+        publicOrPrivateSuperView.hidden = true;
+        publicOrPrivateSuperView.backgroundColor = [UIColor yellowColor];//117 13 180 161 CGRectMake(145, 13, 100, 35);
+        
+        publicOrPrivateSuperView;
+    });
+    
+    [self.view addSubview:publicOrPrivateSuperView];
+    self.publicOrPrivateSuperView = publicOrPrivateSuperView;
+    
+    //publicOrPrivateSuperViewBackgroundImageView
+    UIImageView *publicOrPrivateSuperViewBackgroundImageView = ({
+        
+        UIImageView *publicOrPrivateSuperViewBackgroundImageView = [[UIImageView alloc] initWithFrame:publicOrPrivateSuperView.bounds];
+        
+        publicOrPrivateSuperViewBackgroundImageView.image = [UIImage OriginalImageWithName:@"" toSize:publicOrPrivateSuperView.bounds.size];
+        
+        publicOrPrivateSuperViewBackgroundImageView;
+        
+    });
+    [publicOrPrivateSuperView addSubview:publicOrPrivateSuperViewBackgroundImageView];
+    
+    
+    //publicOrPrivateSuperViewSubButtonTop
+    UIButton *publicOrPrivateSuperViewSubButtonTopBtn = ({
+            
+        UIButton *publicOrPrivateSuperViewSubButtonTopBtn = [[UIButton alloc] init];
+        [publicOrPrivateSuperViewSubButtonTopBtn addTarget:self action:@selector(returnToPublicAccount:) forControlEvents:UIControlEventTouchUpInside];
+        publicOrPrivateSuperViewSubButtonTopBtn.backgroundColor = XRandomColor;
+        [publicOrPrivateSuperViewSubButtonTopBtn setTitle:@"公开账本" forState:UIControlStateNormal];
+//        publicOrPrivateSuperViewSubButtonTopBtn.titleLabel.tintColor = [UIColor blackColor];
+        [publicOrPrivateSuperViewSubButtonTopBtn setTitleColor:XColor(92, 94, 94) forState:UIControlStateNormal];
+        
+        publicOrPrivateSuperViewSubButtonTopBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+        publicOrPrivateSuperViewSubButtonTopBtn.titleLabel.font = [UIFont systemFontOfSize:25];
+        
+        publicOrPrivateSuperViewSubButtonTopBtn;
+        
+    });
+    [publicOrPrivateSuperView addSubview:publicOrPrivateSuperViewSubButtonTopBtn];
+    self.publicOrPrivateSuperViewSubButtonTopBtn = publicOrPrivateSuperViewSubButtonTopBtn;
+    
+    
+    //publicOrPrivateSuperViewSubButtonBottom
+    UIButton *publicOrPrivateSuperViewSubButtonBottomBtn = ({
+        
+        UIButton *publicOrPrivateSuperViewSubButtonBottomBtn = [[UIButton alloc] init];
+        [publicOrPrivateSuperViewSubButtonBottomBtn addTarget:self action:@selector(returnToPrivateAccount:) forControlEvents:UIControlEventTouchUpInside];
+        publicOrPrivateSuperViewSubButtonBottomBtn.backgroundColor = XRandomColor;
+        
+        [publicOrPrivateSuperViewSubButtonBottomBtn setTitle:@"私密账本" forState:UIControlStateNormal];
+        [publicOrPrivateSuperViewSubButtonBottomBtn setTitleColor:XColor(92, 94, 94) forState:UIControlStateNormal];
+        publicOrPrivateSuperViewSubButtonBottomBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+        publicOrPrivateSuperViewSubButtonBottomBtn.titleLabel.font = [UIFont systemFontOfSize:25];
+        
+        publicOrPrivateSuperViewSubButtonBottomBtn;
+    });
+    
+    [publicOrPrivateSuperView addSubview:publicOrPrivateSuperViewSubButtonBottomBtn];
+    self.publicOrPrivateSuperViewSubButtonBottomBtn = publicOrPrivateSuperViewSubButtonBottomBtn;
+    
 }
 
 - (void)showYearImage{
     
 }
+
+#pragma mark -----------------------------
+#pragma mark 点击公开或者私密账本
+- (void)returnToPublicAccount:(UIButton *)btn{
+    __weak typeof(self) weakSelf = self;
+    [self dismissViewControllerAnimated:self completion:^{
+        [weakSelf returnToPrivateAccount:nil];
+    }];
+    //点击WeBtn
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"clickWeBtn" object:nil];
+    //点击手账btn
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"clickShouZhangBtn" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"shouzhang" object:nil];
+}
+
+- (void)returnToPrivateAccount:(UIButton *)btn{
+    self.publicOrPrivateSuperView.hidden = true;
+}
+
+
+
 
 #pragma mark -----------------------------
 #pragma mark 展示年度图片
@@ -178,15 +279,18 @@
             self.firstImageView.hidden = !btn.showYearImage;
             
             if (self.firstImageView.hidden) {
+                
+                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"" toSize:btn.bounds.size] forState:UIControlStateNormal];
+                
                 //非展示状态 正常
                 [UIView animateWithDuration:0.5 animations:^{
                     weakSelf.innerSecondBtn.frame = CGRectMake(16, 113, 382, 50);
                     weakSelf.secondImageView.frame = CGRectMake(weakSelf.innerSecondBtn.frame.origin.x, CGRectGetMaxY(weakSelf.innerSecondBtn.frame), weakSelf.innerSecondBtn.bounds.size.width, 100);
                 }];
                 
-                
             }else{
                 //展示状态 向下偏移
+                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"" toSize:btn.bounds.size] forState:UIControlStateNormal];
                 
                 [UIView animateWithDuration:0.5 animations:^{
                     weakSelf.innerSecondBtn.frame = CGRectMake(16, 668, 382, 50);
@@ -200,6 +304,16 @@
             
         case 2:
             self.secondImageView.hidden = !btn.showYearImage;
+            
+            if (self.secondImageView.hidden){
+                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"" toSize:btn.bounds.size] forState:UIControlStateNormal];
+            }else{
+                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"" toSize:btn.bounds.size] forState:UIControlStateNormal];
+            }
+            
+            
+            
+            
             break;
             
         default:
@@ -208,9 +322,14 @@
     
 }
 
-#pragma mark -----------------------------
-#pragma mark 展示YearImageView
 
+#pragma mark -----------------------------
+#pragma mark textLabel添加点按手势
+- (void)tapTextLabel{
+    self.publicOrPrivateSuperView.hidden = !self.publicOrPrivateSuperView.hidden;
+    XFunc
+    
+}
 
 
 
@@ -244,9 +363,10 @@
     
     //1.3 selectBtn
     self.selectBtn.frame = CGRectMake(254, 24, 15, 13);
-    if (self.selectBtn.currentBackgroundImage == nil)
-        [self.selectBtn setBackgroundImage:[UIImage OriginalImageWithName:@"" toSize:CGSizeMake(self.selectBtn.bounds.size.width, self.selectBtn.bounds.size.height)] forState:UIControlStateNormal];
-        
+    
+    [self.selectBtn setBackgroundImage:[UIImage OriginalImageWithName:@"" toSize:CGSizeMake(self.selectBtn.bounds.size.width, self.selectBtn.bounds.size.height)] forState:UIControlStateNormal];
+    [self.selectBtn setBackgroundImage:[UIImage OriginalImageWithName:@"" toSize:CGSizeMake(self.selectBtn.bounds.size.width, self.selectBtn.bounds.size.height)] forState:UIControlStateSelected];
+    
     
     //2.middleScrollView
     self.middleScrollView.frame = CGRectMake(0, topScreenH, ScreenW, ScreenH-topScreenH);
@@ -255,8 +375,6 @@
     self.innerFirstBtn.frame = CGRectMake(16, 23, 382, 50);
     
     self.firstImageView.frame = CGRectMake(self.innerFirstBtn.frame.origin.x, CGRectGetMaxY(self.innerFirstBtn.frame), self.innerFirstBtn.bounds.size.width, 100);
-    
-    
     
     //2.2
     if (self.innerFirstBtn.showYearImage) {
@@ -269,6 +387,14 @@
     
     self.secondImageView.frame = CGRectMake(self.innerSecondBtn.frame.origin.x, CGRectGetMaxY(self.innerSecondBtn.frame), self.innerSecondBtn.bounds.size.width, 100);
     
+    //publicOrPrivateSuperView
+    self.publicOrPrivateSuperView.frame = CGRectMake(117, 60, 180, 120);
+    
+    //publicOrPrivateSuperViewSubButtonTopBtn
+    self.publicOrPrivateSuperViewSubButtonTopBtn.frame = CGRectMake(0, 0, self.publicOrPrivateSuperView.bounds.size.width, self.publicOrPrivateSuperView.bounds.size.height*0.5);
+    
+    //publicOrPrivateSuperViewSubButtonBottomBtn
+    self.publicOrPrivateSuperViewSubButtonBottomBtn.frame = CGRectMake(0, self.publicOrPrivateSuperView.bounds.size.height*0.5, self.publicOrPrivateSuperViewSubButtonTopBtn.bounds.size.width, self.publicOrPrivateSuperViewSubButtonTopBtn.bounds.size.height);
 }
 
 #pragma mark -----------------------------
@@ -303,5 +429,24 @@
     
     return _secondImageView;
 }
+
+//- (UIView *)publicOrPrivateSuperView{
+//
+//    if (_publicOrPrivateSuperView == nil) {
+//
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(117, 60, 180, 114)];
+//        view.hidden = true;
+//        view.backgroundColor = [UIColor yellowColor];//117 13 180 161 CGRectMake(145, 13, 100, 35);
+//        [self.view addSubview:view];
+//
+//        UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:view.bounds];
+//        [view addSubview:backgroundImageView];
+//        backgroundImageView.image = [UIImage OriginalImageWithName:@"" toSize:view.bounds.size];
+//
+//        _publicOrPrivateSuperView = view;
+//    }
+//
+//    return _publicOrPrivateSuperView;
+//}
 
 @end
