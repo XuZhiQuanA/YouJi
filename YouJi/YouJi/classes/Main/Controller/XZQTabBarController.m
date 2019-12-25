@@ -15,6 +15,8 @@
 #import "FancyTabBarViewController.h"
 #import "ShouZhangViewController.h"
 #import "UIImage+Category.h"
+#import "XZQPrivateAccountView.h"
+#import "XZQPrivateAccountViewController.h"
 
 #define rotateX 179
 #define rotateY 656
@@ -45,8 +47,11 @@
 /** 相册管理Vc*/
 @property(nonatomic,readwrite,strong) UIImagePickerController *picker;
 
+/** 偏好设置*/
 @property(nonatomic,readwrite,strong) NSUserDefaults *userDefault;
 
+/** 私有账本ViewController*/
+@property(nonatomic,readwrite,strong) XZQPrivateAccountViewController *privateAVC;
 
 @end
 
@@ -167,7 +172,17 @@
     
     //XZQMySettingViewWantShowSystemAlbum
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSystemAlbum) name:@"XZQMySettingViewWantShowSystemAlbum" object:nil];
+    //showPrivateAccountView
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPrivateAccountView) name:@"showPrivateAccountView" object:nil];
+}
+
+#pragma mark -----------------------------
+#pragma mark 展示私有账本
+
+- (void)showPrivateAccountView{
     
+    self.privateAVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:self.privateAVC animated:YES completion:nil];
     
 }
 
@@ -433,6 +448,19 @@
 //    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"XZQMySettingViewWantShowSystemAlbum" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
+}
+
+#pragma mark -----------------------------
+#pragma mark 懒加载
+- (XZQPrivateAccountViewController *)privateAVC{
+    
+    if (_privateAVC == nil) {
+        
+        _privateAVC = [[XZQPrivateAccountViewController alloc] init];
+        
+    }
+    
+    return _privateAVC;
 }
 
 

@@ -199,7 +199,7 @@
             
             //私密
         case 2:
-        
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"showPrivateAccountView" object:nil];
             break;
             
         default:

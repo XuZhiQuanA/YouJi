@@ -37,6 +37,11 @@
 		C994D1C0239DE2E6007631DD /* PaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C994D1BF239DE2E6007631DD /* PaintingView.m */; };
 		C994D1C3239E4A1E007631DD /* XZQPaintingTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C994D1C2239E4A1E007631DD /* XZQPaintingTabBar.m */; };
 		C9B17F56239CBAF800DB5013 /* XZQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B17F55239CBAF800DB5013 /* XZQTextView.m */; };
+		C9BA1BD323B0E7C500F33A50 /* XZQPrivateAccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BA1BD223B0E7C500F33A50 /* XZQPrivateAccountView.m */; };
+		C9BA1BD623B0EE7C00F33A50 /* XZQPrivateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BA1BD523B0EE7C00F33A50 /* XZQPrivateAccountViewController.m */; };
+		C9BA1BD923B1CFF400F33A50 /* TagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BA1BD823B1CFF400F33A50 /* TagsView.m */; };
+		C9BA1BDC23B1E7CA00F33A50 /* TagsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BA1BDB23B1E7CA00F33A50 /* TagsItem.m */; };
+		C9BA1BDF23B1EF6B00F33A50 /* XZQDragbleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BA1BDE23B1EF6B00F33A50 /* XZQDragbleImageView.m */; };
 		C9E415C92399D6B20057782E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9E415B42399D6B20057782E /* InfoPlist.strings */; };
 		C9E415CC2399D6B20057782E /* FancyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E415BF2399D6B20057782E /* FancyTabBar.m */; };
 		C9E415D02399D6B20057782E /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E415C32399D6B20057782E /* Coordinate.m */; };
@@ -128,6 +133,16 @@
 		C9BA1BCA23B0709500F33A50 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		C9BA1BCC23B070A000F33A50 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		C9BA1BCE23B070A800F33A50 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		C9BA1BD123B0E7C500F33A50 /* XZQPrivateAccountView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQPrivateAccountView.h; sourceTree = "<group>"; };
+		C9BA1BD223B0E7C500F33A50 /* XZQPrivateAccountView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQPrivateAccountView.m; sourceTree = "<group>"; };
+		C9BA1BD423B0EE7C00F33A50 /* XZQPrivateAccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQPrivateAccountViewController.h; sourceTree = "<group>"; };
+		C9BA1BD523B0EE7C00F33A50 /* XZQPrivateAccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQPrivateAccountViewController.m; sourceTree = "<group>"; };
+		C9BA1BD723B1CFF400F33A50 /* TagsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagsView.h; sourceTree = "<group>"; };
+		C9BA1BD823B1CFF400F33A50 /* TagsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsView.m; sourceTree = "<group>"; };
+		C9BA1BDA23B1E7CA00F33A50 /* TagsItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagsItem.h; sourceTree = "<group>"; };
+		C9BA1BDB23B1E7CA00F33A50 /* TagsItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsItem.m; sourceTree = "<group>"; };
+		C9BA1BDD23B1EF6B00F33A50 /* XZQDragbleImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQDragbleImageView.h; sourceTree = "<group>"; };
+		C9BA1BDE23B1EF6B00F33A50 /* XZQDragbleImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQDragbleImageView.m; sourceTree = "<group>"; };
 		C9E415B32399D6B20057782E /* FancyTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBar.h; sourceTree = "<group>"; };
 		C9E415B52399D6B20057782E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9E415B72399D6B20057782E /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -301,6 +316,8 @@
 				C9F2CA1823973E0200D705E7 /* XZQOnlyLabelButton.m */,
 				C9F2CA1A2397431000D705E7 /* XZQNoHighlightedButton.h */,
 				C9F2CA1B2397431000D705E7 /* XZQNoHighlightedButton.m */,
+				C9BA1BD123B0E7C500F33A50 /* XZQPrivateAccountView.h */,
+				C9BA1BD223B0E7C500F33A50 /* XZQPrivateAccountView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -319,6 +336,8 @@
 				C9213BE2239643480062EB6C /* XZQTabBarController.m */,
 				C9E415D72399D7540057782E /* FancyTabBarViewController.h */,
 				C9E415D82399D7540057782E /* FancyTabBarViewController.m */,
+				C9BA1BD423B0EE7C00F33A50 /* XZQPrivateAccountViewController.h */,
+				C9BA1BD523B0EE7C00F33A50 /* XZQPrivateAccountViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -424,6 +443,8 @@
 			children = (
 				C958D037239B9E1D00EF592A /* WallPaperView.h */,
 				C958D038239B9E1D00EF592A /* WallPaperView.m */,
+				C9BA1BD723B1CFF400F33A50 /* TagsView.h */,
+				C9BA1BD823B1CFF400F33A50 /* TagsView.m */,
 				C9B17F54239CBAF800DB5013 /* XZQTextView.h */,
 				C9B17F55239CBAF800DB5013 /* XZQTextView.m */,
 				C994D1BB239DD5BF007631DD /* KBTextView.h */,
@@ -438,6 +459,8 @@
 				C90BA725239F628200A8DC8C /* XZQPopBoxView.m */,
 				C9490AAB23A0D18100299CBD /* XZQButton.h */,
 				C9490AAC23A0D18100299CBD /* XZQButton.m */,
+				C9BA1BDD23B1EF6B00F33A50 /* XZQDragbleImageView.h */,
+				C9BA1BDE23B1EF6B00F33A50 /* XZQDragbleImageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -445,6 +468,8 @@
 		C958D031239B6C2700EF592A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C9BA1BDA23B1E7CA00F33A50 /* TagsItem.h */,
+				C9BA1BDB23B1E7CA00F33A50 /* TagsItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -684,6 +709,7 @@
 			files = (
 				C967A2BB239921E900F49965 /* XZQTableViewCellTwo.m in Sources */,
 				C9490AAA23A0AC5100299CBD /* MyBezierPath.m in Sources */,
+				C9BA1BD623B0EE7C00F33A50 /* XZQPrivateAccountViewController.m in Sources */,
 				C9EC1FDE23ADFA690082D9BD /* RegisterViewController.m in Sources */,
 				C9E415D02399D6B20057782E /* Coordinate.m in Sources */,
 				C9EC1FE223ADFAF00082D9BD /* LRViewController.m in Sources */,
@@ -698,16 +724,19 @@
 				C9E415D32399D6B20057782E /* UIView+Screenshot.m in Sources */,
 				C9B17F56239CBAF800DB5013 /* XZQTextView.m in Sources */,
 				C9213BFB2396799D0062EB6C /* UIImage+Category.m in Sources */,
+				C9BA1BDC23B1E7CA00F33A50 /* TagsItem.m in Sources */,
 				C9213BF12396712C0062EB6C /* WeViewController.m in Sources */,
 				C9F2CA0D239727E000D705E7 /* XZQTabBarView.m in Sources */,
 				C967A2B223991BCA00F49965 /* XZQMySettingView.m in Sources */,
 				C9E415D92399D7540057782E /* FancyTabBarViewController.m in Sources */,
 				C958D035239B6C6D00EF592A /* ShouZhangViewController.m in Sources */,
+				C9BA1BD923B1CFF400F33A50 /* TagsView.m in Sources */,
 				C9213BCE23962BBF0062EB6C /* main.m in Sources */,
 				C9F2CA1923973E0200D705E7 /* XZQOnlyLabelButton.m in Sources */,
 				C9E415CC2399D6B20057782E /* FancyTabBar.m in Sources */,
 				C967A2A92398A7E800F49965 /* XZQShowZhangScrollView.m in Sources */,
 				C9213BE4239643490062EB6C /* XZQTabBarController.m in Sources */,
+				C9BA1BDF23B1EF6B00F33A50 /* XZQDragbleImageView.m in Sources */,
 				C994D1C3239E4A1E007631DD /* XZQPaintingTabBar.m in Sources */,
 				C967A2B623991EE500F49965 /* XZQTableViewCellOne.m in Sources */,
 				C958D039239B9E1D00EF592A /* WallPaperView.m in Sources */,
@@ -717,6 +746,7 @@
 				C9F2CA2023974C6B00D705E7 /* XZQVideoTableViewCell.m in Sources */,
 				C967A2AF2398E3C200F49965 /* XZQShowNewContentViewController.m in Sources */,
 				C9EC1FD923ADF9AB0082D9BD /* LoginViewController.m in Sources */,
+				C9BA1BD323B0E7C500F33A50 /* XZQPrivateAccountView.m in Sources */,
 				C9F2CA2423974CFD00D705E7 /* XZQVideoItem.m in Sources */,
 				C9F2CA1C2397431000D705E7 /* XZQNoHighlightedButton.m in Sources */,
 				C9F2CA1323972E3E00D705E7 /* XZQTopImageBottomLabelButton.m in Sources */,
@@ -885,7 +915,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.XZQ.YouJi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.XZQ.YouJiTest;
 				PRODUCT_NAME = "游记";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -911,7 +941,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.XZQ.YouJi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.XZQ.YouJiTest;
 				PRODUCT_NAME = "游记";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

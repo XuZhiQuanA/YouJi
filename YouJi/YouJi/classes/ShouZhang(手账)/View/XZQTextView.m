@@ -36,7 +36,7 @@
         self.textView = [[KBTextView alloc]initWithFrame:self.bounds];
         [self addSubview:self.textView];
         self.textView.delegate = (id)self;
-        self.textView.backgroundColor = [UIColor blueColor];
+//        self.textView.backgroundColor = [UIColor blueColor];
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(textViewPan:)];
         self.panGesture = pan;
         [self addGestureRecognizer:pan];
@@ -110,6 +110,10 @@
      
 }
 
+- (void)popKeyBoard{
+    [self.textView becomeFirstResponder];
+}
+
 //文字
 - (void)textViewPan:(UIPanGestureRecognizer *)pan{
     CGPoint curPoint = [pan translationInView:pan.view];
@@ -178,7 +182,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     XLog(@"XZQTextView - touchesBegan");
-    
+
 }
 
 @end

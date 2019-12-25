@@ -11,6 +11,7 @@
 #import "UIImage+ImageEffects.h"
 #import "FancyTabBar.h"
 #import "Coordinate.h"
+#import "SVProgressHUD.h"
 
 
 
@@ -151,9 +152,14 @@
     // 判断是否支持需要设置的sourceType
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        self.imagePickerController.delegate = self;
         self.imagePickerController.mediaTypes = @[mediaTypes[1]];
         self.imagePickerController.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
         [self presentViewController:self.imagePickerController animated:YES completion:nil];
+        
+        
+        
+        
     }else {
         NSLog(@"当前设备不支持录像");
         UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"温馨提示"
@@ -168,6 +174,43 @@
                            animated:YES
                          completion:nil];
     }
+}
+
+//保存录制的视频
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+
+    NSString* path = [[info objectForKey:UIImagePickerControllerMediaURL] path];
+
+    // 保存视频
+    UISaveVideoAtPathToSavedPhotosAlbum(path, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
+    
+    __weak typeof(self) weakSelf = self;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+    });
+    
+    
+    
+ }
+
+ 
+
+// 视频保存回调
+
+- (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo: (void *)contextInfo {
+
+    NSLog(@"%@",videoPath);
+
+    NSLog(@"%@",error);
+    
+    [SVProgressHUD showSuccessWithStatus:@"视频已保存到相册 请注意查看~"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismiss];
+        
+    });
+
 }
 
 @end

@@ -57,7 +57,7 @@
 //添加按钮
 - (void)initialize{
     
-    self.backgroundColor = [UIColor redColor];
+    self.backgroundColor = [UIColor clearColor];
     
     //添加一个背景图
     [self setupBackgroundImageOfPaintingTabBar];
@@ -88,7 +88,7 @@
 #pragma mark 添加画笔tabbar背景图
 - (void)setupBackgroundImageOfPaintingTabBar{
     UIImageView *imageV = [[UIImageView alloc] initWithFrame:self.bounds];
-    imageV.backgroundColor = [UIColor yellowColor];
+    imageV.image = [UIImage OriginalImageWithName:@"EditShouZhang_paint_bottomBarBackground" toSize:imageV.bounds.size];
     [self addSubview:imageV];
     self.backgroundImageView = imageV;
 }
@@ -141,6 +141,8 @@
             case 2:
                 //按钮2 176 689-676 34 34
                 btn.frame = CGRectMake(176, 13, 34, 34);//按钮隐藏掉在层级图中是看不见的 控件的alpha==0 在层级图中是可以看见的 是透明的
+                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"EditShouZhang_paint_color_normal" toSize:CGSizeMake(btn.bounds.size.width, btn.bounds.size.height)] forState:UIControlStateNormal];
+                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"EditShouZhang_paint_color_selected" toSize:CGSizeMake(btn.bounds.size.width, btn.bounds.size.height)] forState:UIControlStateSelected];
 //                btn.alpha = 0;
                 
             break;
@@ -148,6 +150,8 @@
             case 3:
                 //按钮3 294 689-676 34 34
                 btn.frame = CGRectMake(294, 13, 34, 34);
+                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"EditShouZhang_paint_size_normal" toSize:CGSizeMake(btn.bounds.size.width, btn.bounds.size.height)] forState:UIControlStateNormal];
+                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"EditShouZhang_paint_size_selected" toSize:CGSizeMake(btn.bounds.size.width, btn.bounds.size.height)] forState:UIControlStateSelected];
 
             break;
                 
@@ -155,9 +159,8 @@
                 break;
         }
         
-        btn.backgroundColor = XRandomColor;
+        
     }
-    
     
 }
 
@@ -176,7 +179,7 @@
 #pragma mark -----------------------------
 #pragma mark 展示选择画笔颜色的弹框
 static NSInteger i = 0;
-
+static NSInteger j = 0;
 - (void)showPaintColorPopBox:(UIButton *)btn{
 
     
@@ -186,7 +189,7 @@ static NSInteger i = 0;
         [self.paintColorPopBoxView showPopBoxColor:showPopBoxNone];
     
     i++;
-    
+    j=0;
     XFunc;
 }
 
@@ -194,7 +197,7 @@ static NSInteger i = 0;
 #pragma mark -----------------------------
 #pragma mark 展示选择画笔大小的弹框
 
-static NSInteger j = 0;
+
 
 - (void)showPaintSizePopBox:(UIButton *)btn{
 
@@ -204,7 +207,7 @@ static NSInteger j = 0;
         [self.paintColorPopBoxView showPopBoxSize:showPopBoxNone];
     
     j++;
-    
+    i=0;
     XFunc;
     
 }
@@ -281,7 +284,7 @@ static NSInteger j = 0;
 - (XZQPopBoxView *)paintColorPopBoxView{
     if (_paintColorPopBoxView == nil) {
         XZQPopBoxView *paintColorPopBoxView = [[XZQPopBoxView alloc] initWithFrame:CGRectMake(paintColorPopBoxViewX, paintColorPopBoxViewY, paintColorPopBoxViewW, paintColorPopBoxViewH)];
-        paintColorPopBoxView.backgroundColor = [UIColor redColor];
+//        paintColorPopBoxView.backgroundColor = [UIColor redColor];
         [self addSubview:paintColorPopBoxView];
         _paintColorPopBoxView = paintColorPopBoxView;
     }

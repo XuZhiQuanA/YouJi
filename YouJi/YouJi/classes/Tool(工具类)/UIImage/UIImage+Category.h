@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIImage *)OriginalImageWithName:(NSString *)imageName toSize:(CGSize)size;
 
+- (UIImage *)imageWithSize:(CGSize)size;
+
 +(NSData*)getDataFromImage:(UIImage*)image;
 @end
 

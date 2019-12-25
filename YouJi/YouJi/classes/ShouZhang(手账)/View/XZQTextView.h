@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)quitKeyBoard;
 
+- (void)popKeyBoard;
+
 @end
 
 NS_ASSUME_NONNULL_END

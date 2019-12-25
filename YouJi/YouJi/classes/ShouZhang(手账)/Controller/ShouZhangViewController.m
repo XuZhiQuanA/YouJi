@@ -7,21 +7,19 @@
 //
 
 #import "ShouZhangViewController.h"
-
 #import "WallPaperView.h"
-
 #import "XZQTextView.h"
-
 #import "XZQPaintingTabBar.h"
-
 #import "PaintingView.h"
 #import "XZQNoHighlightedButton.h"
+#import "TagsView.h"
+#import "TagsItem.h"
+#import "XZQDragbleImageView.h"
+#import "SVProgressHUD.h"
 
 #define wallPaperViewH 658
-
 #define tabBarOrigionalH 78
 #define tabBarPaintingTabBarH 60
-
 #define middleViewH 609
 #define middleViewY 49
 
@@ -29,6 +27,15 @@
 
 /** 壁纸view*/
 @property(nonatomic,readwrite,weak) WallPaperView *wallPaperView;
+
+/** 显示壁纸的imageView*/
+@property(nonatomic,readwrite,weak) UIImageView *wallPaperImageV;
+
+/** 贴纸view*/
+@property(nonatomic,readwrite,weak) TagsView *tagsView;
+
+/** 显示贴纸的imageView*/
+@property(nonatomic,readwrite,weak) XZQDragbleImageView *tagsViewImageV;
 
 /** 相册管理Vc*/
 @property(nonatomic,readwrite,strong) UIImagePickerController *picker;
@@ -39,8 +46,7 @@
 /** 限制拖动的范围*/
 @property(nonatomic,readwrite,weak) UIView *showSelectedImageFromAlbumSuperView;
 
-/** 显示壁纸的imageView*/
-@property(nonatomic,readwrite,weak) UIImageView *wallPaperImageV;
+
 
 /** 手账记录textField*/
 @property(nonatomic,readwrite,weak) UITextField *szTextField;
@@ -87,6 +93,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showTabBar) name:@"XZQPaintingTabBarWantShowShowZhangTabBar" object:nil];
     //changeWallPaper
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeWallPaper:) name:@"changeWallPaper" object:nil];
+    //addTags
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addTags:) name:@"addTags" object:nil];
 }
 
 #pragma mark -----------------------------
@@ -102,6 +110,17 @@
     self.wallPaperImageV.image = wallPaper;
     
 }
+
+- (void)addTags:(NSNotification *)notification{
+    TagsItem *item = notification.userInfo[@"tagsItem"];
+    UIImage *tagsImage = notification.userInfo[@"tagsImage"];
+    self.tagsViewImageV.bounds = CGRectMake(0, 0, item.width, item.height);
+    _tagsViewImageV.image = [tagsImage imageWithSize:CGSizeMake(item.width, item.height)];
+    
+    
+}
+
+
 
 static NSInteger i = 0;
 static NSInteger j = 0;
@@ -138,12 +157,14 @@ static NSInteger j = 0;
             
             //壁纸 点击壁纸按钮 再去加载这个view 懒加载
             self.wallPaperView.hidden = false;
-            
-            
+            self.tagsView.hidden = true;
         break;
             
         case 6:
-        
+            //贴纸 和壁纸用一个view吧 贴纸可以放多张 得创建很多的UIImageView 在WallPaperView里面改
+            self.tagsView.hidden = false;
+            self.wallPaperView.hidden = true;
+            
         break;
             
         case 7:
@@ -203,6 +224,9 @@ static NSInteger j = 0;
     //wallPaperView
     self.wallPaperView.frame = CGRectMake(0, 0, ScreenW, wallPaperViewH);
     
+    //tagView
+    self.tagsView.frame = CGRectMake(0, 0, ScreenW, wallPaperViewH);
+    
     //showSelectedImageFromAlbum
     self.showSelectedImageFromAlbum.bounds = CGRectMake(0, 0, 200, 200);
     self.showSelectedImageFromAlbum.center = CGPointMake(ScreenW *0.5, self.view.bounds.size.height*0.5);
@@ -237,7 +261,7 @@ static NSInteger j = 0;
 
 - (void)editTextView{
     self.textView.hidden = false;
-    
+    [self.textView popKeyBoard];
 }
 
 
@@ -418,6 +442,10 @@ static NSInteger j = 0;
     //保存到相册
     UIImageWriteToSavedPhotosAlbum(image, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), nil);
     
+    [SVProgressHUD showSuccessWithStatus:@"保存到相册啦"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismiss];
+    });
     XFunc;
 }
 
@@ -444,6 +472,16 @@ static NSInteger j = 0;
     }
     
     return _wallPaperView;
+}
+
+- (TagsView *)tagsView{
+    if (_tagsView == nil) {
+        TagsView *view = [[TagsView alloc] init];
+        [self.view addSubview:view];
+        _tagsView = view;
+    }
+    
+    return _tagsView;
 }
 
 - (UIImagePickerController *)picker{
@@ -510,7 +548,7 @@ static NSInteger j = 0;
     if (_szTextField == nil) {
         UITextField *textField = [[UITextField alloc] init];
         textField.hidden = true;
-        textField.backgroundColor = [UIColor blueColor];
+//        textField.backgroundColor = [UIColor blueColor];
         textField.delegate = self;
         [self.view addSubview:textField];
         
@@ -561,11 +599,9 @@ static NSInteger j = 0;
     return _middleView;
 }
 
+
 #pragma mark -----------------------------
-#pragma mark dealloc
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+#pragma mark 懒加载
 
 - (UIImageView *)wallPaperImageV{
     
@@ -579,4 +615,20 @@ static NSInteger j = 0;
     return _wallPaperImageV;
 }
 
+- (XZQDragbleImageView *)tagsViewImageV{
+    
+    XZQDragbleImageView *imageV = [[XZQDragbleImageView alloc] init];
+    imageV.center = CGPointMake(50, 50);
+    [self.showSelectedImageFromAlbumSuperView addSubview:imageV];
+    _tagsViewImageV = imageV;
+    
+    return _tagsViewImageV;
+}
+
+
+#pragma mark -----------------------------
+#pragma mark dealloc
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

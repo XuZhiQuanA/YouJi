@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-//#import "XZQTabBarController.h"
+#import "XZQTabBarController.h"
 #import "LRViewController.h"
 //#import <ShareSDK/ShareSDK.h>
 
@@ -29,6 +29,7 @@
     LRViewController *lrVc = [[LRViewController alloc] init];
 
     self.window.rootViewController = lrVc;
+//    self.window.rootViewController = tabBarVc;
     
     [self.window makeKeyAndVisible];
     

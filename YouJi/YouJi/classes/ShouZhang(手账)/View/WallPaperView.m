@@ -51,7 +51,6 @@
     
     if (self) {
         
-        
         //初始化
         [self initialize];
     }

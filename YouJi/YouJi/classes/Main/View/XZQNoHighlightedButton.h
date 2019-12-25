@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XZQNoHighlightedButton : UIButton
 
+/**用于私密账本 是否展示年度照片*/
+@property(nonatomic,assign) BOOL showYearImage;
+
 @end
 
 NS_ASSUME_NONNULL_END

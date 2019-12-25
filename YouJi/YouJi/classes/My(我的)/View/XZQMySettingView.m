@@ -10,6 +10,8 @@
 #import "XZQTableViewCellOne.h"
 #import "XZQTableViewCellTwo.h"
 #import "XZQTableViewCellThree.h"
+#import "LRViewController.h"
+#import "SVProgressHUD.h"
 
 @interface XZQMySettingView()<UITableViewDataSource,UITableViewDelegate>
 
@@ -279,7 +281,6 @@ const CGFloat quitLoginBtnH = 49;
     
     [cell.nameTextField becomeFirstResponder];
     
-    
     XFunc;
 }
 
@@ -299,7 +300,21 @@ const CGFloat quitLoginBtnH = 49;
 - (void)quitToMyView:(UIButton *)btn{
     
     XFunc;
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"XZQMySettingViewWantXZQTabBarControllerToShowMyVCView" object:nil];
+    //退出登录
+    
+    //1.提示弹框
+    [SVProgressHUD showSuccessWithStatus:@"退出中..."];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //2.真正退出
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        LRViewController *lrVc = [[LRViewController alloc] init];
+        window.rootViewController = lrVc;
+        
+        [SVProgressHUD dismiss];
+    });
+    
+    
     
 }
 

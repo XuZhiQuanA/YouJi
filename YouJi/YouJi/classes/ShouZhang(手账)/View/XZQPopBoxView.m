@@ -47,7 +47,7 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-            
+        
         //初始化
         [self initialize];
     
@@ -58,7 +58,7 @@
 
 - (void)initialize{
     
-    self.backgroundColor = [UIColor redColor];
+    self.backgroundColor = [UIColor clearColor];
     
     //创建颜色弹框
     [self setupColorPopBox];
@@ -70,12 +70,13 @@
 - (void)setupColorPopBox{
     
     UIView *view = [[UIView alloc] initWithFrame:self.bounds];
-    view.backgroundColor = [UIColor yellowColor];
+//    view.backgroundColor = [UIColor yellowColor];
     view.hidden = true;
     [self addSubview:view];
     self.colorBoxSuperView = view;
     
     UIImageView *imageV = [[UIImageView alloc] initWithFrame:self.bounds];
+    imageV.image = [UIImage OriginalImageWithName:@"EditShouZhang_paint_colorPopBoxBackground" toSize:imageV.bounds.size];
     imageV.tag = 1;
     [view addSubview:imageV];
     self.backgroundImageView = imageV;
@@ -84,7 +85,10 @@
     for (NSInteger i = 0; i < colorBtnCount; i++) {
         
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.backgroundColor = XRandomColor;
+        btn.layer.cornerRadius = 7.0;
+        
+        btn.backgroundColor = [self backgroundColorOfEachPaint:i];
+        
         btn.tag = (i+2);
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -98,6 +102,114 @@
     }
 }
 
+#pragma mark -----------------------------
+#pragma mark 返回本项目中each画笔的背景颜色
+- (UIColor *)backgroundColorOfEachPaint:(NSInteger)tag{
+    
+    UIColor *color;
+    
+    switch (tag) {
+        case 0:
+            color = XColor(0, 0,0);
+            break;
+        case 1:
+            color = XColor(209, 180, 122);
+            break;
+        case 2:
+            color = XColor(159, 140, 122);
+            break;
+        case 3:
+            color = XColor(114, 113, 113);
+            break;
+            
+        case 4:
+            color = XColor(69, 159, 227);
+            break;
+            
+        case 5:
+            color = XColor(109, 191, 235);
+            break;
+            
+        case 6:
+            color = XColor(147, 182, 221);
+            break;
+            
+        case 7:
+            color = XColor(96, 114, 177);
+            break;
+            
+        case 8:
+            color = XColor(211, 45, 38);
+            break;
+        
+        case 9:
+            color = XColor(221, 119, 135);
+            break;
+            
+        case 10:
+            color = XColor(220, 119, 165);
+            break;
+            
+        case 11:
+            color = XColor(235, 183, 179);
+            break;
+            
+        case 12:
+            color = XColor(183, 213, 170);
+            break;
+            
+        case 13:
+            color = XColor(153, 192, 67);
+            break;
+            
+        case 14:
+            color = XColor(64, 142, 69);
+            break;
+            
+        case 15:
+            color = XColor(144, 192, 114);
+            break;
+            
+        case 16:
+            color = XColor(246, 237, 82);
+            break;
+        case 17:
+            color = XColor(242, 242, 178);
+            break;
+        case 18:
+            color = XColor(238, 183, 76);
+            break;
+        case 19:
+            color = XColor(229, 148, 90);
+            break;
+            
+        case 20:
+            color = XColor(169, 148, 192);
+            break;
+            
+        case 21:
+            color = XColor(167, 175, 213);
+            break;
+            
+        case 22:
+            color = XColor(172, 213, 215);
+            break;
+            
+        case 23:
+            color = XColor(95, 154, 149);
+            break;
+            
+            
+        
+            
+        default:
+            break;
+    }
+    
+    return color;
+}
+
+
 - (void)setupSizePopBox{
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, sizePopBoxY, self.bounds.size.width, sizePopBoxH)];
@@ -105,11 +217,16 @@
     [self addSubview:view];
     self.sizeBoxSuperView = view;
     
+    UIImageView *imageV = [[UIImageView alloc] initWithFrame:view.bounds];
+    imageV.image = [UIImage OriginalImageWithName:@"EditShouZhang_paint_sizePopBoxBackground" toSize:imageV.bounds.size];
+    imageV.tag = 2;
+    [view addSubview:imageV];
+    
     for (NSInteger i = 0; i<sizeBtnCount; i++) {
         
         UIButton *btn = [[UIButton alloc] init];
         btn.tag = (i+28);
-        btn.backgroundColor = XRandomColor;
+        btn.backgroundColor = XColor(187, 187, 187);
         [view addSubview:btn];
         
         switch (i) {
@@ -143,6 +260,8 @@
             default:
                 break;
         }
+        
+        btn.layer.cornerRadius = btn.frame.size.width*0.5;
     }
     
     
