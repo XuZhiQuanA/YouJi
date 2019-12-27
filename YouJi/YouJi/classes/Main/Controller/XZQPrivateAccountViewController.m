@@ -70,6 +70,8 @@
 #pragma mark 构建界面
 
 - (void)setupChildView{
+
+    
     
     //1.topView
     UIView *topView = ({
@@ -121,7 +123,7 @@
         
         UIButton *selectBtn = [[UIButton alloc] init];
         [selectBtn addTarget:self action:@selector(tapTextLabel) forControlEvents:UIControlEventTouchUpInside];
-        selectBtn.backgroundColor = [UIColor redColor];
+//        selectBtn.backgroundColor = [UIColor redColor];
         selectBtn;
         
     });
@@ -191,7 +193,7 @@
         
         UIImageView *publicOrPrivateSuperViewBackgroundImageView = [[UIImageView alloc] initWithFrame:publicOrPrivateSuperView.bounds];
         
-        publicOrPrivateSuperViewBackgroundImageView.image = [UIImage OriginalImageWithName:@"" toSize:publicOrPrivateSuperView.bounds.size];
+        publicOrPrivateSuperViewBackgroundImageView.image = [UIImage OriginalImageWithName:@"PrivateAccount_selectedBox" toSize:publicOrPrivateSuperView.bounds.size];
         
         publicOrPrivateSuperViewBackgroundImageView;
         
@@ -280,7 +282,7 @@
             
             if (self.firstImageView.hidden) {
                 
-                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"" toSize:btn.bounds.size] forState:UIControlStateNormal];
+                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"PrivateAccount_2018_folded" toSize:btn.bounds.size] forState:UIControlStateNormal];
                 
                 //非展示状态 正常
                 [UIView animateWithDuration:0.5 animations:^{
@@ -290,12 +292,13 @@
                 
             }else{
                 //展示状态 向下偏移
-                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"" toSize:btn.bounds.size] forState:UIControlStateNormal];
+                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"PrivateAccount_2018_unfold" toSize:btn.bounds.size] forState:UIControlStateNormal];
                 
                 [UIView animateWithDuration:0.5 animations:^{
                     weakSelf.innerSecondBtn.frame = CGRectMake(16, 668, 382, 50);
                     weakSelf.secondImageView.frame = CGRectMake(weakSelf.innerSecondBtn.frame.origin.x, CGRectGetMaxY(weakSelf.innerSecondBtn.frame), weakSelf.innerSecondBtn.bounds.size.width, 100);
                 }];
+                
             }
             
             
@@ -306,9 +309,9 @@
             self.secondImageView.hidden = !btn.showYearImage;
             
             if (self.secondImageView.hidden){
-                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"" toSize:btn.bounds.size] forState:UIControlStateNormal];
+                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"PrivateAccount_2019_folded" toSize:btn.bounds.size] forState:UIControlStateNormal];
             }else{
-                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"" toSize:btn.bounds.size] forState:UIControlStateNormal];
+                [btn setBackgroundImage:[UIImage OriginalImageWithName:@"PrivateAccount_2019_unfold" toSize:btn.bounds.size] forState:UIControlStateNormal];
             }
             
             
@@ -319,6 +322,8 @@
         default:
             break;
     }
+    
+    
     
 }
 
@@ -364,8 +369,8 @@
     //1.3 selectBtn
     self.selectBtn.frame = CGRectMake(254, 24, 15, 13);
     
-    [self.selectBtn setBackgroundImage:[UIImage OriginalImageWithName:@"" toSize:CGSizeMake(self.selectBtn.bounds.size.width, self.selectBtn.bounds.size.height)] forState:UIControlStateNormal];
-    [self.selectBtn setBackgroundImage:[UIImage OriginalImageWithName:@"" toSize:CGSizeMake(self.selectBtn.bounds.size.width, self.selectBtn.bounds.size.height)] forState:UIControlStateSelected];
+    [self.selectBtn setBackgroundImage:[UIImage OriginalImageWithName:@"PrivateAccount_bottomArrow" toSize:CGSizeMake(self.selectBtn.bounds.size.width, self.selectBtn.bounds.size.height)] forState:UIControlStateNormal];
+    [self.selectBtn setBackgroundImage:[UIImage OriginalImageWithName:@"PrivateAccount_topArrow" toSize:CGSizeMake(self.selectBtn.bounds.size.width, self.selectBtn.bounds.size.height)] forState:UIControlStateSelected];
     
     
     //2.middleScrollView
@@ -374,18 +379,34 @@
     //2.1 first
     self.innerFirstBtn.frame = CGRectMake(16, 23, 382, 50);
     
-    self.firstImageView.frame = CGRectMake(self.innerFirstBtn.frame.origin.x, CGRectGetMaxY(self.innerFirstBtn.frame), self.innerFirstBtn.bounds.size.width, 100);
+    self.firstImageView.frame = CGRectMake(self.innerFirstBtn.frame.origin.x, CGRectGetMaxY(self.innerFirstBtn.frame), self.innerFirstBtn.bounds.size.width, PrivateYearImageH);
     
-    //2.2
+    if (self.firstImageView.image == nil)
+        self.firstImageView.image = [UIImage OriginalImageWithName:@"PrivateAccount_2018" toSize:self.firstImageView.bounds.size];
+    
+    if (self.firstImageView.hidden)
+        [self.innerFirstBtn setBackgroundImage:[UIImage OriginalImageWithName:@"PrivateAccount_2018_folded" toSize:self.innerFirstBtn.bounds.size] forState:UIControlStateNormal];
+    
+    //2.2 second
     if (self.innerFirstBtn.showYearImage) {
         //展示状态 向下偏移
-        self.innerSecondBtn.frame = CGRectMake(16, 668, 382, 50);
+        self.innerSecondBtn.frame = CGRectMake(16, PrivateYearImageH, 382, 50);
+        
     }else{
         //非展示状态 正常
         self.innerSecondBtn.frame = CGRectMake(16, 113, 382, 50);
     }
     
-    self.secondImageView.frame = CGRectMake(self.innerSecondBtn.frame.origin.x, CGRectGetMaxY(self.innerSecondBtn.frame), self.innerSecondBtn.bounds.size.width, 100);
+    self.secondImageView.frame = CGRectMake(self.innerSecondBtn.frame.origin.x, CGRectGetMaxY(self.innerSecondBtn.frame), self.innerSecondBtn.bounds.size.width, PrivateYearImageH);
+    if (self.secondImageView.image == nil) {
+        self.secondImageView.image = [UIImage OriginalImageWithName:@"PrivateAccount_2019" toSize:self.secondImageView.bounds.size];
+    }
+    
+    //
+    if (self.secondImageView.hidden)
+        [self.innerSecondBtn setBackgroundImage:[UIImage OriginalImageWithName:@"PrivateAccount_2019_folded" toSize:self.innerFirstBtn.bounds.size] forState:UIControlStateNormal];
+        
+    
     
     //publicOrPrivateSuperView
     self.publicOrPrivateSuperView.frame = CGRectMake(117, 60, 180, 120);

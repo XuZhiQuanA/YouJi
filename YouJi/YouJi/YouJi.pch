@@ -20,6 +20,10 @@
 #define XZQNavigationViewH 50
 #define XZQShouZhangImageViewH 170
 
+/** 私密界面展示年度图片的H*/
+#define PrivateYearImageW 382
+#define PrivateYearImageH 728
+
 #define iPhone7PlusW 414
 #define iPhone7PlusH 736
 
