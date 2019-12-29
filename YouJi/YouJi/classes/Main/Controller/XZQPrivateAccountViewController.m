@@ -64,7 +64,6 @@
     //1.构建子view
     [self setupChildView];
     
-    
 }
 
 #pragma mark -----------------------------
