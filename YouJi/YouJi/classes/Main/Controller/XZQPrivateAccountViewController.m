@@ -74,7 +74,6 @@
 - (void)setupChildView{
 
     
-    
     //1.topView
     UIView *topView = ({
         
