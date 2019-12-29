@@ -80,8 +80,6 @@
         UIColor *color = XColor(214, 245, 247);
         topView.backgroundColor = color;
         
-        
-        
         topView;
     });
     self.topView = topView;
