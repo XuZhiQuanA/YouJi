@@ -22,7 +22,7 @@
 
 /** 私密界面展示年度图片的H*/
 #define PrivateYearImageW 382
-#define PrivateYearImageH 728
+#define PrivateYearImageH 632.86
 
 #define iPhone7PlusW 414
 #define iPhone7PlusH 736

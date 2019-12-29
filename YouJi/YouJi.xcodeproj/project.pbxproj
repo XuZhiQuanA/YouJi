@@ -274,9 +274,9 @@
 		C9213BDF239642780062EB6C /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				C9213BE72396438F0062EB6C /* Controller */,
 				C9213BE62396437B0062EB6C /* Model */,
 				C9213BE5239643720062EB6C /* View */,
+				C9213BE72396438F0062EB6C /* Controller */,
 			);
 			path = Main;
 			sourceTree = "<group>";

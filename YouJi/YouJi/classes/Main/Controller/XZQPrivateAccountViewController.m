@@ -10,7 +10,9 @@
 #import "XZQNoHighlightedButton.h"
 
 #define topScreenH 60
-#define middleScrollViewContentSizeH 1425
+#define innerBtnH 50
+#define innerBtnW 382
+#define innerBtnAndYearImageSpaceH 44
 @interface XZQPrivateAccountViewController ()
 
 /** 上面的view*/
@@ -79,7 +81,6 @@
         UIView *topView = [[UIView alloc] init];
         
         UIColor *color = XColor(214, 245, 247);
-        color = [color colorWithAlphaComponent:0.9];
         topView.backgroundColor = color;
         
         
@@ -136,7 +137,7 @@
     UIScrollView *middleScrollView = ({
         
         UIScrollView *middleScrollView = [[UIScrollView alloc] init];
-        middleScrollView.contentSize = CGSizeMake(0, middleScrollViewContentSizeH);
+        middleScrollView.contentSize = CGSizeMake(0, 2*(innerBtnH+PrivateYearImageH + innerBtnAndYearImageSpaceH));
         middleScrollView.backgroundColor = [UIColor whiteColor];
         
         
@@ -151,7 +152,7 @@
         XZQNoHighlightedButton *innerFirstBtn = [[XZQNoHighlightedButton alloc] init];
         innerFirstBtn.tag = 1;
         [innerFirstBtn addTarget:self action:@selector(showYearImage:) forControlEvents:UIControlEventTouchUpInside];
-        innerFirstBtn.backgroundColor = [UIColor redColor];
+        innerFirstBtn.backgroundColor = [UIColor clearColor];
         
         innerFirstBtn;
         
@@ -166,7 +167,7 @@
         XZQNoHighlightedButton *innerSecondBtn = [[XZQNoHighlightedButton alloc] init];
         innerSecondBtn.tag = 2;
         [innerSecondBtn addTarget:self action:@selector(showYearImage:) forControlEvents:UIControlEventTouchUpInside];
-        innerSecondBtn.backgroundColor = [UIColor redColor];
+        innerSecondBtn.backgroundColor = [UIColor clearColor];
         
         innerSecondBtn;
         
@@ -180,7 +181,7 @@
         
         UIView *publicOrPrivateSuperView = [[UIView alloc] initWithFrame:CGRectMake(117, 60, 180, 114)];
         publicOrPrivateSuperView.hidden = true;
-        publicOrPrivateSuperView.backgroundColor = [UIColor yellowColor];//117 13 180 161 CGRectMake(145, 13, 100, 35);
+//        publicOrPrivateSuperView.backgroundColor = [UIColor yellowColor];//117 13 180 161 CGRectMake(145, 13, 100, 35);
         
         publicOrPrivateSuperView;
     });
@@ -206,7 +207,7 @@
             
         UIButton *publicOrPrivateSuperViewSubButtonTopBtn = [[UIButton alloc] init];
         [publicOrPrivateSuperViewSubButtonTopBtn addTarget:self action:@selector(returnToPublicAccount:) forControlEvents:UIControlEventTouchUpInside];
-        publicOrPrivateSuperViewSubButtonTopBtn.backgroundColor = XRandomColor;
+//        publicOrPrivateSuperViewSubButtonTopBtn.backgroundColor = XRandomColor;
         [publicOrPrivateSuperViewSubButtonTopBtn setTitle:@"公开账本" forState:UIControlStateNormal];
 //        publicOrPrivateSuperViewSubButtonTopBtn.titleLabel.tintColor = [UIColor blackColor];
         [publicOrPrivateSuperViewSubButtonTopBtn setTitleColor:XColor(92, 94, 94) forState:UIControlStateNormal];
@@ -226,7 +227,8 @@
         
         UIButton *publicOrPrivateSuperViewSubButtonBottomBtn = [[UIButton alloc] init];
         [publicOrPrivateSuperViewSubButtonBottomBtn addTarget:self action:@selector(returnToPrivateAccount:) forControlEvents:UIControlEventTouchUpInside];
-        publicOrPrivateSuperViewSubButtonBottomBtn.backgroundColor = XRandomColor;
+//        publicOrPrivateSuperViewSubButtonBottomBtn.backgroundColor = XRandomColor;
+        publicOrPrivateSuperViewSubButtonBottomBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 10, 0);
         
         [publicOrPrivateSuperViewSubButtonBottomBtn setTitle:@"私密账本" forState:UIControlStateNormal];
         [publicOrPrivateSuperViewSubButtonBottomBtn setTitleColor:XColor(92, 94, 94) forState:UIControlStateNormal];
@@ -286,17 +288,18 @@
                 
                 //非展示状态 正常
                 [UIView animateWithDuration:0.5 animations:^{
-                    weakSelf.innerSecondBtn.frame = CGRectMake(16, 113, 382, 50);
-                    weakSelf.secondImageView.frame = CGRectMake(weakSelf.innerSecondBtn.frame.origin.x, CGRectGetMaxY(weakSelf.innerSecondBtn.frame), weakSelf.innerSecondBtn.bounds.size.width, 100);
+                    weakSelf.innerSecondBtn.frame = CGRectMake(16, 113, innerBtnW, innerBtnH);
+                    weakSelf.secondImageView.frame = CGRectMake(weakSelf.innerSecondBtn.frame.origin.x, CGRectGetMaxY(weakSelf.innerSecondBtn.frame), weakSelf.innerSecondBtn.bounds.size.width, PrivateYearImageH);
                 }];
                 
             }else{
                 //展示状态 向下偏移
                 [btn setBackgroundImage:[UIImage OriginalImageWithName:@"PrivateAccount_2018_unfold" toSize:btn.bounds.size] forState:UIControlStateNormal];
                 
+                //
                 [UIView animateWithDuration:0.5 animations:^{
-                    weakSelf.innerSecondBtn.frame = CGRectMake(16, 668, 382, 50);
-                    weakSelf.secondImageView.frame = CGRectMake(weakSelf.innerSecondBtn.frame.origin.x, CGRectGetMaxY(weakSelf.innerSecondBtn.frame), weakSelf.innerSecondBtn.bounds.size.width, 100);
+                    weakSelf.innerSecondBtn.frame = CGRectMake(btn.frame.origin.x, CGRectGetMaxY(weakSelf.firstImageView.frame) + innerBtnAndYearImageSpaceH, innerBtnW, innerBtnH);
+                    weakSelf.secondImageView.frame = CGRectMake(weakSelf.innerSecondBtn.frame.origin.x, CGRectGetMaxY(weakSelf.innerSecondBtn.frame), weakSelf.innerSecondBtn.bounds.size.width, PrivateYearImageH);
                 }];
                 
             }
@@ -313,9 +316,6 @@
             }else{
                 [btn setBackgroundImage:[UIImage OriginalImageWithName:@"PrivateAccount_2019_unfold" toSize:btn.bounds.size] forState:UIControlStateNormal];
             }
-            
-            
-            
             
             break;
             
@@ -377,9 +377,11 @@
     self.middleScrollView.frame = CGRectMake(0, topScreenH, ScreenW, ScreenH-topScreenH);
     
     //2.1 first
-    self.innerFirstBtn.frame = CGRectMake(16, 23, 382, 50);
+    self.innerFirstBtn.frame = CGRectMake(16, 23, innerBtnW, innerBtnH);
     
     self.firstImageView.frame = CGRectMake(self.innerFirstBtn.frame.origin.x, CGRectGetMaxY(self.innerFirstBtn.frame), self.innerFirstBtn.bounds.size.width, PrivateYearImageH);
+    
+    
     
     if (self.firstImageView.image == nil)
         self.firstImageView.image = [UIImage OriginalImageWithName:@"PrivateAccount_2018" toSize:self.firstImageView.bounds.size];
@@ -390,11 +392,11 @@
     //2.2 second
     if (self.innerFirstBtn.showYearImage) {
         //展示状态 向下偏移
-        self.innerSecondBtn.frame = CGRectMake(16, PrivateYearImageH, 382, 50);
+        self.innerSecondBtn.frame = CGRectMake(16, PrivateYearImageH, innerBtnW, innerBtnH);
         
     }else{
         //非展示状态 正常
-        self.innerSecondBtn.frame = CGRectMake(16, 113, 382, 50);
+        self.innerSecondBtn.frame = CGRectMake(16, 113, innerBtnW, innerBtnH);
     }
     
     self.secondImageView.frame = CGRectMake(self.innerSecondBtn.frame.origin.x, CGRectGetMaxY(self.innerSecondBtn.frame), self.innerSecondBtn.bounds.size.width, PrivateYearImageH);
