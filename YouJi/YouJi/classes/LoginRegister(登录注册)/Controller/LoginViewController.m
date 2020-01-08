@@ -120,7 +120,7 @@
         
     //登录成功
 //    [self popBoxWithString:@"登录成功" delay:1.0];
-    [self popBoxWithString:@"loading... 客官请稍等~" delay:3.0 completion:^{
+    [self popBoxWithString:@"loading... 客官请稍等~" delay:1.5 completion:^{
         //切换tab view controller 子控制器
         [self changeTabViewChildVc];
     }];

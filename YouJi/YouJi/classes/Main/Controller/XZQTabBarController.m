@@ -17,6 +17,8 @@
 #import "UIImage+Category.h"
 #import "XZQPrivateAccountView.h"
 #import "XZQPrivateAccountViewController.h"
+#import "SelectionView.h"
+
 
 #define rotateX 179
 #define rotateY 656
@@ -52,6 +54,9 @@
 
 /** 私有账本ViewController*/
 @property(nonatomic,readwrite,strong) XZQPrivateAccountViewController *privateAVC;
+
+/** 保存存储位置的选择view*/
+@property(nonatomic,readwrite,weak) SelectionView *selectionView;
 
 @end
 
@@ -136,7 +141,7 @@
     
     XZQTabBarView *tabBarView = [[XZQTabBarView alloc] initWithFrame:CGRectMake(-1, self.tabBar.frame.origin.y-40, ScreenW+2, XZQTabBarViewH)];
     
-    [self.view addSubview:tabBarView];
+    [self.view addSubview:tabBarView]; 
     
 //      背景图
     tabBarView.backGroundImage = [UIImage OriginalImageWithName:@"backImageOfTabBar" toSize:tabBarView.bounds.size];
@@ -174,14 +179,80 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSystemAlbum) name:@"XZQMySettingViewWantShowSystemAlbum" object:nil];
     //showPrivateAccountView
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPrivateAccountView) name:@"showPrivateAccountView" object:nil];
+    //showPublicAccountView
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPublicAccountView) name:@"showPublicAccountView" object:nil];
+    //SelectionViewPopNotification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SelectionViewPopNotification) name:@"SelectionViewPopNotification" object:nil];
+    
+    //SelectionViewRemovedNotification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SelectionViewRemovedNotification) name:@"SelectionViewRemovedNotification" object:nil];
+    
+    
+    
+    
+    
+}
+
+
+    
+
+
+//弹出selectionView
+- (void)SelectionViewPopNotification{
+    
+    
+    //从下方弹出选项框 选择保存在哪里 公开账本 还是 私密账本
+    
+    __weak typeof(self)weakSelf = self;
+    [UIView animateWithDuration:1.0 animations:^{
+        weakSelf.selectionView.center = CGPointMake(ScreenW*0.5, ScreenH*0.5);
+        
+    }];
+    
+    //思路： 创建一个UIView 背景色 淡蓝色 选中变大表明选中了他 点击确定 保存中... 保存成功 还是这个界面 退出这个view 回到屏幕下方
+    
+    
+    
+    
+    
+    //选中公开 图片变大 点击确定就行
+    
+    
+    
+}
+
+//移走selectionView
+- (void)SelectionViewRemovedNotification{
+    __weak typeof(self)weakSelf = self;
+    [UIView animateWithDuration:1.0 animations:^{
+        weakSelf.selectionView.center = CGPointMake(ScreenW*0.5, ScreenH + weakSelf.selectionView.bounds.size.height*0.5);
+        
+    }];
+    
 }
 
 #pragma mark -----------------------------
-#pragma mark 展示私有账本
+#pragma mark 展示公/私有账本
+
+
+- (void)showPublicAccountView{
+    
+    self.privateAVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    self.privateAVC.title = @"公开账本";
+    self.privateAVC.isPrivate = false;
+    self.privateAVC.firstImageName = @"PrivateAccount_2015";
+    self.privateAVC.secondImageName = @"PrivateAccount_2017";
+    [self presentViewController:self.privateAVC animated:YES completion:nil];
+}
+
 
 - (void)showPrivateAccountView{
     
     self.privateAVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    self.privateAVC.title = @"私密账本";
+    self.privateAVC.isPrivate = true;
+    self.privateAVC.firstImageName = @"PrivateAccount_2018";
+    self.privateAVC.secondImageName = @"PrivateAccount_2019";
     [self presentViewController:self.privateAVC animated:YES completion:nil];
     
 }
@@ -266,6 +337,8 @@
     self.backView.frame = self.view.bounds;
     
     self.szVc.view.frame = self.view.bounds;
+    
+    self.selectionView.center = CGPointMake(ScreenW*0.5, ScreenH+ScreenH*0.5);
     
 }
 
@@ -407,6 +480,17 @@
 
 #pragma mark -----------------------------
 #pragma mark lazy load
+- (SelectionView *)selectionView{
+    if (_selectionView == nil) {
+        
+        SelectionView *view = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([SelectionView class]) owner:nil options:nil] firstObject];
+        [self.view addSubview:view];
+        _selectionView = view;
+    }
+    
+    return _selectionView;
+}
+
 - (UIImagePickerController *)picker{
     
     if (_picker == nil) {

@@ -11,6 +11,17 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XZQPrivateAccountViewController : UIViewController
+/**标题 公有还是私有 */
+@property(nonatomic,readwrite,copy) NSString *title;
+
+/**是否是私有账本 切换图片实现*/
+@property(nonatomic,assign) BOOL isPrivate;
+
+/**第一张Year图的名称 */
+@property(nonatomic,readwrite,strong) NSString *firstImageName;
+
+/**第二张Year图的名称 */
+@property(nonatomic,readwrite,strong) NSString *secondImageName;
 
 @end
 

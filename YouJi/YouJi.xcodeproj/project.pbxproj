@@ -42,6 +42,8 @@
 		C9BA1BD923B1CFF400F33A50 /* TagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BA1BD823B1CFF400F33A50 /* TagsView.m */; };
 		C9BA1BDC23B1E7CA00F33A50 /* TagsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BA1BDB23B1E7CA00F33A50 /* TagsItem.m */; };
 		C9BA1BDF23B1EF6B00F33A50 /* XZQDragbleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BA1BDE23B1EF6B00F33A50 /* XZQDragbleImageView.m */; };
+		C9DD819223C5D18F00227170 /* SelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DD819123C5D18F00227170 /* SelectionView.m */; };
+		C9DD819423C5D1AA00227170 /* SelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9DD819323C5D1AA00227170 /* SelectionView.xib */; };
 		C9E415C92399D6B20057782E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9E415B42399D6B20057782E /* InfoPlist.strings */; };
 		C9E415CC2399D6B20057782E /* FancyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E415BF2399D6B20057782E /* FancyTabBar.m */; };
 		C9E415D02399D6B20057782E /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E415C32399D6B20057782E /* Coordinate.m */; };
@@ -143,6 +145,9 @@
 		C9BA1BDB23B1E7CA00F33A50 /* TagsItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsItem.m; sourceTree = "<group>"; };
 		C9BA1BDD23B1EF6B00F33A50 /* XZQDragbleImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQDragbleImageView.h; sourceTree = "<group>"; };
 		C9BA1BDE23B1EF6B00F33A50 /* XZQDragbleImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQDragbleImageView.m; sourceTree = "<group>"; };
+		C9DD819023C5D18F00227170 /* SelectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectionView.h; sourceTree = "<group>"; };
+		C9DD819123C5D18F00227170 /* SelectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectionView.m; sourceTree = "<group>"; };
+		C9DD819323C5D1AA00227170 /* SelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectionView.xib; sourceTree = "<group>"; };
 		C9E415B32399D6B20057782E /* FancyTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBar.h; sourceTree = "<group>"; };
 		C9E415B52399D6B20057782E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9E415B72399D6B20057782E /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -304,6 +309,9 @@
 		C9213BE5239643720062EB6C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C9DD819023C5D18F00227170 /* SelectionView.h */,
+				C9DD819123C5D18F00227170 /* SelectionView.m */,
+				C9DD819323C5D1AA00227170 /* SelectionView.xib */,
 				C9213BE92396439F0062EB6C /* XZQTabBar.h */,
 				C9213BE82396439F0062EB6C /* XZQTabBar.m */,
 				C9F2CA0B239727E000D705E7 /* XZQTabBarView.h */,
@@ -653,6 +661,7 @@
 				C9213BC623962BBE0062EB6C /* Main.storyboard in Resources */,
 				C9EC1FDA23ADF9AB0082D9BD /* LoginViewController.xib in Resources */,
 				C9E415C92399D6B20057782E /* InfoPlist.strings in Resources */,
+				C9DD819423C5D1AA00227170 /* SelectionView.xib in Resources */,
 				C9E415D22399D6B20057782E /* FancyTabBar-Info.plist in Resources */,
 				C9F2CA2123974C6B00D705E7 /* XZQVideoTableViewCell.xib in Resources */,
 			);
@@ -734,6 +743,7 @@
 				C9213BCE23962BBF0062EB6C /* main.m in Sources */,
 				C9F2CA1923973E0200D705E7 /* XZQOnlyLabelButton.m in Sources */,
 				C9E415CC2399D6B20057782E /* FancyTabBar.m in Sources */,
+				C9DD819223C5D18F00227170 /* SelectionView.m in Sources */,
 				C967A2A92398A7E800F49965 /* XZQShowZhangScrollView.m in Sources */,
 				C9213BE4239643490062EB6C /* XZQTabBarController.m in Sources */,
 				C9BA1BDF23B1EF6B00F33A50 /* XZQDragbleImageView.m in Sources */,

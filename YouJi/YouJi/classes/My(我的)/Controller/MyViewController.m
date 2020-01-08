@@ -175,10 +175,7 @@
 #pragma mark 监听右上角按钮点击
 - (void)popSettingView{
     
-
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MyViewControllerToPopSettingView" object:nil];
-    
     
     XFunc;
 }
@@ -186,22 +183,28 @@
 //弹出手账界面
 - (void)popSZ:(UIButton *)btn{
     
+    
+    
+    
     switch (btn.tag) {
             //公开
         case 1:
+
+//            //点击WeBtn
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"clickWeBtn" object:nil];
+//            //点击手账btn
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"clickShouZhangBtn" object:nil];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"shouzhang" object:nil];
             
-            //点击WeBtn
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"clickWeBtn" object:nil];
-            //点击手账btn
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"clickShouZhangBtn" object:nil];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"shouzhang" object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"showPublicAccountView" object:nil];
+            
             break;
-            
+
             //私密
         case 2:
             [[NSNotificationCenter defaultCenter] postNotificationName:@"showPrivateAccountView" object:nil];
             break;
-            
+
         default:
             break;
     }

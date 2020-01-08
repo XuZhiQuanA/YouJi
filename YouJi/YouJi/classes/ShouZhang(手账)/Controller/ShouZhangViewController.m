@@ -17,6 +17,7 @@
 #import "XZQDragbleImageView.h"
 #import "SVProgressHUD.h"
 
+
 #define wallPaperViewH 658
 #define tabBarOrigionalH 78
 #define tabBarPaintingTabBarH 60
@@ -68,6 +69,9 @@
 /**之前选中的按钮 */
 @property(nonatomic,readwrite,strong) XZQNoHighlightedButton *previousSelectedBtn;
 
+/** 保存存储位置的选择view*/
+//@property(nonatomic,readwrite,weak) SelectionView *selectionView;
+
 
 @end
 
@@ -95,10 +99,53 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeWallPaper:) name:@"changeWallPaper" object:nil];
     //addTags
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addTags:) name:@"addTags" object:nil];
+    
+    //保存自定义手账
+    //SaveShouZhangSelfEditNotification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SaveShouZhangSelfEditNotification) name:@"SaveShouZhangSelfEditNotification" object:nil];
 }
 
 #pragma mark -----------------------------
 #pragma mark 监听通知
+//保存自定义手账
+- (void)SaveShouZhangSelfEditNotification{
+    
+    [SVProgressHUD showWithStatus:@"手账保存中"];
+    
+    
+    //执行后面的操作
+        
+    // ---- 截图操作
+    //开启图片上下文
+    UIGraphicsBeginImageContextWithOptions(self.showSelectedImageFromAlbumSuperView.bounds.size, false, 0);
+    //获取上下文
+    CGContextRef context=UIGraphicsGetCurrentContext();
+    //截屏
+
+    [self.showSelectedImageFromAlbumSuperView.layer renderInContext:context];
+    //获取图片
+    UIImage *image= UIGraphicsGetImageFromCurrentImageContext();
+
+    self.imageFromCGContext = image;
+    //关闭图片上下文
+    UIGraphicsEndImageContext();
+    //保存到相册
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), nil);
+
+    XFunc;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD showSuccessWithStatus:@"手账保存成功"];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [SVProgressHUD dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"SelectionViewRemovedNotification" object:nil];
+        });
+    });
+    
+}
+
 - (void)showTabBar{
     self.tabBarView.hidden = false;
     [self reduceMiddleViewHeight];
@@ -230,6 +277,8 @@ static NSInteger j = 0;
     //showSelectedImageFromAlbum
     self.showSelectedImageFromAlbum.bounds = CGRectMake(0, 0, 200, 200);
     self.showSelectedImageFromAlbum.center = CGPointMake(ScreenW *0.5, self.view.bounds.size.height*0.5);
+    
+    
 
     XLog(@"ShouZhang  - -  viewWillLayoutSubviews");
     
@@ -367,6 +416,8 @@ static NSInteger j = 0;
 //    [self.szTextField resignFirstResponder];
     XLog(@"ShouZhangViewController - touchesBegan");
     [self.textView quitKeyBoard];
+    
+    
 }
 
 
@@ -424,29 +475,13 @@ static NSInteger j = 0;
 
 //保存截图
 - (IBAction)saveScreenShot:(UIButton *)sender {
-    
-    // ---- 截图操作
-    //开启图片上下文
-    UIGraphicsBeginImageContextWithOptions(self.showSelectedImageFromAlbumSuperView.bounds.size, false, 0);
-    //获取上下文
-    CGContextRef context=UIGraphicsGetCurrentContext();
-    //截屏
 
-    [self.showSelectedImageFromAlbumSuperView.layer renderInContext:context];
-    //获取图片
-    UIImage *image= UIGraphicsGetImageFromCurrentImageContext();
+    //发出通知 让下方的弹框出现
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SelectionViewPopNotification" object:nil];
     
-    self.imageFromCGContext = image;
-    //关闭图片上下文
-    UIGraphicsEndImageContext();
-    //保存到相册
-    UIImageWriteToSavedPhotosAlbum(image, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), nil);
     
-    [SVProgressHUD showSuccessWithStatus:@"保存到相册啦"];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [SVProgressHUD dismiss];
-    });
-    XFunc;
+    
+    
 }
 
 // 图片保存方法，必需写这个方法体，不能会保存不了图片
@@ -463,6 +498,8 @@ static NSInteger j = 0;
 
 #pragma mark -----------------------------
 #pragma mark lazy load
+
+
 - (WallPaperView *)wallPaperView{
     
     if (_wallPaperView == nil) {

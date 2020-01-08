@@ -8,7 +8,7 @@
 
 #import "XZQPrivateAccountViewController.h"
 #import "XZQNoHighlightedButton.h"
-
+#import "SVProgressHUD.h"
 #define topScreenH 60
 #define innerBtnH 50
 #define innerBtnW 382
@@ -24,11 +24,11 @@
 /** 返回按钮*/
 @property(nonatomic,readwrite,weak) UIButton *returnBtn;
 
-/** 私密账本label*/
-@property(nonatomic,readwrite,weak) UILabel *textLabel;
-
 /** 下拉btn*/
 @property(nonatomic,readwrite,weak) UIButton *selectBtn;
+
+/** 私密账本label*/
+@property(nonatomic,readwrite,weak) UILabel *textLabel;
 
 /** 内部的第一个view- 2019的那个*/
 @property(nonatomic,readwrite,weak) XZQNoHighlightedButton  *innerFirstBtn;
@@ -41,6 +41,8 @@
 
 /** 第二张Year图*/
 @property(nonatomic,readwrite,weak) UIImageView *secondImageView;
+
+
 
 /** 公有或者私有账本的父view*/
 @property(nonatomic,readwrite,weak) UIView *publicOrPrivateSuperView;
@@ -64,6 +66,18 @@
     //1.构建子view
     [self setupChildView];
     
+}
+
+- (void)setIsPrivate:(BOOL)isPrivate{
+    _isPrivate = isPrivate;
+    
+    if (isPrivate) {
+        //私有账本的图片
+        
+    }else{
+        //公有账本的图片
+        
+    }
 }
 
 #pragma mark -----------------------------
@@ -100,7 +114,7 @@
     UILabel *textLabel = ({
         
         UILabel *textLabel = [[UILabel alloc] init];
-        textLabel.text = @"私密账本";
+        textLabel.text = self.title;
         textLabel.font = [UIFont systemFontOfSize:25];
         textLabel.userInteractionEnabled = true;//XColor(92, 94, 94)
         textLabel.textColor = XColor(92, 94, 94);
@@ -244,20 +258,80 @@
 
 #pragma mark -----------------------------
 #pragma mark 点击公开或者私密账本
+
+//公开
 - (void)returnToPublicAccount:(UIButton *)btn{
+    
+    
+    
     __weak typeof(self) weakSelf = self;
-    [self dismissViewControllerAnimated:self completion:^{
-        [weakSelf returnToPrivateAccount:nil];
-    }];
-    //点击WeBtn
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"clickWeBtn" object:nil];
-    //点击手账btn
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"clickShouZhangBtn" object:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"shouzhang" object:nil];
+    
+    self.firstImageName = @"PrivateAccount_2015";
+    self.secondImageName = @"PrivateAccount_2017";
+    
+    self.firstImageView.image = nil;
+    self.secondImageView.image = nil;
+    
+    //展示数据加载中
+    [SVProgressHUD showWithStatus:@"数据加载中"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD showSuccessWithStatus:@"加载成功"];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+            
+            [weakSelf viewWillLayoutSubviews];
+            
+            weakSelf.textLabel.text = @"公有账本";
+            
+            weakSelf.publicOrPrivateSuperView.hidden = true;
+        });
+    });
+    
+    
+    
+//    [self dismissViewControllerAnimated:self completion:^{
+//        [weakSelf returnToPrivateAccount:nil];
+//    }];
+//    //点击WeBtn
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"clickWeBtn" object:nil];
+//    //点击手账btn
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"clickShouZhangBtn" object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"shouzhang" object:nil];
+    
+    
 }
 
 - (void)returnToPrivateAccount:(UIButton *)btn{
-    self.publicOrPrivateSuperView.hidden = true;
+    
+    
+    __weak typeof(self) weakSelf = self;
+    
+    self.firstImageName = @"PrivateAccount_2018";
+    self.secondImageName = @"PrivateAccount_2019";
+    
+    self.firstImageView.image = nil;
+    self.secondImageView.image = nil;
+    
+    //展示数据加载中
+    [SVProgressHUD showWithStatus:@"数据加载中"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD showSuccessWithStatus:@"加载成功"];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+            
+            [weakSelf viewWillLayoutSubviews];
+            
+            weakSelf.textLabel.text = @"私密账本";
+            
+            weakSelf.publicOrPrivateSuperView.hidden = true;
+        });
+    });
+    
+    
 }
 
 
@@ -379,7 +453,8 @@
     
     
     if (self.firstImageView.image == nil)
-        self.firstImageView.image = [UIImage OriginalImageWithName:@"PrivateAccount_2018" toSize:self.firstImageView.bounds.size];
+//        self.firstImageView.image = [UIImage OriginalImageWithName:@"PrivateAccount_2018" toSize:self.firstImageView.bounds.size];
+        self.firstImageView.image = [UIImage OriginalImageWithName:self.firstImageName toSize:self.firstImageView.bounds.size];
     
     if (self.firstImageView.hidden)
         [self.innerFirstBtn setBackgroundImage:[UIImage OriginalImageWithName:@"PrivateAccount_2018_folded" toSize:self.innerFirstBtn.bounds.size] forState:UIControlStateNormal];
@@ -396,7 +471,8 @@
     
     self.secondImageView.frame = CGRectMake(self.innerSecondBtn.frame.origin.x, CGRectGetMaxY(self.innerSecondBtn.frame), self.innerSecondBtn.bounds.size.width, PrivateYearImageH);
     if (self.secondImageView.image == nil) {
-        self.secondImageView.image = [UIImage OriginalImageWithName:@"PrivateAccount_2019" toSize:self.secondImageView.bounds.size];
+//        self.secondImageView.image = [UIImage OriginalImageWithName:@"PrivateAccount_2019" toSize:self.secondImageView.bounds.size];
+        self.secondImageView.image = [UIImage OriginalImageWithName:self.secondImageName toSize:self.secondImageView.bounds.size];
     }
     
     //
@@ -466,5 +542,9 @@
 //
 //    return _publicOrPrivateSuperView;
 //}
+
+- (void)viewWillAppear:(BOOL)animated{
+    
+}
 
 @end
