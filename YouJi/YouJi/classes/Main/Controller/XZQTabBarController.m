@@ -223,6 +223,7 @@
 
 //移走selectionView
 - (void)SelectionViewRemovedNotification{
+    
     __weak typeof(self)weakSelf = self;
     [UIView animateWithDuration:1.0 animations:^{
         weakSelf.selectionView.center = CGPointMake(ScreenW*0.5, ScreenH + weakSelf.selectionView.bounds.size.height*0.5);

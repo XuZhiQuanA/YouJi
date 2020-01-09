@@ -61,8 +61,6 @@
     sender.selected = true;
     self.selectedBtn = sender;
     
-    self.selectedBtn.bounds = CGRectMake(0, 0, self.selectedBtn.bounds.size.width*1.4, self.selectedBtn.bounds.size.height*1.4);
-    
 }
 
 //确定

@@ -46,22 +46,26 @@
                 </button>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPd-Lf-5Gq" customClass="XZQNoHighlightedButton">
                     <rect key="frame" x="38" y="494" width="143" height="184"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="184" id="hcB-jl-Tmr"/>
                         <constraint firstAttribute="width" constant="143" id="ugM-nB-y6C"/>
                     </constraints>
-                    <state key="normal" title="Button" image="My_private"/>
+                    <state key="normal" image="My_private"/>
+                    <state key="selected" image="My_private_selected"/>
                     <connections>
                         <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="lih-HW-yux"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DR0-W1-1nn" customClass="XZQNoHighlightedButton">
                     <rect key="frame" x="233" y="494" width="143" height="184"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="184" id="BHj-v2-5En"/>
                         <constraint firstAttribute="width" constant="143" id="Iyt-tX-t4j"/>
                     </constraints>
-                    <state key="normal" title="Button" image="My_public"/>
+                    <state key="normal" backgroundImage="My_public"/>
+                    <state key="selected" backgroundImage="My_public_selected"/>
                     <connections>
                         <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="rSn-HA-YiJ"/>
                     </connections>
@@ -92,6 +96,8 @@
     </objects>
     <resources>
         <image name="My_private" width="281" height="399"/>
+        <image name="My_private_selected" width="281" height="399"/>
         <image name="My_public" width="281" height="399"/>
+        <image name="My_public_selected" width="281" height="399"/>
     </resources>
 </document>

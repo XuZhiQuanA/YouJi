@@ -112,7 +112,6 @@
     
     [SVProgressHUD showWithStatus:@"手账保存中"];
     
-    
     //执行后面的操作
         
     // ---- 截图操作
